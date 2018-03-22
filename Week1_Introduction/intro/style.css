@@ -2,8 +2,10 @@
     margin:0;
     padding:0;
 }
+.mem#profilepic{
+    width:50%;
 
-.teamMem .mem2 {}
+}
 
 .mem, .mem2, .mem3, .mem4 {
     padding: 5px;
@@ -16,12 +18,6 @@
 .teamMem {
     margin: 10px 10px 10px 10px;
     display: flex;
-}
-
-.intro h2 {
-    color: whitesmoke;
-    text-shadow: 3px 3px rgb(0, 148, 141);
-    text-align: center;
 }
 
 .box {
@@ -57,10 +53,4 @@ body {
     background-image:url("img/background.jpg");
     background-attachment: fixed;
     background-size: cover;
-}
-
-.profilepic{
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
 }
