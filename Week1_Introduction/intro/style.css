@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.teamMem .mem2 {}
+
+.mem, .mem2, .mem3, .mem4 {
+    padding: 5px;
+    width: 25%;
+    border: 1px solid darkred;
+    align-items:  left;
+    padding: 15px;
+}
+
+.teamMem {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+}
+
+.intro h2 {
+    color: whitesmoke;
+    text-shadow: 3px 3px rgb(0, 148, 141);
+    text-align: center;
+}
+
+.box {
+    margin: auto;
+    text-align:  center;
+    padding-top: 50px;
+}
+
+.box h2,h1 {
+    color: whitesmoke;
+    font-size:200%;
+    text-shadow: 3px 3px rgb(0, 148, 141);
+}
+.box h1{
+    font-size:60px;
+}
+
+.home {
+    height: 200px;
+
+    background-image: url("img/overlay-bg.png");
+}
+
+.container {
+    margin:50px auto 50px auto;
+    width:1000px;
+    height: 800px;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 5px rgb(43, 43, 43);
+}
+
+body {
+    background-image:url("img/background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.profilepic{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
