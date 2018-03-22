@@ -1,0 +1,100 @@
+#container{
+    -webkit-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    -moz-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+
+    background-color: #E1E9EE;
+    margin: 0 auto;
+}
+
+#banner{
+    -webkit-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    -moz-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+
+    height: 492px;
+    text-align: center;
+    background: url('imgs/background.jpg');
+    background-repeat: no-repeat;
+    position: relative;
+}
+    #banner #profile-pic{
+        max-height: 40%;  
+        max-width: 100%; 
+        width: auto;
+        height: auto;
+        position: absolute;  
+        top: 0;  
+        bottom: 0;  
+        left: 0;  
+        right: 0;  
+        margin: auto;
+        border-radius: 50%;
+    }
+    #banner #info{
+        width:100%;
+        text-align: center;
+        position: absolute;
+        color:#5F9EA0;
+        bottom: 0;
+        right: 0;
+    }
+
+#navBar{
+    left: 60%;
+    color:#4862A3;
+    position: fixed;
+    top: 20px;
+    z-index:1000;
+}
+    #navBar ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        float: left;
+    }
+
+    #navBar li{
+        float: left;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        padding: 0;
+    }
+
+    #navBar a{
+        text-decoration: none;
+        font-weight: bolder;
+        color: #4862A3;
+        display: block;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    #navBar a:hover{
+        color: #F8A058;
+    }
+
+#main{
+    -webkit-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    -moz-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+    box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+
+    /* border-bottom: 10px solid #B4BAD5; */
+}
+
+    #main .block{
+        -webkit-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+        -moz-box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+        box-shadow: 10px 3px 25px -12px rgba(27,47,128,1);
+
+        border: 20px;
+        padding: 20px;
+    }
+
+#footer{
+    font-weight: bold;
+    background-color: #5F9EA0;
+    text-align: center;
+    clear: both;
+}
