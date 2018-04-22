@@ -1,0 +1,33 @@
+/* Backpack item */
+.backpack-item{
+    height: 300px;
+    width: 200px;
+    border: 1px solid red;
+    display: block;
+    position:relative;
+}
+.bp-name,
+.bp-type,
+.bp-price{
+    font-size:110%;
+    font-weight:bold;
+    margin-left: 20px;
+}
+.bp-type{
+    font-weight: normal;
+}
+.bp-saleoff{
+    height:27px;
+    max-width: 50px;
+    color:red;
+    border:1px solid orange;
+    border-radius: 20%;
+    background-color: yellow;
+    padding: 0 3px;
+    position: absolute;
+    right:0px;
+}
+.backpack-item img {
+    margin: 5px auto;
+    display: block;
+}
