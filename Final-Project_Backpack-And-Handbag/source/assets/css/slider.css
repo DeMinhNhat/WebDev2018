@@ -47,3 +47,6 @@ a.carousel-control-next {
   transform: translateX(0);
   
 }
+.brandSlider .carousel-inner .carousel-item {
+  min-height: 250px;
+}
