@@ -1,10 +1,142 @@
+/* User Review */
+.userReview{
+    background-color: #f2f2f2;
+    text-align: center; 
+    padding: 0px 25px 20px 25px;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+}
+.userReview .user{
+    background-color: white;
+    min-height: 350px;
+    padding: 10px;
+    border-radius: 3%;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+}
+.userReview .user-name{
+    font-weight: bolder;
+    padding: 5px 0;
+}
+.userReview .user-comment{
+    text-align: justify;
+}
+.userReview .fa-quote-right{
+    float:right;
+}
+/* Slider */
+.secTitle{
+    width:200px;
+    height:28px;
+    background-color: white;
+    color:black;
+    font-weight: bolder;
+    text-align: center;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin: 0px auto 15px auto;
+    -webkit-box-shadow: 0px 7px 21px 2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 7px 21px 2px rgba(0,0,0,0.75);
+    box-shadow: 0px 7px 21px 2px rgba(0,0,0,0.75);
+}
+
+
+.brandSlider, .topSoldSlider, .newArrivalSlider{
+    width: 100% !important;
+    background-color:#f2f2f2;
+}
+.brandSlider{
+    height: auto;
+    padding: 0px 0 20px 0;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+}
+.topSoldSlider{
+    height: auto;
+    margin: 30px 0;
+    padding: 0 0 20px 0;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+}
+.newArrivalSlider{
+    margin: 30px 0;
+    padding: 0 0 20px 0;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+}
+
+/* Toolbar-Navigator */
+#itemCount{
+    background-color: white;
+    border-radius: 50%;
+    padding:5px 12px;
+    margin-top: 5px;
+    font-size: 1em;
+}
+.navbar #cart{
+    position:absolute;
+    right:10px;
+    margin:0;
+}
+.navbar .form-inline{
+    right: 110px;
+    position:absolute;
+}
+.navbar{
+    padding-top:1px;
+    padding-bottom:0px;
+    margin-bottom: 5px;
+}
+.navbar .nav-link{
+    color:whitesmoke;
+    padding: 10px 10px;
+}
+.navbar .nav-link:hover{
+    color:black;
+    background-color: white;
+}
+
+/* banner */
+.banner {
+    min-height: 200px;
+    background-color: #f0f0f0;
+}
+.banner .logo{
+    margin-top:25px;
+}
+
+.banner .introduce{
+    margin-top:40px;
+}
+
+#signup,#signin{
+    padding: 3px 5px;
+    margin: 0 2px;
+    position: absolute;
+    top:0;
+    right:0;
+}
+#signin{
+    transform: translateX(-125%);
+}
+#signup{
+    transform: translateX(-15%);
+}
 /* Backpack item */
 .backpack-item{
     height: 300px;
     width: 200px;
     border: 1px solid red;
+    background-color: white;
     display: block;
     position:relative;
+    float:left;
+    margin: 0 15px;
 }
 .bp-name,
 .bp-type,
@@ -30,4 +162,12 @@
 .backpack-item img {
     margin: 5px auto;
     display: block;
+}
+/* Main Container */
+.main{
+    min-width: 1000px;
+}
+body{
+    
+    background-color:grey;
 }

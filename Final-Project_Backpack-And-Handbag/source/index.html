@@ -1,17 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/slider.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+
+    <title>Home</title>
 </head>
+
 <body>
-        <div class="container text-center my-3">
-                <h2>Bootstrap 4 Multiple Item Carousel</h2>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="banner">
+                <div class="row">
+                    <div class="logo col-md-4">
+                        <img src="http://via.placeholder.com/300x150">
+                    </div>
+                    <div class="introduce col-md-4">
+                        <img src="http://via.placeholder.com/50x50"> Giao hàng miễn phí
+                        <br>
+                        <br>
+                        <img src="http://via.placeholder.com/50x50"> Cam kết 100% chính hãng
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn" type="button" id="signin">
+                            <i class="fa fa-sign-in-alt fa-fw"></i> Sign In</button>
+                        <button class="btn" type="button" id="signup">
+                            <i class="fas fa-user"></i> Sign Up</button>
+                        <div class="lang_Sel">
+                            Language:
+                            <a href="#">
+                                <img src="./assets/images/icons/flag-eng.png">
+                            </a>
+                            <a href="#">
+                                <img src="./assets/images/icons/flag-vie.png">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="container-fluid main">
+            <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark">
+
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BA LÔ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TÚI XÁCH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SẢN PHẨM MỚI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BÁN CHẠY NHẤT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KHUYẾN MÃI</a>
+                    </li>
+                </ul>
+                <form class="form-inline" action="#">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <span id="cart">
+                    <a href="#">
+                        <img src="./assets/images/icons/CARRITO-48.png" alt="cart-Icon">
+                        <span id="itemCount">0</span>
+                    </a>
+                </span>
+            </nav>
+            <hr>
+            <div class="brandSlider">
+                <div class="secTitle">THƯƠNG HIỆU</div>
                 <div class="row mx-auto my-auto">
                     <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                         <div class="carousel-inner w-100" role="listbox">
@@ -44,20 +115,215 @@
                         </a>
                     </div>
                 </div>
-                <h4>Advances one slide at a time</h4>
             </div>
-            
-            
-            
-           <div class="backpack-item">
-                <div class="bp-saleoff">-10%</div>
-                <img src="http://via.placeholder.com/185x185">
-                <div class="bp-name">Adidas Backpack</div>
-                <div class="bp-type">Hiking</div>
-                <div class="bp-price">200 000 VND</div>
-           </div> 
+            <div class="topSoldSlider">
+                <div class="secTitle">BÁN CHẠY NHẤT</div>
+                <div class="row mx-auto my-auto">
+                    <div id="recipeCarousel2" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-1%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-2%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-3%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-4%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-5%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-6%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#recipeCarousel2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#recipeCarousel2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="newArrivalSlider">
+                <div class="secTitle">HÀNG MỚI VỀ</div>
+                <div class="row mx-auto my-auto">
+                    <div id="recipeCarousel3" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-1%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-2%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-3%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-4%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-5%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-6%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#recipeCarousel3" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#recipeCarousel3" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="userReview">
+                    <div class="secTitle">ĐÁNH GIÁ</div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="user">
+                            <div class="user-ava">
+                                <i class="fas fa-user-circle fa-6x"></i>
+                            </div>
+                            <div class="user-name">Thai Bao</div>
+                            <hr>
+                            
+                            <p class="user-comment">
+                                    <i class="fas fa-quote-left"></i>
+                                We came to the store because we saw a bag we liked. the products are of good quality. The shop-keeper is very nice and the
+                                prices are great! I recommend to come here.
+                                
+                            <i class="fas fa-quote-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="user">
+                            <div class="user-ava">
+                                <i class="fas fa-user-circle fa-6x"></i>
+                            </div>
+                            <div class="user-name">Thien Duyen</div>
+                            <hr>
+                            <p class="user-comment">
+                                
+                            <i class="fas fa-quote-left"></i>
+                                I bought a fantastic backpack made of great quality leather. The service was fantastic! And the bag was a great price for
+                                the amazing quality. Would shop here again. And maybe order something next time to get a
+                                bespoke item.
+                                
+                            <i class="fas fa-quote-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="user">
+                            <div class="user-ava">
+                                <i class="fas fa-user-circle fa-6x"></i>
+                            </div>
+                            <div class="user-name">Hoang Anh</div>
+                            <hr>
+
+                            <p class="user-comment">
+                                <i class="fas fa-quote-left"></i>
+                                Good quality and great costumer service. The products made from good materiel and custom made exactly as we wanted.
+
+                                <i class="fas fa-quote-right"></i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of userReview -->
+        </div>
+
+        <div class="footer">
+
+        </div>
+    </div>
 </body>
 <script src="./assets/js/jquery-3.3.1.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="./assets/js/effect.js"></script>
+
 </html>
