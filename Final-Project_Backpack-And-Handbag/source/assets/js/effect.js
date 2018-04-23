@@ -3,7 +3,7 @@ $(document).ready(function () {
         interval: 10000
       })
       
-      $('.carousel .carousel-item').each(function(){
+      $('.carousel .carousel-item').each(function(){ 
           var next = $(this).next();
           if (!next.length) {
           next = $(this).siblings(':first');

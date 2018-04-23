@@ -1,3 +1,13 @@
+/* Footer */
+.footer{
+    background-color: #f2f2f2;
+    text-align: center;
+    margin: 30px 0;
+    padding: 25px;
+    text-align: left;
+    align-content: left;
+}
+
 /* User Review */
 .userReview{
     background-color: #f2f2f2;
@@ -48,7 +58,7 @@
     background-color:#f2f2f2;
 }
 .brandSlider{
-    height: auto;
+    min-height: 230px;
     padding: 0px 0 20px 0;
     -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
