@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="./assets/forDashboard/style.css">
+    <link rel="stylesheet" href="./assets/dashboard/style.css">
 
     <title>Dashboard</title>
 </head>
@@ -15,32 +15,32 @@
 <body>
     <div class="container">
 
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="header">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
 
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <div class="logo">
-                        <img src="http://via.placeholder.com/150x75">
-                    </div>
-                </li>
-            </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <div class="logo">
+                            <img src="http://via.placeholder.com/150x75">
+                        </div>
+                    </li>
+                </ul>
 
-            <div>
-                <span>
-                    <i class="fa fa-envelope-square"></i> Xin chào
-                    <a href="#"> JACK SPARROW</a> |
-                    <a href="#"> Đăng xuất</a>
-                </span>
-            </div>
+                <div>
+                    <span>
+                        <i class="fa fa-user-circle"></i> Admin
+                        <a href="#"> JACK SPARROW</a> |
+                        <a href="#"> Đăng xuất</a>
+                    </span>
+                </div>
 
-        </nav>
+            </nav>
+        </div>
 
-        <nav class="bg-light">
-            <p class="text-dark">
-                <h1>
-                    <i class="fa fa-home"></i> DASHBOARD</span>
-                </h1>
-            </p>
+        <nav class="navbar bg-light">
+            <h1>
+                <i class="fa fa-home"></i> DASHBOARD</span>
+            </h1>
         </nav>
 
         <nav class="navbar navbar-expand-md navbar-light bg-light align-items-center">
@@ -66,16 +66,72 @@
             </ul>
         </nav>
 
-    </div>
+        <div class="row navbar nav">
 
-    <div class="footer">
-        <p>Phiên bản 1.1 - Bản quyền của Rắc rốI TeaM <i class="fa fa-smile"></i> Phát triển bởi Rắc rốI TeaM © 2018</p>
+            <div class="col-sm-3">
+                <img src="http://via.placeholder.com/160x90?text=logo-sm" alt="" class="logo-sm">
+                <div class="contactInfo">
+                    <h4>LIÊN HỆ</h4>
+                    <i class="fas fa-map-marker-alt"></i> 227, Nguyễn Văn Cừ, Q.5
+                    <br>
+                    <i class="fas fa-phone-square"></i> (+84) 123 456 789
+                    <br>
+                    <i class="fas fa-envelope-square"></i> ssgpackback@gmail.com
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>VỀ CHÚNG TÔI</h4>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Giới thiệu</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Chính sách bảo hành ⩓ đổi trả</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>HƯỚNG DẪN</h4>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
+                <br>
+                <a href="#">
+                    <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
+                <br>
+            </div>
+
+            <div class="col-sm-3">
+                <h4>HÌNH THỨC THANH TOÁN</h4>
+                <img src="./assets/images/icons/icons8-paypal-50.png" alt=""> Paypal
+                <br>
+                <img src="./assets/images/icons/icons8-mastercard-52.png" alt=""> Mastercard
+                <br>
+                <img src="./assets/images/icons/icons8-visa-52.png" alt=""> Visa
+                <br>
+                <img src="./assets/images/icons/icons8-stack-of-money-52.png" alt=""> COD
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Phiên bản 1.1 - Bản quyền của Rắc rốI TeaM
+                <i class="fa fa-smile"></i> Phát triển bởi Rắc rốI TeaM © 2018</p>
+        </div>
+
     </div>
-    <!-- end container -->
 
 </body>
 <script src="./assets/js/jquery-3.3.1.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/forDashboard/load.js"></script>
 
 </html>
