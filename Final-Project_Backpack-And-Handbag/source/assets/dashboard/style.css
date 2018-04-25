@@ -12,11 +12,13 @@ h1,h2,h3,h4 {
     }
 
 .navbar,nav {
-    margin: 0px 0px 0px 0px;
-    border-radius: 10px 10px 10px 10px;
+    /* border-radius: 10px 10px 10px 10px;
     -moz-border-radius: 10px 10px 10px 10px;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border: 1px solid #5E5E5E;
+    -webkit-border-radius: 10px 10px 10px 10px; */
+    border: 0.05px solid #5E5E5E;
+    -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
+    box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
     
 }
 
@@ -41,10 +43,7 @@ ul#horizontal-list {
     color: #1E4A6C;
 }
 
-.row {
-    text-align: center;
-    margin: 30px 0;
-    padding: 25px;
-    text-align: left;
-    align-content: left;
+.body {
+    margin: 35px 0px 0px 0px;
+    background-color: #DFDFDF;
 }

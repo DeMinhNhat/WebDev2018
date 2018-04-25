@@ -22,9 +22,9 @@ $('#btnAdd').on('click', function () {
 			<td>` + i + `</td>
 			<td>person ` + i + `</td>
 			<td>` + getDay() + `</td>
-			<td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam reprehenderit</td>
+			<td>Chưa giao</td>
 			<td>
-				<a class="detail btn btn-xs btn-danger" href="javascript:;" role="button">
+				<a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
 					<span class="fa fa-wrench"></span>
                 </a>
                 <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
@@ -44,3 +44,27 @@ $('#list').on('click', 'a.remove', function () {
 $('#list').on('click', 'a.update', function () {
     $('#myModal').modal('show');
 });
+
+$('.modal-footer .save').on('click', function () {
+    // do changes
+
+    $('#myModal').modal('hide');
+});
+
+
+// // $('#list tr').hover(
+// $('#list tr')
+//     .on('hover',
+//         function () {
+//             // $(this).closest('tr').
+//             $(this).css("background", "red");
+
+//         },
+//         function () {
+//             $(this).css("background", "");
+//         }
+//     );
+
+$('#list')
+    .on('mouseenter', 'tr', function () { $(this).css("background", "red"); })
+    .on('mouseleave', 'tr', function () { $(this).css("background", ""); });
