@@ -8,7 +8,7 @@ $('#btnAdd').on('click', function () {
 			<td>cate ` + i + `</td>
 			<td>brand ` + i + `</td>
 			<td>
-				<a class="detail btn btn-xs btn-danger" href="javascript:;" role="button">
+				<a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
 					<span class="fa fa-wrench"></span>
                 </a>
                 <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
@@ -25,8 +25,6 @@ $('#list').on('click', 'a.remove', function () {
     $(this).closest('tr').remove();
 });
 
-$('#list').on('click', 'a.detail', function () {
-    // var name = $(this).closest('tr').find('td:eq(1)').text();
-    var name = đâsdasdsa
-    alert(name);
+$('#list').on('click', 'a.update', function () {
+	
 });
