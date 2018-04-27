@@ -14,6 +14,8 @@ var getDay = function () {
     return today;
 }
 
+/***********************************************************************/
+
 var i = 3;
 
 $('#btnAdd').on('click', function () {
@@ -37,46 +39,53 @@ $('#btnAdd').on('click', function () {
     $('#list tr:last').show(1000);
 });
 
+/***********************************************************************/
+
 $('#list').on('click', 'a.remove', function () {
     $(this).closest('tr').remove();
 });
 
-var getState = function () {
+/***********************************************************************/
+
+var ele;
+
+$('#list').on('click', 'a.update', function () {
+    ele = $(this).closest('tr').find('td:nth-child(4)');
     var state = document.getElementsByName('state');
-    var theState;
+
+    for (var i = 0; i < state.length; i++) {
+        if (state[i].value === ele.text()) {
+            state[i].checked = true;
+            break;
+        }
+    }
+
+    $('#state').modal('show');
+});
+
+$('.modal .modal-footer .save').on('click', function () {
+    var state = document.getElementsByName('state');
 
     for (var i = 0; i < state.length; i++) {
         if (state[i].checked) {
-            theState = state[i].value;
+            ele.text(state[i].value);
             break;
         }
     }
 
     $('#state').modal('hide');
-
-    return theState;
-}
-
-var theState = getState();
-
-$('#list').on('click', 'a.update', function () {
-    $('#state').modal('show');
-
-    $(this).closest('tr').find('td:nth-child(4)').text(theState);
 });
 
-$('.modal .modal-footer .save').on('click', getState);
-
+/***********************************************************************/
 
 $('#list')
     .on('mouseenter', 'tr', function () {
 
-        if ($(this).closest('tr').find('td:nth-child(4)').text() === 'Đã giao')
+        if ($(this).find('td:nth-child(4)').text() === 'Đã giao')
             $(this).css("background", "#94D6DB");
-        else if ($(this).closest('tr').find('td:nth-child(4)').text() === 'Đang giao')
+        else if ($(this).find('td:nth-child(4)').text() === 'Đang giao')
             $(this).css("background", "#C99797");
         else
             $(this).css("background", "#28A745");
-
     })
     .on('mouseleave', 'tr', function () { $(this).css("background", ""); });
