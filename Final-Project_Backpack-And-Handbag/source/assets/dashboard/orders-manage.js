@@ -14,13 +14,13 @@ var getDay = function () {
     return today;
 }
 
-var i = 2;
+var i = 3;
 
 $('#btnAdd').on('click', function () {
     var newRow = `
 		<tr style="display: none">
 			<td>` + i + `</td>
-			<td>person ` + i + `</td>
+			<td>Trần Văn A</td>
 			<td>` + getDay() + `</td>
 			<td>Chưa giao</td>
 			<td>
@@ -41,30 +41,42 @@ $('#list').on('click', 'a.remove', function () {
     $(this).closest('tr').remove();
 });
 
+var getState = function () {
+    var state = document.getElementsByName('state');
+    var theState;
+
+    for (var i = 0; i < state.length; i++) {
+        if (state[i].checked) {
+            theState = state[i].value;
+            break;
+        }
+    }
+
+    $('#state').modal('hide');
+
+    return theState;
+}
+
+var theState = getState();
+
 $('#list').on('click', 'a.update', function () {
-    $('#myModal').modal('show');
+    $('#state').modal('show');
+
+    $(this).closest('tr').find('td:nth-child(4)').text(theState);
 });
 
-$('.modal-footer .save').on('click', function () {
-    // do changes
+$('.modal .modal-footer .save').on('click', getState);
 
-    $('#myModal').modal('hide');
-});
-
-
-// // $('#list tr').hover(
-// $('#list tr')
-//     .on('hover',
-//         function () {
-//             // $(this).closest('tr').
-//             $(this).css("background", "red");
-
-//         },
-//         function () {
-//             $(this).css("background", "");
-//         }
-//     );
 
 $('#list')
-    .on('mouseenter', 'tr', function () { $(this).css("background", "red"); })
+    .on('mouseenter', 'tr', function () {
+
+        if ($(this).closest('tr').find('td:nth-child(4)').text() === 'Đã giao')
+            $(this).css("background", "#94D6DB");
+        else if ($(this).closest('tr').find('td:nth-child(4)').text() === 'Đang giao')
+            $(this).css("background", "#C99797");
+        else
+            $(this).css("background", "#28A745");
+
+    })
     .on('mouseleave', 'tr', function () { $(this).css("background", ""); });

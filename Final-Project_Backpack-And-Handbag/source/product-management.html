@@ -15,16 +15,13 @@
 <body>
 
     <div class="container">
-        <div class="header">
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
 
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <div class="logo">
-                            <img src="http://via.placeholder.com/150x80?text=logo">
-                        </div>
-                    </li>
-                </ul>
+        <div class="header">
+
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="logo navbar-nav mr-auto">
+                    <img src="http://via.placeholder.com/150x80?text=logo">
+                </div>
 
                 <div>
                     <span>
@@ -33,55 +30,198 @@
                         <a href="#"> Đăng xuất</a>
                     </span>
                 </div>
-
             </nav>
+
         </div>
 
-        <nav class="navbar bg-light">
+        <nav class="navbar bg-light dashboard">
             <h1>
                 <i class="fa fa-truck"></i> Quản lí sản phẩm</span>
             </h1>
         </nav>
 
-        <div class="container-fluid navbar nav body">
-            <a id="btnAdd" class="btn btn-primary" href="javascript:;" role="button">
-                <span class="fa fa-plus"></span>
-                add
-            </a>
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Loại sản phẩm</th>
-                        <th>Hãng sản xuất</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="list">
-                    <tr>
-                        <td>1</td>
-                        <td>item 1</td>
-                        <td>cate 1</td>
-                        <td>brand 1</td>
-                        <td>
-                            <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
-                                <span class="fa fa-wrench"></span>
-                            </a>
-                            <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
-                                <span class="fa fa-window-close"></span>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="container-fluid body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a id="btnAdd" class="btn btn-primary" href="javascript:;" role="button">
+                        <span class="fa fa-plus"></span>
+                        add
+                    </a>
+                </div>
+                <br>
+                <div class="panel-body">
+                    <div class="row">
+                        
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-        <div class="footer">
-            <p>Phiên bản 1.1 - Bản quyền của Rắc rốI TeaM
-                <i class="fa fa-smile"></i> Phát triển bởi Rắc rốI TeaM © 2018</p>
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="http://via.placeholder.com/185x185" alt="...">
+                                <div class="caption">
+                                    <h3>Tên sản phẩm</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
+                                        gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                    </p>
+                                    <p>
+                                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                                            <span class="fa fa-wrench"></span> Update
+                                        </a>
+                                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                                            <span class="fa fa-window-close"></span> Delete
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <div class="footer">
+        <p>Phiên bản 1.1 - Bản quyền của Rắc rốI TeaM
+            <i class="fa fa-smile"></i> Phát triển bởi Rắc rốI TeaM © 2018</p>
+    </div>
     </div>
 
 </body>
