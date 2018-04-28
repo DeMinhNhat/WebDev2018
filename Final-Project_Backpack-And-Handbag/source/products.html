@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="./assets/css/products.css">
+    <title>Balo - Túi xách</title>
+</head>
+
+<body>
+    <div class="container-fluid main">
+        <div class="container">
+            <div class="header">
+                <div class="row">
+                    <div class="logo col-md-4">
+                        <img src="http://via.placeholder.com/300x150">
+                    </div>
+                    <div class="introduce col-md-4">
+                        <img src="http://via.placeholder.com/50x50"> Giao hàng miễn phí
+                        <br>
+                        <br>
+                        <img src="http://via.placeholder.com/50x50"> Cam kết 100% chính hãng
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn" type="button" id="signin">
+                            <i class="fa fa-sign-in-alt fa-fw"></i> Sign In</button>
+                        <button class="btn" type="button" id="signup">
+                            <i class="fas fa-user"></i> Sign Up</button>
+                        <div class="lang_Sel">
+                            Language:
+                            <a href="#">
+                                <img src="./assets/images/icons/flag-eng.png">
+                            </a>
+                            <a href="#">
+                                <img src="./assets/images/icons/flag-vie.png">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End of row -->
+            </div>
+            <!-- End of header -->
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark">
+
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BA LÔ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TÚI XÁCH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SẢN PHẨM MỚI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BÁN CHẠY NHẤT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KHUYẾN MÃI</a>
+                    </li>
+                </ul>
+                <form class="form-inline" action="#">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-success" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <span id="cart">
+                    <a href="#">
+                        <img src="./assets/images/icons/CARRITO-48.png" alt="cart-Icon">
+                        <span id="itemCount">0</span>
+                    </a>
+                </span>
+            </nav>
+        </div>
+        <!-- End of Nav bar -->
+        <div class="container">
+            <div class="main">
+                <div class="topPath row">
+                    <div class="col-lg-7">
+                        <span class="breadCum">
+                            <i class="fas fa-home"></i>
+                            <span class="breadCum-item">
+                                <a href="#"> ssgBackpack</a>
+                            </span>
+                            <span>/</span>
+                            <span class="breadCum-item active">Sản phẩm</span>
+                        </span>
+                    </div>
+                    <div class="col-lg-5">
+                        <span class="sortSel">
+                            <a href="#" class="active">Nổi bật</a>
+                            <span> / </span>
+                            <a href="#">Bán chạy</a>
+                            <span> / </span>
+                            <a href="#">Mới nhất</a>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Nhà sản xuất</h3>
+                            </div>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">Adidas</a>
+                                <a href="#" class="list-group-item">Herschel</a>
+                                <a href="#" class="list-group-item">Nike</a>
+                                <a href="#" class="list-group-item">Swiss Gear</a>
+                                <a href="#" class="list-group-item">The Northface</a>
+                                <a href="#" class="list-group-item">Under Amour</a>
+                            </div>
+                        </div>
+                        <!-- End of panel Vendor -->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Loại sản phẩm</h3>
+                            </div>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">Hiking/Trekking</a>
+                                <a href="#" class="list-group-item">Climbing</a>
+                                <a href="#" class="list-group-item">Traveling</a>
+                                <a href="#" class="list-group-item">Working</a>
+                                <a href="#" class="list-group-item">Cycling</a>
+                            </div>
+                        </div>
+                        <!-- End of panel Types -->
+                    </div>
+                    <div class="col-lg-10">
+                        <div id="productView">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of productView -->
+            <div class="footer">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <img src="http://via.placeholder.com/160x90?text=logo-sm" alt="" class="logo-sm">
+                        <div class="contactInfo">
+                            <h6>LIÊN HỆ</h6>
+                            <i class="fas fa-map-marker-alt"></i> 227, Nguyễn Văn Cừ, Q.5, Tp.HCM
+                            <br>
+                            <i class="fas fa-phone-square"></i> (+84) 123 456 789
+                            <br>
+                            <i class="fas fa-envelope-square"></i> ssgpackback@gmail.com
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6>VỀ CHÚNG TÔI</h6>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Giới thiệu</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Chính sách bảo hành và đổi trả</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6>HƯỚNG DẪN</h6>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
+                        <br>
+                        <a href="#">
+                            <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
+                        <br>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6>HÌNH THỨC THANH TOÁN</h6>
+                        <img src="./assets/images/icons/icons8-paypal-50.png" alt=""> Paypal
+                        <br>
+                        <img src="./assets/images/icons/icons8-mastercard-52.png" alt=""> Mastercard
+                        <br>
+                        <img src="./assets/images/icons/icons8-visa-52.png" alt=""> Visa
+                        <br>
+                        <img src="./assets/images/icons/icons8-stack-of-money-52.png" alt=""> Cash On Delivery
+                    </div>
+                </div>
+            </div>
+            <!-- End of footer -->
+        </div>
+        <!-- End of main container -->
+</body>
+<script src="./assets/js/jquery-3.3.1.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+
+</html>

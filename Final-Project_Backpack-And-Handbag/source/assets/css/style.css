@@ -124,16 +124,16 @@
     background-color: white;
 }
 
-/* banner */
-.banner {
+/* header */
+.header {
     min-height: 200px;
     background-color: #f0f0f0;
 }
-.banner .logo{
+.header .logo{
     margin-top:25px;
 }
 
-.banner .introduce{
+.header .introduce{
     margin-top:40px;
 }
 
@@ -143,12 +143,13 @@
     position: absolute;
     top:0;
     right:0;
+    font-size: small;
 }
 #signin{
     transform: translateX(-125%);
 }
 #signup{
-    transform: translateX(-15%);
+    transform: translateX(-20%);
 }
 /* Backpack item */
 .backpack-item{
