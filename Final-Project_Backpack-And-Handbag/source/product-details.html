@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="./assets/css/product-detail.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>Chi tiết sản phẩm</title>
 </head>
 
@@ -54,7 +55,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="modal-body">
-                                <form id="login-form"action="#">
+                                <form id="login-form" action="#">
                                     <div class="form-group">
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -94,23 +95,74 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
-                                    <span>Using </span>
-                                    <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                                    <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                                <span>Using </span>
+                                <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                                <hr>
+                                <form action="" id="signup-form">
+                                    <div class="form-group">
+                                        <label for="email-signup">Email:</label>
+                                        <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="username-signup">Họ tên:</label>
+                                        <input type="text" class="form-control" id="username-signup" placeholder="Katty" name="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pswd-signup">Mật khẩu:</label>
+                                        <input type="password" class="form-control" id="pswd-signup" placeholder="*********" name="pswd">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
+                                        <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
+                                    </div>
                                     <hr>
-                                    <form action="" id="signup-form">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email-signup" placeholder="Email" name="email">
+                                    <div class="row">
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label for="birday-signup">Ngày sinh:</label>
+                                                <input type="date" class="form-control" id="birday-signup" placeholder="Birthday" name="birday">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="username-signup" placeholder="Họ tên" name="username">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="gender-signup">Giới tính:</label>
+                                                <select name="gender" id="gender-signup" class="custom-select">
+                                                    <option selected>Chọn...</option>
+                                                    <option value="male">Nam</option>
+                                                    <option value="female">Nữ</option>
+                                                    <option value="other">Khác</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phoneNum-signup">Điện thoại:</label>
+                                        <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address-signup">Địa chỉ:</label>
+                                        <input type="text" class="form-control" name="phone" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
+                                    </div>
+
+                                    <hr>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với <a href="#">Điều khoản sử dụng</a>
+                                        </label>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
+                                        </label>
+                                    </div>
+                                    <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                                </form>
                             </div>
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
+                                <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
                             </div>
 
                         </div>
