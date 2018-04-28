@@ -14,13 +14,15 @@ var getDay = function () {
     return today;
 }
 
-var i = 2;
+/***********************************************************************/
+
+var i = 3;
 
 $('#btnAdd').on('click', function () {
     var newRow = `
 		<tr style="display: none">
 			<td>` + i + `</td>
-			<td>person ` + i + `</td>
+			<td>Trần Văn A</td>
 			<td>` + getDay() + `</td>
 			<td>Chưa giao</td>
 			<td>
@@ -37,34 +39,53 @@ $('#btnAdd').on('click', function () {
     $('#list tr:last').show(1000);
 });
 
+/***********************************************************************/
+
 $('#list').on('click', 'a.remove', function () {
     $(this).closest('tr').remove();
 });
 
+/***********************************************************************/
+
+var ele;
+
 $('#list').on('click', 'a.update', function () {
-    $('#myModal').modal('show');
+    ele = $(this).closest('tr').find('td:nth-child(4)');
+    var state = document.getElementsByName('state');
+
+    for (var i = 0; i < state.length; i++) {
+        if (state[i].value === ele.text()) {
+            state[i].checked = true;
+            break;
+        }
+    }
+
+    $('#state').modal('show');
 });
 
-$('.modal-footer .save').on('click', function () {
-    // do changes
+$('.modal .modal-footer .save').on('click', function () {
+    var state = document.getElementsByName('state');
 
-    $('#myModal').modal('hide');
+    for (var i = 0; i < state.length; i++) {
+        if (state[i].checked) {
+            ele.text(state[i].value);
+            break;
+        }
+    }
+
+    $('#state').modal('hide');
 });
 
-
-// // $('#list tr').hover(
-// $('#list tr')
-//     .on('hover',
-//         function () {
-//             // $(this).closest('tr').
-//             $(this).css("background", "red");
-
-//         },
-//         function () {
-//             $(this).css("background", "");
-//         }
-//     );
+/***********************************************************************/
 
 $('#list')
-    .on('mouseenter', 'tr', function () { $(this).css("background", "red"); })
+    .on('mouseenter', 'tr', function () {
+
+        if ($(this).find('td:nth-child(4)').text() === 'Đã giao')
+            $(this).css("background", "#94D6DB");
+        else if ($(this).find('td:nth-child(4)').text() === 'Đang giao')
+            $(this).css("background", "#C99797");
+        else
+            $(this).css("background", "#28A745");
+    })
     .on('mouseleave', 'tr', function () { $(this).css("background", ""); });

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="./assets/dashboard/style.css">
 
-    <title>Quản lí đơn hàng</title>
+    <title>Quản lí khách hàng</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 
         <nav class="navbar bg-light dashboard">
             <h1>
-                <i class="fa fa-cart-plus"></i> Quản lí đơn hàng</span>
+                <i class="fa fa-users"></i> Quản lí khách hàng</span>
             </h1>
         </nav>
 
@@ -50,32 +50,21 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>Tên khách hàng</th>
-                        <th>Ngày lập</th>
-                        <th>Trạng thái</th>
-                        <th></th>
+                        <th>Họ và tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                        <th>Số điện thoại</th>
+                        <th>Số dư</th>
                     </tr>
                 </thead>
                 <tbody id="list">
                     <tr>
                         <td>1</td>
                         <td>Trần Văn A</td>
-                        <td>01/01/2018</td>
-                        <td>Đã giao</td>
-                        <td>
-                            <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
-                                <span class="fa fa-wrench"></span>
-                            </a>
-                            <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
-                                <span class="fa fa-window-close"></span>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Trần Văn A</td>
-                        <td>01/02/2018</td>
-                        <td>Đang giao</td>
+                        <td>Quận 1, TP HCM</td>
+                        <td>vana@gmail.com</td>
+                        <td>234290489</td>
+                        <td>1 000 000</td>
                         <td>
                             <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
                                 <span class="fa fa-wrench"></span>
@@ -89,30 +78,6 @@
             </table>
         </div>
 
-        <div class="modal fade" id="state" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Cập nhật trạng thái đơn hàng</h4>
-                    </div>
-                    <div class="modal-body">
-                        <label class="radio-inline align-items-center">
-                            <input type="radio" name="state" id="state1" value="Đã giao"> Đã giao
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="state" id="state2" value="Đang giao"> Đang giao
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="state" id="state3" value="Chưa giao"> Chưa giao
-                        </label>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                        <button type="button" class="save btn btn-primary">Lưu thay đổi</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="footer">
             <p>Phiên bản 1.1 - Bản quyền của Rắc rốI TeaM
@@ -123,6 +88,6 @@
 </body>
 <script src="./assets/js/jquery-3.3.1.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/dashboard/orders-manage.js"></script>
+<script src="./assets/dashboard/users-manage.js"></script>
 
 </html>
