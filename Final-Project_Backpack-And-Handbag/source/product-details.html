@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="./assets/css/product-detail.css">
-    <title>Balo - Túi xách</title>
+    <title>Chi tiết sản phẩm</title>
 </head>
 
 <body>
@@ -26,9 +26,9 @@
                         <img src="http://via.placeholder.com/50x50"> Cam kết 100% chính hãng
                     </div>
                     <div class="col-md-4">
-                        <button class="btn" type="button" id="signin">
+                        <button class="btn" type="button" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
                             <i class="fa fa-sign-in-alt fa-fw"></i> Sign In</button>
-                        <button class="btn" type="button" id="signup">
+                        <button class="btn" type="button" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false">
                             <i class="fas fa-user"></i> Sign Up</button>
                         <div class="lang_Sel">
                             Language:
@@ -43,6 +43,81 @@
                     </div>
                 </div>
                 <!-- End of row -->
+                <!-- Modal login -->
+                <div class="modal fade" id="signinModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng nhập</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <form id="login-form"action="#">
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="pwd">Mật khẩu:</label>
+                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ đăng nhập
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-block" form="login-form" data-dismiss="modal">Go Shopping</button>
+                                </form>
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <span>Or using </span>
+                                <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End of login Modal -->
+                <div class="modal fade" id="signupModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng kí</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                    <span>Using </span>
+                                    <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                    <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                                    <hr>
+                                    <form action="" id="signup-form">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email-signup" placeholder="Email" name="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="username-signup" placeholder="Họ tên" name="username">
+                                        </div>
+                                    </form>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- End of sign up modal
+                 -->
             </div>
             <!-- End of header -->
         </div>
@@ -83,7 +158,36 @@
         </div>
         <!-- End of Nav bar -->
         <div class="container">
+
             <div class="product-detail">
+                <div class="topPath">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <span class="breadCum">
+                                <i class="fas fa-home"></i>
+                                <span class="breadCum-item">
+                                    <a href="#"> ssgBackpack</a>
+                                </span>
+                                <span>/</span>
+                                <span class="breadCum-item">
+                                    <a href="#"> Sản phẩm</a>
+                                </span>
+                                <span>/</span>
+                                <span class="breadCum-item">
+                                    <a href="#"> Ba lô</a>
+                                </span>
+                                <span>/</span>
+                                <span class="breadCum-item">
+                                    <a href="#"> Herschel</a>
+                                </span>
+                                <span>/</span>
+                                <span class="breadCum-item active">Retreat Backpack</span>
+                            </span>
+                        </div>
+                        <div class="col-lg-5">
+                        </div>
+                    </div>
+                </div>
                 <div class="essential-info">
                     <div class="row">
                         <div class="col-md-7">
@@ -126,12 +230,18 @@
                             <div class="detail-info">
                                 <div id="tensp">RETREAT BACKPACK</div>
                                 <div id="price">$79.99</div>
-                                Nhà sản xuất: <span id="nsx">Herschel</span><br>
-                                Xuất xứ: <span id="xuatxu">United States</span><br>
-                                Loại sản phẩm: <span id="loaisp">Hiking</span><br>
-                                <hr>
-                                Lượt mua: <span id="soluongban">50</span><br>
-                                Lượt xem: <span id="luotxem">200</span><br>
+                                Nhà sản xuất:
+                                <span id="nsx">Herschel</span>
+                                <br> Xuất xứ:
+                                <span id="xuatxu">United States</span>
+                                <br> Loại sản phẩm:
+                                <span id="loaisp">Hiking</span>
+                                <br>
+                                <hr> Lượt xem:
+                                <span id="luotxem">200</span>
+                                <br>Lượt mua:
+                                <span id="soluongban">50</span>
+                                <br>
                                 <button id="buynow-btn" type="button" class="btn btn-danger">Mua ngay</button>
                                 <button id="addcart-btn" type="button" class="btn btn-outline-primary">Thêm vào giỏ</button>
                             </div>
@@ -140,9 +250,10 @@
                     </div>
                 </div>
                 <!-- End of essential-info -->
-                <button class="btn btn-outline-info"data-toggle="collapse" data-target="#describe">Mô tả sản phẩm</button>
+                <button class="btn btn-outline-info" data-toggle="collapse" data-target="#describe">Mô tả sản phẩm</button>
                 <div class="more-info collapse" id="describe">
-                    <p id="details">The Herschel Retreat™ backpack is a streamlined rendition of a timeless mountaineering style, featuring a drawcord cinch closure and a strap detailed top flap.</p>
+                    <p id="details">The Herschel Retreat™ backpack is a streamlined rendition of a timeless mountaineering style, featuring
+                        a drawcord cinch closure and a strap detailed top flap.</p>
                     <div class="dimension">Dimension: 17"(H) x 12"(W) x 5.75"(D), 19.5L</div>
                     <img src="./assets/images/products/bp_01/10066_sizingtile.jpg" alt="Size">
                     <img src="./assets/images/products/bp_01/detail01.jpg" alt="Buckle">
@@ -152,6 +263,136 @@
             </div>
         </div>
         <!-- End of Product info -->
+        <div class="container">
+            <div class="sameTypeProducts">
+                <div class="secTitle">SẢN PHẨM CÙNG LOẠI</div>
+                <div class="row mx-auto my-auto">
+                    <div id="recipeCarousel4" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-1%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-2%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-3%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-4%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-5%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#recipeCarousel4" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#recipeCarousel4" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of sameTypeProducts -->
+        <div class="container">
+            <div class="sameVendorProducts">
+                <div class="secTitle">CÙNG NHÀ CUNG CẤP</div>
+                <div class="row mx-auto my-auto">
+                    <div id="recipeCarousel2" class="carousel slide w-100" data-ride="carousel">
+                        <div class="carousel-inner w-100" role="listbox">
+                            <div class="carousel-item active">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-1%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-2%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-3%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-4%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="backpack-item">
+                                    <div class="bp-saleoff">-5%</div>
+                                    <img src="http://via.placeholder.com/185x185">
+                                    <div class="bp-name">Adidas Backpack</div>
+                                    <div class="bp-type">Hiking</div>
+                                    <div class="bp-price">200 000 VND</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#recipeCarousel2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#recipeCarousel2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of sameVendorProducts -->
         <div class="container">
             <div class="footer">
                 <div class="row">
