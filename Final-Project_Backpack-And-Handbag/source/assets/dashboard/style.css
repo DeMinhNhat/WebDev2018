@@ -1,6 +1,6 @@
 body {
-    background-color: #D4D3D3;
-    text-shadow: 1px 1px 1px #ccc;
+    background-color: #808080;
+    /* text-shadow: 1px 1px 1px #ccc; */
     font-size: 1.0em;
 }
 
@@ -10,6 +10,15 @@ h1,h2,h3,h4 {
     h2:hover{
         color: #C3622C;
     }
+
+.bp-name,.bp-type,.bp-price {
+    font-size:110%;
+    font-weight:bold;
+    margin-left: 20px;
+}
+.bp-type {
+    font-weight: normal;
+}
 
 .thumbnail {
     border: 0.05px solid #94D6DB;
@@ -23,11 +32,13 @@ h1,h2,h3,h4 {
     top: 0;
     text-align: center;
     width: 100%;
+    border: 0.5px solid #94D6DB;
 }
 
 .dashboard {
     margin-top: 100px;
-    border: 0.05px solid #5E5E5E;
+    border: 0.1px solid #94D6DB;
+    background-color: #F0F0F0;
     -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
     box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
@@ -36,7 +47,7 @@ h1,h2,h3,h4 {
 .body {
     margin: 10px 0px 20px 0px;
     padding: 10px;
-    border: 0.05px solid #5E5E5E;
+    border: 0.1px solid #94D6DB;
     background-color: #DFDFDF;
     -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
@@ -49,6 +60,6 @@ h1,h2,h3,h4 {
     bottom: 0;
     text-align: center;
     width: 100%;
-    background-color: #D4D3D3;
+    background-color: #808080;
     color: #1E4A6C;
 }
