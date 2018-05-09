@@ -1,0 +1,25 @@
+<div class="panel-body">
+    <div class="row">
+
+        {{#each products}}
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="http://via.placeholder.com/185x185" alt="...">
+                    <div class="caption">
+                        <div class="bp-name">{{proName}}</div>
+                        <div class="bp-type">{{Price}}</div>
+                        <div class="bp-price">{{TinyDes}}</div>
+
+                        <a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+                            <span class="fa fa-wrench"></span> Update
+                        </a>
+                        <a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+                            <span class="fa fa-window-close"></span> Delete
+                        </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
