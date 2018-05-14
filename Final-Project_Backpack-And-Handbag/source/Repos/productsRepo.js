@@ -1,6 +1,6 @@
 var db = require('./database');
 
-exports.loadAll = () => {
-	var sql = 'select proName, TinyDes, Price, Quantity from products';
+exports.load = () => {
+	var sql = 'select * from products';
 	return db.load(sql);
 }

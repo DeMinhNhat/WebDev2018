@@ -1,6 +1,6 @@
 var i = 2;
 
-$('#btnAdd').on('click', function () {
+$('#btnAdd').on('click', function() {
     var newRow = `
 		<tr style="display: none">
 			<td>` + i + `</td>
@@ -23,10 +23,10 @@ $('#btnAdd').on('click', function () {
     $('#list tr:last').show(1000);
 });
 
-$('#list').on('click', 'a.remove', function () {
+$('#list').on('click', 'a.remove', function() {
     $(this).closest('tr').remove();
 });
 
-$('#list').on('click', 'a.update', function () {
+$('#list').on('click', 'a.update', function() {
 
 });

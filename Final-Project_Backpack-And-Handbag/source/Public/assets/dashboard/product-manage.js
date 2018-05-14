@@ -1,7 +1,7 @@
 var i = 2;
 
-$('#btnAdd').on('click', function () {
-    var newRow = `
+$('#btnAdd').on('click', function() {
+	var newRow = `
 		<tr style="display: none">
 			<td>` + i + `</td>
 			<td>item ` + i + `</td>
@@ -16,15 +16,15 @@ $('#btnAdd').on('click', function () {
 				</a>
 			</td>
 		</tr>`;
-    i++;
-    $('#list').append(newRow);
-    $('#list tr:last').show(1000);
+	i++;
+	$('#list').append(newRow);
+	$('#list tr:last').show(1000);
 });
 
-$('#list').on('click', 'a.remove', function () {
-    $(this).closest('tr').remove();
+$('#list').on('click', 'a.remove', function() {
+	$(this).closest('tr').remove();
 });
 
-$('#list').on('click', 'a.update', function () {
-	
+$('#list').on('click', 'a.update', function() {
+
 });

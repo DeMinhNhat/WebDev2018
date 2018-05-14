@@ -28,148 +28,148 @@
                     <div class="col-md-4">
                         <button class="btn" type="button" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
                             <i class="fa fa-sign-in-alt fa-fw"></i> Sign In</button>
-                        <button class="btn" type="button" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false">
-                            <i class="fas fa-user"></i> Sign Up</button>
-                        <div class="lang_Sel">
-                            Language:
-                            <a href="#">
-                                <img src="./assets/images/icons/flag-eng.png">
-                            </a>
-                            <a href="#">
-                                <img src="./assets/images/icons/flag-vie.png">
-                            </a>
+                            <button class="btn" type="button" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false">
+                                <i class="fas fa-user"></i> Sign Up</button>
+                                <div class="lang_Sel">
+                                    Language:
+                                    <a href="#">
+                                        <img src="./assets/images/icons/flag-eng.png">
+                                    </a>
+                                    <a href="#">
+                                        <img src="./assets/images/icons/flag-vie.png">
+                                    </a>
+                                </div>
+
+                            </div>
                         </div>
-
-                    </div>
-                </div>
-                <!-- End of row -->
-                <!-- Modal login -->
-                <div class="modal fade" id="signinModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Đăng nhập</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <form id="login-form" action="#">
-                                    <div class="form-group">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        <!-- End of row -->
+                        <!-- Modal login -->
+                        <div class="modal fade" id="signinModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Đăng nhập</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="pwd">Mật khẩu:</label>
-                                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-                                    </div>
-                                    <div class="form-group form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ đăng nhập
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-dark btn-block" form="login-form" data-dismiss="modal">Go Shopping</button>
-                                </form>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <span>Or using </span>
-                                <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                                <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End of login Modal -->
-                <div class="modal fade" id="signupModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Đăng kí</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <span>Using </span>
-                                <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                                <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
-                                <hr>
-                                <form action="" id="signup-form">
-                                    <div class="form-group">
-                                        <label for="email-signup">Email:</label>
-                                        <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="username-signup">Họ tên:</label>
-                                        <input type="text" class="form-control" id="username-signup" placeholder="Katty" name="username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="pswd-signup">Mật khẩu:</label>
-                                        <input type="password" class="form-control" id="pswd-signup" placeholder="*********" name="pswd">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
-                                        <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-7">
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <form id="login-form" action="#">
                                             <div class="form-group">
-                                                <label for="birday-signup">Ngày sinh:</label>
-                                                <input type="date" class="form-control" id="birday-signup" placeholder="Birthday" name="birday">
+                                                <label for="email">Email:</label>
+                                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                                             </div>
-                                        </div>
-                                        <div class="col-md-5">
                                             <div class="form-group">
-                                                <label for="gender-signup">Giới tính:</label>
-                                                <select name="gender" id="gender-signup" class="custom-select">
-                                                    <option selected>Chọn...</option>
-                                                    <option value="male">Nam</option>
-                                                    <option value="female">Nữ</option>
-                                                    <option value="other">Khác</option>
-                                                </select>
+                                                <label for="pwd">Mật khẩu:</label>
+                                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
                                             </div>
-                                        </div>
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ đăng nhập
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="btn btn-dark btn-block" form="login-form" data-dismiss="modal">Go Shopping</button>
+                                        </form>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="phoneNum-signup">Điện thoại:</label>
-                                        <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address-signup">Địa chỉ:</label>
-                                        <input type="text" class="form-control" name="phone" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <span>Or using </span>
+                                        <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                        <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
                                     </div>
 
-                                    <hr>
-                                    <div class="form-group form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với
-                                            <a href="#">Điều khoản sử dụng</a>
-                                        </label>
-                                    </div>
-                                    <div class="form-group form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
-                                        </label>
-                                    </div>
-                                    <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                                </form>
+                                </div>
                             </div>
-
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
-                            </div>
-
                         </div>
-                    </div>
-                </div>
+                        <!-- End of login Modal -->
+                        <div class="modal fade" id="signupModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Đăng kí</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <span>Using </span>
+                                        <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                        <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                                        <hr>
+                                        <form action="" id="signup-form">
+                                            <div class="form-group">
+                                                <label for="email-signup">Email:</label>
+                                                <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username-signup">Họ tên:</label>
+                                                <input type="text" class="form-control" id="username-signup" placeholder="Katty" name="username">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pswd-signup">Mật khẩu:</label>
+                                                <input type="password" class="form-control" id="pswd-signup" placeholder="*********" name="pswd">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
+                                                <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-7">
+                                                    <div class="form-group">
+                                                        <label for="birday-signup">Ngày sinh:</label>
+                                                        <input type="date" class="form-control" id="birday-signup" placeholder="Birthday" name="birday">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="gender-signup">Giới tính:</label>
+                                                        <select name="gender" id="gender-signup" class="custom-select">
+                                                            <option selected>Chọn...</option>
+                                                            <option value="male">Nam</option>
+                                                            <option value="female">Nữ</option>
+                                                            <option value="other">Khác</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phoneNum-signup">Điện thoại:</label>
+                                                <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-signup">Địa chỉ:</label>
+                                                <input type="text" class="form-control" name="phone" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
+                                            </div>
+
+                                            <hr>
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với
+                                                    <a href="#">Điều khoản sử dụng</a>
+                                                </label>
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
+                                                </label>
+                                            </div>
+                                            <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                                        </form>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                 <!-- End of sign up modal
-                         -->
+                -->
             </div>
             <!-- End of header -->
         </div>
@@ -413,49 +413,49 @@
                         <h6>VỀ CHÚNG TÔI</h6>
                         <a href="#">
                             <i class="fas fa-chevron-right"></i> Giới thiệu</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Chính sách bảo hành và đổi trả</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
-                    </div>
-                    <div class="col-sm-3">
-                        <h6>HƯỚNG DẪN</h6>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
-                        <br>
-                    </div>
-                    <div class="col-sm-3">
-                        <h6>HÌNH THỨC THANH TOÁN</h6>
-                        <img src="./assets/images/icons/icons8-paypal-50.png" alt=""> Paypal
-                        <br>
-                        <img src="./assets/images/icons/icons8-mastercard-52.png" alt=""> Mastercard
-                        <br>
-                        <img src="./assets/images/icons/icons8-visa-52.png" alt=""> Visa
-                        <br>
-                        <img src="./assets/images/icons/icons8-stack-of-money-52.png" alt=""> Cash On Delivery
-                    </div>
-                </div>
-            </div>
-            <!-- End of footer -->
-        </div>
-        <!-- End of main container -->
-</body>
-<script src="./assets/js/jquery-3.3.1.min.js"></script>
-<script src="./assets/js/bootstrap.min.js"></script>
-<script src="./assets/js/products.js"></script>
+                            <br>
+                            <a href="#">
+                                <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
+                                <br>
+                                <a href="#">
+                                    <i class="fas fa-chevron-right"></i> Chính sách bảo hành và đổi trả</a>
+                                    <br>
+                                    <a href="#">
+                                        <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
+                                        <br>
+                                        <a href="#">
+                                            <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h6>HƯỚNG DẪN</h6>
+                                            <a href="#">
+                                                <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
+                                                <br>
+                                                <a href="#">
+                                                    <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
+                                                    <br>
+                                                    <a href="#">
+                                                        <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
+                                                        <br>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <h6>HÌNH THỨC THANH TOÁN</h6>
+                                                        <img src="./assets/images/icons/icons8-paypal-50.png" alt=""> Paypal
+                                                        <br>
+                                                        <img src="./assets/images/icons/icons8-mastercard-52.png" alt=""> Mastercard
+                                                        <br>
+                                                        <img src="./assets/images/icons/icons8-visa-52.png" alt=""> Visa
+                                                        <br>
+                                                        <img src="./assets/images/icons/icons8-stack-of-money-52.png" alt=""> Cash On Delivery
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End of footer -->
+                                        </div>
+                                        <!-- End of main container -->
+                                    </body>
+                                    <script src="./assets/js/jquery-3.3.1.min.js"></script>
+                                    <script src="./assets/js/bootstrap.min.js"></script>
+                                    <script src="./assets/js/products.js"></script>
 
-</html>
+                                    </html>

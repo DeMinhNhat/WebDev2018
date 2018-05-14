@@ -1,42 +1,45 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('#overviewSlide').carousel({
         interval: 5000
     })
     $('#recipeCarousel').carousel({
         interval: 5000
-      })
-      
-    $('.sameTypeProducts .carousel .carousel-item').each(function(){ 
+    })
+
+    $('.sameTypeProducts .carousel .carousel-item').each(function() {
         var next = $(this).next();
         if (!next.length) {
-        next = $(this).siblings(':first');
+            next = $(this).siblings(':first');
         }
         next.children(':first-child').clone().appendTo($(this));
-        
-        for (var i=0;i<3;i++) { //display 4 item at one
-            next=next.next();
+
+        for (var i = 0; i < 3; i++) { //display 4 item at one
+            next = next.next();
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
-            
+
             next.children(':first-child').clone().appendTo($(this));
         }
     });
-    $('.sameVendorProducts .carousel .carousel-item').each(function(){ 
+    $('.sameVendorProducts .carousel .carousel-item').each(function() {
         var next = $(this).next();
         if (!next.length) {
-        next = $(this).siblings(':first');
+            next = $(this).siblings(':first');
         }
         next.children(':first-child').clone().appendTo($(this));
-        
-        for (var i=0;i<3;i++) { //display 4 item at one
-            next=next.next();
+
+        for (var i = 0; i < 3; i++) { //display 4 item at one
+            next = next.next();
             if (!next.length) {
                 next = $(this).siblings(':first');
             }
-            
+
             next.children(':first-child').clone().appendTo($(this));
         }
     });
-    $('#signupModal').modal({backdrop: 'static', keyboard: false});
+    $('#signupModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
 });

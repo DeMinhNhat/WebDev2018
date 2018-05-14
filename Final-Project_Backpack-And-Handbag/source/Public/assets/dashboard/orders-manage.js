@@ -1,4 +1,4 @@
-var getDay = function () {
+var getDay = function() {
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth() + 1;
@@ -18,7 +18,7 @@ var getDay = function () {
 
 var i = 3;
 
-$('#btnAdd').on('click', function () {
+$('#btnAdd').on('click', function() {
     var newRow = `
 		<tr style="display: none">
 			<td>` + i + `</td>
@@ -41,7 +41,7 @@ $('#btnAdd').on('click', function () {
 
 /***********************************************************************/
 
-$('#list').on('click', 'a.remove', function () {
+$('#list').on('click', 'a.remove', function() {
     $(this).closest('tr').remove();
 });
 
@@ -49,7 +49,7 @@ $('#list').on('click', 'a.remove', function () {
 
 var ele;
 
-$('#list').on('click', 'a.update', function () {
+$('#list').on('click', 'a.update', function() {
     ele = $(this).closest('tr').find('td:nth-child(4)');
     var state = document.getElementsByName('state');
 
@@ -63,7 +63,7 @@ $('#list').on('click', 'a.update', function () {
     $('#state').modal('show');
 });
 
-$('.modal .modal-footer .save').on('click', function () {
+$('.modal .modal-footer .save').on('click', function() {
     var state = document.getElementsByName('state');
 
     for (var i = 0; i < state.length; i++) {
@@ -79,7 +79,7 @@ $('.modal .modal-footer .save').on('click', function () {
 /***********************************************************************/
 
 $('#list')
-    .on('mouseenter', 'tr', function () {
+    .on('mouseenter', 'tr', function() {
 
         if ($(this).find('td:nth-child(4)').text() === 'Đã giao')
             $(this).css("background", "#94D6DB");
@@ -88,4 +88,6 @@ $('#list')
         else
             $(this).css("background", "#28A745");
     })
-    .on('mouseleave', 'tr', function () { $(this).css("background", ""); });
+    .on('mouseleave', 'tr', function() {
+        $(this).css("background", "");
+    });
