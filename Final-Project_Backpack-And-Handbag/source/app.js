@@ -3,10 +3,12 @@ var exphbs = require('express-handlebars');
 var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
+var wnumb = require('wnumb');
+
+var handleLayoutMDW = require('./middle-wares/handleLayout');
+var handle404MDW = require('./middle-wares/handle404');
 
 var productsController = require('./controllers/productsController');
-
-var productsRepo = require('./repos/productsRepo');
 
 var app = express();
 
@@ -15,6 +17,12 @@ app.engine('hbs', exphbs({
 	layoutsDir: 'views/layouts/',
 	helpers: {
 		section: exphbs_section(),
+		number_format: n => {
+			var nf = wnumb({
+				thousand: ','
+			});
+			return nf.to(n);
+		}
 	}
 }));
 app.set('view engine', 'hbs');
@@ -26,19 +34,15 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-// app.get('/management/products/', (req, res) => {
-// 	productsRepo.load().then(rows => {
-// 		var vm = {
-// 			products: rows,
-// 		};
-// 		// res.render('management/products/', {
-// 		// 	layout: 'dashboard'
-// 		// }, vm);
-// 		res.render('management/products', vm);
-// 	});
-// });
+//app.use(handleLayoutMDW);
+
+app.get('/', (req, res) => {
+	res.redirect('/home');
+});
 
 app.use('/management/products', productsController);
+
+//app.use(handle404MDW);
 
 app.listen(3000, () => {
 	console.log('server running on port 3000');
