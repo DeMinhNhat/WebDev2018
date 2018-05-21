@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
 
-var handleLayoutMDW = require('./middle-wares/handleLayout');
+// var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 
 var productsController = require('./controllers/productsController');
@@ -25,6 +25,7 @@ app.engine('hbs', exphbs({
 		}
 	}
 }));
+
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.json());
@@ -42,7 +43,7 @@ app.get('/', (req, res) => {
 
 app.use('/management/products', productsController);
 
-//app.use(handle404MDW);
+app.use(handle404MDW);
 
 app.listen(3000, () => {
 	console.log('server running on port 3000');

@@ -1,0 +1,27 @@
+{{#section 'title'}}
+Thêm sản phẩm mới
+{{/section}}
+
+<div class="panel-body">
+	<div class="row">
+		{{#each products}}
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<img src="/sp/{{ProID}}/main_thumbs.jpg" alt="{{proName}}">
+				<div class="caption"></div>
+				<h2 class="bp-name">{{proName}}</h2>
+				<div class="bp-price">{{Price}}</div>
+				<p style="height: 60px">{{TinyDes}}</p>
+
+				<a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+					<span class="fa fa-wrench"></span> Update
+				</a>
+				<a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+					<span class="fa fa-window-close"></span> Delete
+				</a>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+
+</div>
