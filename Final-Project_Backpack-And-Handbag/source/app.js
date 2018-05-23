@@ -19,7 +19,10 @@ app.engine('hbs', exphbs({
 		section: exphbs_section(),
 		number_format: n => {
 			var nf = wnumb({
-				thousand: ','
+				mark: '.',
+				thousand: ',',
+				// prefix: '$ ',
+				suffix: 'VNĐ'
 			});
 			return nf.to(n);
 		}

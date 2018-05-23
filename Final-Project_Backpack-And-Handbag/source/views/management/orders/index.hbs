@@ -4,26 +4,49 @@ Quản lí sản phẩm
 
 <div class="panel-body">
 	<div class="row">
-
-		{{#each products}}
 		<div class="col-md-3">
-			<div class="thumbnail">
-				<img src="http://via.placeholder.com/185x185" alt="...">
-				<div class="caption">
-					<div class="bp-name">{{proName}}</div>
-					<div class="bp-type">{{Price}}</div>
-					<div class="bp-price">{{TinyDes}}</div>
-
-					<a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
-						<span class="fa fa-wrench"></span> Update
-					</a>
-					<a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
-						<span class="fa fa-window-close"></span> Delete
-					</a>
-				</p>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Categories</h3>
+				</div>
+				<div class="list-group">
+					{{#each layoutVM.categories}}
+					<a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
+					{{/each}}
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Suppliers</h3>
+				</div>
+				<div class="list-group">
+					{{#each layoutVM.suppliers}}
+					<a href="#" class="list-group-item">{{SupName}}</a>
+					{{/each}}
+				</div>
 			</div>
 		</div>
+		<div class="col-md-9">
+			{{#each products}}
+			<div class="col-md-3">
+				<div class="thumbnail">
+					<img src="http://via.placeholder.com/185x185" alt="...">
+					<div class="caption">
+						<div class="bp-name">{{proName}}</div>
+						<div class="bp-type">{{Price}}</div>
+						<div class="bp-price">{{TinyDes}}</div>
+
+						<a class="update btn btn-xs btn-danger" href="javascript:;" role="button">
+							<span class="fa fa-wrench"></span> Update
+						</a>
+						<a class="remove btn btn-xs btn-success" href="javascript:;" role="button">
+							<span class="fa fa-window-close"></span> Delete
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		{{/each}}
 	</div>
-	{{/each}}
 
 </div>
