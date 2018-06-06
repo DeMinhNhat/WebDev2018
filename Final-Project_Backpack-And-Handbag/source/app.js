@@ -4,17 +4,22 @@ var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
+var session = require('express-session');
 
-// var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
+var restrict = require('./middle-wares/restrict');
 
-var productsController = require('./controllers/productsController');
+var categoryController = require('./controllers/categoryController');
+var productController = require('./controllers/productController');
+var homeController = require('./controllers/homeController');
+var accountController = require('./controllers/accountController');
+var cartController = require('./controllers/cartController');
 
 var app = express();
 
 app.engine('hbs', exphbs({
-	defaultLayout: 'dashboard',
-	layoutsDir: 'views/layouts/',
+	defaultLayout: 'main',
+	layoutsDir: 'views/_layouts/',
 	helpers: {
 		section: exphbs_section(),
 		number_format: n => {
@@ -28,23 +33,31 @@ app.engine('hbs', exphbs({
 		}
 	}
 }));
-
 app.set('view engine', 'hbs');
+
+app.use(express.static(
+	path.resolve(__dirname, 'public')
+));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-app.use(express.static(path.resolve(__dirname, 'public')));
-
-//app.use(handleLayoutMDW);
+app.use(session({
+	secret: 'rac roi that',
+	resave: false,
+	saveUninitialized: true,
+	// cookie: {
+	//     secure: true
+	// }
+}));
 
 app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
-app.use('/management/products', productsController);
+app.use('/home', homeController);
 
 app.use(handle404MDW);
 
