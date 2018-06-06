@@ -65,15 +65,7 @@ CREATE TABLE `orderdetails` (
 	CONSTRAINT FK_OD_P FOREIGN KEY (`ProID`) REFERENCES products(`ProID`)
 	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
  -- tui chưa bik cái amount để làm gì
- 
-insert into  categories (CatID,CatName) value ( 1, "Crossbody")	
-insert into  categories (CatID,CatName) value ( 2, "Tote")
-insert into  categories (CatID,CatName) value ( 3, "Backpack")
-insert into  categories (CatID,CatName) value ( 4, "Duffle")
-insert into  categories (CatID,CatName) value ( 5, "Messenger")
-
-  
-insert into  brands (BraID,BraName)
+ insert into  brands (BraID,BraName)
 value ( 1, "Hershel");
 insert into  brands (BraID,BraName)
 value ( 2, "Nike");
@@ -84,76 +76,84 @@ value ( 4, "Swiss-gear");
 insert into  brands (BraID,BraName)
 value ( 5, "Under-amour");
 
-INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (1, "Alder Crossbody","Tier 3", "Features a clip-fastened strap, allowing it to be carried as a clutch, keep items organized within your bag.",29.99,1,1,10,0,'2018-06-01');
+insert into  categories (CatID,CatName) value ( 1, "Crossbody")	;
+insert into  categories (CatID,CatName) value ( 2, "Tote");
+insert into  categories (CatID,CatName) value ( 3, "Backpack");
+insert into  categories (CatID,CatName) value ( 4, "Duffle");
+insert into  categories (CatID,CatName) value ( 5, "Messenger");
+
+  
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (2, "Bamfield Tote","Tier 2", "Features an ample zippered main compartment, along with an external storage sleeve and tactical patch detailing",79.99,2,1,10,0,'2018-06-01');
+VALUES (1, "Alder Crossbody","Tier 3", "Features a clip-fastened strap, allowing it to be carried as a clutch, keep items organized within your bag.",29.99,1,1,10,10,'2018-07-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (3, "Dawson Backpack","Tier 2", "Crafted for everyday exploration, the Dawson backpack features a hidden drawcord cinch closure and additional storage with distinctive strap details.",69.99,3,1,10,0,'2018-06-01');
+VALUES (2, "Bamfield Tote","Tier 2", "Features an ample zippered main compartment, along with an external storage sleeve and tactical patch detailing",79.99,2,1,10,22,'2018-06-020');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (4, "Gorge Duffle","Tier 1", "Rendered in a lightweight water-resistant fabric with the added protection of a reinforced Ballistic nylon base,features an oversized U-shape zippered lid and Herschel Supply's signature shoe compartment.",139.99,4,1,10,0,'2018-06-01');
+VALUES (3, "Dawson Backpack","Tier 2", "Crafted for everyday exploration, the Dawson backpack features a hidden drawcord cinch closure and additional storage with distinctive strap details.",69.99,3,1,10,13,'2017-06-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (5, "Mica Tote","Tier 3", "The contemporary Mica tote features a zippered compartment with extended handles that allow it to be comfortably worn on the shoulder.",49.99,2,1,10,0,'2018-06-01');
+VALUES (4, "Gorge Duffle","Tier 1", "Rendered in a lightweight water-resistant fabric with the added protection of a reinforced Ballistic nylon base,features an oversized U-shape zippered lid and Herschel Supply's signature shoe compartment.",139.99,4,1,10,22,'2017-02-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (6, "Novel Duffle ","Tier 2", "The Major League Baseball® Herschel Novel™ duffle is an ideal weekender that features a side-access shoe compartment, along with iconic team logos and colors.",99.99,4,1,10,0,'2018-06-01');
+VALUES (5, "Mica Tote","Tier 3", "The contemporary Mica tote features a zippered compartment with extended handles that allow it to be comfortably worn on the shoulder.",49.99,2,1,10,0,'2018-06-21');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (7, "Odell Messenger","Tier 2", "The functional Odell messenger features a streamlined design with a clip-fastened seatbelt webbing strap and ample main compartment.",69.99,5,1,10,0,'2018-06-01');
+VALUES (6, "Novel Duffle ","Tier 2", "The Major League Baseball® Herschel Novel™ duffle is an ideal weekender that features a side-access shoe compartment, along with iconic team logos and colors.",99.99,4,1,10,3,'2018-01-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (8, "Pop Quiz Messenger","Tier 2", "The Herschel Pop Quiz™ Messenger is the quintessential modern shoulder bag with convenient compartments, including a protective laptop sleeve.",89.99,5,1,10,0,'2018-06-01');
+VALUES (7, "Odell Messenger","Tier 2", "The functional Odell messenger features a streamlined design with a clip-fastened seatbelt webbing strap and ample main compartment.",69.99,5,1,10,4,'2018-02-21');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (9, "Retreat Backpack","Tier 2", "The Herschel Retreat™ Mid-Volume backpack is a streamlined rendition of a classic mountaineering style, featuring a drawcord cinch closure and a strap detailed top flap.",79.99,3,1,10,0,'2018-06-01');
+VALUES (8, "Pop Quiz Messenger","Tier 2", "The Herschel Pop Quiz™ Messenger is the quintessential modern shoulder bag with convenient compartments, including a protective laptop sleeve.",89.99,5,1,10,30,'2018-06-22');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (10, "Woven Crossbody","Tier 3", "Worn over the shoulder, carried as a clutch, or used to keep items organized within your bag, this versatile accessory is finished with subtle Herschel Supply branding.",39.99,1,1,10,0,'2018-06-01');
+VALUES (9, "Retreat Backpack","Tier 2", "The Herschel Retreat™ Mid-Volume backpack is a streamlined rendition of a classic mountaineering style, featuring a drawcord cinch closure and a strap detailed top flap.",79.99,3,1,10,12,'2018-05-11');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (11, "Alpha Adapt Crossbody","Tier 3", "The Nike Alpha Adapt Big Kids' Crossbody Duffel Bag offers powerful durability and multiple carrying options for practice days or weekend trips.",30,1,2,10,0,'2018-06-01');
+VALUES (10, "Woven Crossbody","Tier 3", "Worn over the shoulder, carried as a clutch, or used to keep items organized within your bag, this versatile accessory is finished with subtle Herschel Supply branding.",39.99,1,1,10,12,'2018-03-08');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (12, "Basketball Backpack","Tier 2", "The Nike Hoops Elite Max Air Team 2.0 Graphic Basketball Backpack is designed with an innovative zip system so you can access your gear from any angle.",90,3,2,10,0,'2018-06-01');
+VALUES (11, "Alpha Adapt Crossbody","Tier 3", "The Nike Alpha Adapt Big Kids' Crossbody Duffel Bag offers powerful durability and multiple carrying options for practice days or weekend trips.",30,1,2,10,11,'2018-03-02');
+
+INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
+VALUES (12, "Basketball Backpack","Tier 2", "The Nike Hoops Elite Max Air Team 2.0 Graphic Basketball Backpack is designed with an innovative zip system so you can access your gear from any angle.",90,3,2,10,2,'2018-04-11');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (13, "Core Small Crossbody","Tier 3", "Featured a main zip compartment, a front zip compartment and a bonded zip pocket for all your essentials, with an adjustable shoulder strap for custom comfort.",20,1,2,10,0,'2018-06-01');
 
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (14, "Gym Club Duffel","Tier 3", "The Nike Gym Club Kids' Duffel Bag offers spacious storage and multiple carrying options so you can comfortably transport your gear from school to practice, the studio and your next game.",35,4,2,10,0,'2018-06-01');
+VALUES (14, "Gym Club Duffel","Tier 3", "The Nike Gym Club Kids' Duffel Bag offers spacious storage and multiple carrying options so you can comfortably transport your gear from school to practice, the studio and your next game.",35,4,2,10,0,'2018-10-21');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (15 , "Gym Tote","Tier 3", "The Nike Gym Tote Bag features dual handles and a spacious main compartment for convenient storage when you're on the move.",35,2,2,10,0,'2018-06-01');
+VALUES (15 , "Gym Tote","Tier 3", "The Nike Gym Tote Bag features dual handles and a spacious main compartment for convenient storage when you're on the move.",35,2,2,10,11,'2018-09-01');
  
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (16, "Hoops Elite Duffel","Tier 2", "A cushioned shoulder strap and water-resistant fabric deliver comfort and durable protection for essential equipment.",80,4,2,10,0,'2018-06-01');
+VALUES (16, "Hoops Elite Duffel","Tier 2", "A cushioned shoulder strap and water-resistant fabric deliver comfort and durable protection for essential equipment.",80,4,2,10,20,'2018-07-02');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (17, "Paul Smith Messenger","Tier 1", "Features an adjustable shoulder strap, a foldover top with magnetic closure, an internal zipped pocket, internal slip pockets, an embossed internal logo stamp.",597,5,2,10,0,'2018-06-01');
+VALUES (17, "Paul Smith Messenger","Tier 1", "Features an adjustable shoulder strap, a foldover top with magnetic closure, an internal zipped pocket, internal slip pockets, an embossed internal logo stamp.",597,5,2,10,16,'2018-06-02');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (18, "Responder Backpack","Tier 1", "The Nike SFS Responder Backpack is inspired by military essentials for durability, optimum function and versatility anywhere you go.",180,3,2,10,0,'2018-06-01');
+VALUES (18, "Responder Backpack","Tier 1", "The Nike SFS Responder Backpack is inspired by military essentials for durability, optimum function and versatility anywhere you go.",180,3,2,10,12,'2018-06-06');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (19, "Sportswear Tote","Tier 2", "The Nike Sportswear AF1 Tote Bag features cord handles that wrap around a large main compartment to create the perfect every day carryall.",85,2,2,10,0,'2018-06-01');
+VALUES (19, "Sportswear Tote","Tier 2", "The Nike Sportswear AF1 Tote Bag features cord handles that wrap around a large main compartment to create the perfect every day carryall.",85,2,2,10,20,'2018-06-03');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (20, "Watanabe Man Messenger","Tier 1", "Red MAN messenger bag from Junya Watanabe Comme Des Garçons. ",132,5,2,10,0,'2018-06-01');
+VALUES (20, "Watanabe Man Messenger","Tier 1", "Red MAN messenger bag from Junya Watanabe Comme Des Garçons. ",132,5,2,10,0,'2017-05-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (21, "Apex Gym Duffel","Tier 1", "Keep all of your indoor and outdoor exercise gear organized and ready to go with this voluminous 45-liter duffel.",210,4,3,10,0,'2018-06-01');
+VALUES (21, "Apex Gym Duffel","Tier 1", "Keep all of your indoor and outdoor exercise gear organized and ready to go with this voluminous 45-liter duffel.",210,4,3,10,15,'2017-09-13');
  
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (22, "Bardu Crossbody","Tier 3", "Features main compartment with slip-in pocket and key fob. Front stash pocket with pen slots. Secure velcro and buckle closure for main compartment.",20,1,3,10,0,'2018-06-01');
+VALUES (22, "Bardu Crossbody","Tier 3", "Features main compartment with slip-in pocket and key fob. Front stash pocket with pen slots. Secure velcro and buckle closure for main compartment.",20,1,3,10,22,'2018-04-15');
 
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (23, "Base Camp Duffel","Tier 1", "The 31-liter capacity provides ideal storage for overnighters or day trips and the exterior zip pocket stashes keys or a passport. ",190,4,3,10,0,'2018-06-01');
+VALUES (23, "Base Camp Duffel","Tier 1", "The 31-liter capacity provides ideal storage for overnighters or day trips and the exterior zip pocket stashes keys or a passport. ",190,4,3,10,0,'2018-04-17');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (24, "Face Recon Backpack","Tier 2", "Iconic 31-liter backpack updated with a stretch front stash pocket and improved organization. Padded, fleece-lined tablet sleeve located in the front compartment for quick access. ",60,3,3,10,0,'2018-06-01');
@@ -181,19 +181,19 @@ INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Qua
 VALUES (31, "1900 Duffel","Tier 2", "Catch hold of the SWISSGEAR 1900 duffel bag and carry it to places in the city and beyond. With an easy-to-reach front pocket, have access to your frequently used items and embark on easier travels.",60,4,4,10,0,'2018-06-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (32, "Black Backpack","Tier 3", "Look no further than the SWISSGEAR 3598 backpack to meet your carrying preferences. It’s an everyday backpack that entails modern functionality for commuters and travelers.",40,3,4,10,0,'2018-06-01');
+VALUES (32, "Black Backpack","Tier 3", "Look no further than the SWISSGEAR 3598 backpack to meet your carrying preferences. It’s an everyday backpack that entails modern functionality for commuters and travelers.",40,3,4,10,15,'2018-08-12');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (33, "Black Messenger","Tier 2", "This daily bag supply’s all the functions and accessibility that is needed for any occasion. Designed with a padded laptop sleeve compartment for extra protection , your valuable laptop will be safely secured.",99,5,4,10,0,'2018-06-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (34, "Black Tote","Tier 2", "Interior zippered pocket. Removable adjustable shoulder strap. Rear pocket unzips to become a Pass-Thru trolley sleeve to slide over the handle of wheeled luggage for easy travel.",79,2,4,10,0,'2018-06-01');
+VALUES (34, "Black Tote","Tier 2", "Interior zippered pocket. Removable adjustable shoulder strap. Rear pocket unzips to become a Pass-Thru trolley sleeve to slide over the handle of wheeled luggage for easy travel.",79,2,4,10,22,'2018-07-13');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (35, "Day Crossbody","Tier 3", "Want a sporty bag to carry your essentials and show some flair – the Jewel CrossBody bag is the one.",12,1,4,10,0,'2018-06-01');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
-VALUES (36, "Getaway Messenger","Tier 3", "Equipped with an integrated 13” laptop pocket, organizer pockets, and mesh interior water bottle pocket. Sporty yet sophisticated, this messenger bag is uniquely crafted.",40,5,4,10,0,'2018-06-01');
+VALUES (36, "Getaway Messenger","Tier 3", "Equipped with an integrated 13” laptop pocket, organizer pockets, and mesh interior water bottle pocket. Sporty yet sophisticated, this messenger bag is uniquely crafted.",40,5,4,10,23,'2018-01-17');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (37, "Jewel CrossBody","Tier 3", "Want a sporty bag to carry your essentials and show some flair – the Jewel CrossBody bag is the one.",15,1,4,10,0,'2018-06-01');
@@ -237,6 +237,4 @@ VALUES (49, "SC30 Backpack","Tier 2", "Tough, abrasion-resistant bottom panel. S
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (50, "Undeniable Duffle","Tier 1", "UA Storm technology delivers an element-battling, highly water-resistant finish. Tough, abrasion-resistant bottom & side panels. Large front zippered organization pocket. Adjustable, padded, HeatGear® shoulder strap for total comfort. Padded top grab handle.",109,4,5,10,0,'2018-06-01');
 
-select * 
-from products
-where products.ProID=17 or products.ProID=18 ;
+
