@@ -66,17 +66,17 @@ CREATE TABLE `orderdetails` (
 	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
  -- tui chưa bik cái amount để làm gì
 
-insert into  brands (BraID,BraName) value ( 1, `Hershel`);
-insert into  brands (BraID,BraName) value ( 2, `Nike`);
-insert into  brands (BraID,BraName) value ( 3, `North-face`);
-insert into  brands (BraID,BraName) value ( 4, `Swiss-gear`);
-insert into  brands (BraID,BraName) value ( 5, `Under-amour`);
+insert into  brands (BraID,BraName) value ( 1, "Hershel");
+insert into  brands (BraID,BraName) value ( 2, "Nike");
+insert into  brands (BraID,BraName) value ( 3, "North-face");
+insert into  brands (BraID,BraName) value ( 4, "Swiss-gear");
+insert into  brands (BraID,BraName) value ( 5, "Under-amour");
 
-insert into  categories (CatID,CatName) value ( 1, `Crossbody`)	;
-insert into  categories (CatID,CatName) value ( 2, `Tote`);
-insert into  categories (CatID,CatName) value ( 3, `Backpack`);
-insert into  categories (CatID,CatName) value ( 4, `Duffle`);
-insert into  categories (CatID,CatName) value ( 5, `Messenger`);
+insert into  categories (CatID,CatName) value ( 1, "Crossbody")	;
+insert into  categories (CatID,CatName) value ( 2, "Tote");
+insert into  categories (CatID,CatName) value ( 3, "Backpack");
+insert into  categories (CatID,CatName) value ( 4, "Duffle");
+insert into  categories (CatID,CatName) value ( 5, "Messenger");
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (1, "Alder Crossbody","Tier 3", "Features a clip-fastened strap, allowing it to be carried as a clutch, keep items organized within your bag.",29.99,1,1,10,10,'2018-07-01');
