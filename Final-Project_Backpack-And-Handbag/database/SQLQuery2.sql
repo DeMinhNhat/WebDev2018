@@ -65,24 +65,18 @@ CREATE TABLE `orderdetails` (
 	CONSTRAINT FK_OD_P FOREIGN KEY (`ProID`) REFERENCES products(`ProID`)
 	) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
  -- tui chưa bik cái amount để làm gì
- insert into  brands (BraID,BraName)
-value ( 1, "Hershel");
-insert into  brands (BraID,BraName)
-value ( 2, "Nike");
-insert into  brands (BraID,BraName)
-value ( 3, "North-face");
-insert into  brands (BraID,BraName)
-value ( 4, "Swiss-gear");
-insert into  brands (BraID,BraName)
-value ( 5, "Under-amour");
 
-insert into  categories (CatID,CatName) value ( 1, "Crossbody")	;
-insert into  categories (CatID,CatName) value ( 2, "Tote");
-insert into  categories (CatID,CatName) value ( 3, "Backpack");
-insert into  categories (CatID,CatName) value ( 4, "Duffle");
-insert into  categories (CatID,CatName) value ( 5, "Messenger");
+insert into  brands (BraID,BraName) value ( 1, `Hershel`);
+insert into  brands (BraID,BraName) value ( 2, `Nike`);
+insert into  brands (BraID,BraName) value ( 3, `North-face`);
+insert into  brands (BraID,BraName) value ( 4, `Swiss-gear`);
+insert into  brands (BraID,BraName) value ( 5, `Under-amour`);
 
-  
+insert into  categories (CatID,CatName) value ( 1, `Crossbody`)	;
+insert into  categories (CatID,CatName) value ( 2, `Tote`);
+insert into  categories (CatID,CatName) value ( 3, `Backpack`);
+insert into  categories (CatID,CatName) value ( 4, `Duffle`);
+insert into  categories (CatID,CatName) value ( 5, `Messenger`);
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (1, "Alder Crossbody","Tier 3", "Features a clip-fastened strap, allowing it to be carried as a clutch, keep items organized within your bag.",29.99,1,1,10,10,'2018-07-01');
@@ -123,13 +117,12 @@ VALUES (12, "Basketball Backpack","Tier 2", "The Nike Hoops Elite Max Air Team 2
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (13, "Core Small Crossbody","Tier 3", "Featured a main zip compartment, a front zip compartment and a bonded zip pocket for all your essentials, with an adjustable shoulder strap for custom comfort.",20,1,2,10,0,'2018-06-01');
 
-
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (14, "Gym Club Duffel","Tier 3", "The Nike Gym Club Kids' Duffel Bag offers spacious storage and multiple carrying options so you can comfortably transport your gear from school to practice, the studio and your next game.",35,4,2,10,0,'2018-10-21');
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (15 , "Gym Tote","Tier 3", "The Nike Gym Tote Bag features dual handles and a spacious main compartment for convenient storage when you're on the move.",35,2,2,10,11,'2018-09-01');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (16, "Hoops Elite Duffel","Tier 2", "A cushioned shoulder strap and water-resistant fabric deliver comfort and durable protection for essential equipment.",80,4,2,10,20,'2018-07-02');
 
@@ -147,10 +140,9 @@ VALUES (20, "Watanabe Man Messenger","Tier 1", "Red MAN messenger bag from Junya
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (21, "Apex Gym Duffel","Tier 1", "Keep all of your indoor and outdoor exercise gear organized and ready to go with this voluminous 45-liter duffel.",210,4,3,10,15,'2017-09-13');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (22, "Bardu Crossbody","Tier 3", "Features main compartment with slip-in pocket and key fob. Front stash pocket with pen slots. Secure velcro and buckle closure for main compartment.",20,1,3,10,22,'2018-04-15');
-
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (23, "Base Camp Duffel","Tier 1", "The 31-liter capacity provides ideal storage for overnighters or day trips and the exterior zip pocket stashes keys or a passport. ",190,4,3,10,0,'2018-04-17');
@@ -166,13 +158,12 @@ VALUES (26, "Heist Messenger","Tier 1", "Built for hauling lunches and 15 in. la
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (27, "Jester Backpack","Tier 3", "Our classic 29-liter Jester was redesigned with a comfortable back panel and shoulder straps. Padded laptop sleeve in the main compartment protects your goods from bumps and falls. ", 38,3,3,10,0,'2018-06-01');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (28, "Nylon Tote","Tier 3", "The North Face® hits the ground running with the On The Run Bag. Performance-driven tote bag with multiple storage options. Divided mesh pocket keeps gear separated.",10,2,3,10,0,'2018-06-01');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (29, "Rainy Tote","Tier 3", "We're donating $1 million to The Trust For Public Land to help build public climbing walls in U.S. communities. ",29,2,3,10,0,'2018-06-01');
-
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (30, "Timbuk Messenger","Tier 2", "With versatile straps that let you easily convert this from briefcase to backpack to messenger bag, the svelte Timbuk2 Heist briefcase makes commuting with a computer feel like a walk in the park.",50,5,3,10,0,'2018-06-01');
@@ -224,10 +215,10 @@ VALUES (45, "Packable Backpack","Tier 3", "UA Storm technology repels water with
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (46, "Rhino Duffle","Tier 3", "UA Storm technology delivers an element-battling, highly water-resistant finish. Tough, abrasion-resistant bottom & side panels.",45,4,5,10,0,'2018-06-01');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (47, "Rocket Crossbody","Tier 2", "Large main compartment to stash all your gear for the day. Top fold over panel features snap closure to stay secure.",69,1,5,10,0,'2018-06-01');
- 
+
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (48, "Run Tote","Tier 2", "UA Storm technology repels water to protect your gear from the elements. Main compartment zips shut on top with reflective pulls. Side stash pocket lined with soft Velboa to protect valuables.",67,2,5,10,0,'2018-06-01');
 
@@ -236,5 +227,3 @@ VALUES (49, "SC30 Backpack","Tier 2", "Tough, abrasion-resistant bottom panel. S
 
 INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Quantity, Clicks, ImportDate)
 VALUES (50, "Undeniable Duffle","Tier 1", "UA Storm technology delivers an element-battling, highly water-resistant finish. Tough, abrasion-resistant bottom & side panels. Large front zippered organization pocket. Adjustable, padded, HeatGear® shoulder strap for total comfort. Padded top grab handle.",109,4,5,10,0,'2018-06-01');
-
-
