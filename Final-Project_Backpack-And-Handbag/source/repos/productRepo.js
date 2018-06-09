@@ -7,14 +7,14 @@ exports.loadAll = () => {
 }
 
 exports.loadNewest = () => {
-	var sql = `select * fom products 
-	limit ${config.PRODUCTS_TO_EXPOSE} order by ImportDate desc`;
+	var sql = `select * from products
+	order by ImportDate desc limit ${config.PRODUCTS_TO_EXPOSE}`;
 	return db.load(sql);
 }
 
 exports.loadTopViewed = () => {
-	var sql = `select * fom products 
-	limit ${config.PRODUCTS_TO_EXPOSE} order by Clicks desc`;
+	var sql = `select * from products
+	order by Clicks desc limit ${config.PRODUCTS_TO_EXPOSE}`;
 	return db.load(sql);
 }
 

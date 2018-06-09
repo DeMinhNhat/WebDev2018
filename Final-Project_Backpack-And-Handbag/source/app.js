@@ -26,8 +26,8 @@ app.engine('hbs', exphbs({
 			var nf = wnumb({
 				mark: '.',
 				thousand: ',',
-				// prefix: '$ ',
-				suffix: 'VNĐ'
+				prefix: '$',
+				// suffix: 'VNĐ'
 			});
 			return nf.to(n);
 		}
