@@ -10,7 +10,7 @@
 }
 
 .footer img {
-    max-height: 30px;
+    max-height: 60px;
 }
 
 .logo-sm {
@@ -200,6 +200,7 @@ span#cart img {
 
 .header .logo {
     margin-top: 25px;
+    padding-left: 30px;
 }
 
 .header .introduce {
