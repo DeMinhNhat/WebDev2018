@@ -6,6 +6,7 @@ var path = require('path');
 var wnumb = require('wnumb');
 var session = require('express-session');
 
+var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
 
@@ -53,11 +54,14 @@ app.use(session({
 	// }
 }));
 
+app.use(handleLayoutMDW);
+
 app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
 app.use('/home', homeController);
+app.use('/product', productController);
 
 app.use(handle404MDW);
 

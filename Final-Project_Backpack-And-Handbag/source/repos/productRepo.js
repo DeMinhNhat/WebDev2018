@@ -28,9 +28,9 @@ exports.loadAllByCat = catId => {
 	return db.load(sql);
 }
 
-exports.loadSameCat = (catId, num) => {
+exports.loadSameCat = catId => {
 	var sql = `select * from products where CatID = ${catId} 
-	limit ${num} order by Clicks asc`;
+	order by Clicks asc limit ${config.PRODUCTS_TO_EXPOSE}`;
 	return db.load(sql);
 }
 
@@ -45,9 +45,9 @@ exports.loadAllByBra = braId => {
 	return db.load(sql);
 }
 
-exports.loadSameBra = (braId, num) => {
+exports.loadSameBra = braId => {
 	var sql = `select * from products where BraID = ${braId} 
-	limit ${num} order by Clicks asc`;
+	order by Clicks asc limit ${config.PRODUCTS_TO_EXPOSE}`;
 	return db.load(sql);
 }
 
