@@ -122,28 +122,44 @@
 /* Toolbar-Navigator */
 
 #itemCount {
-    background-color: white;
     border-radius: 50%;
-    padding: 5px 12px;
-    margin-top: 5px;
-    font-size: 1em;
+    margin-left:10px;
+    padding: 8px 15px;
+    font-size: 1.1em;
+    background-image: url('/imgs/icons/cart.png');
+}
+#mainNav::before{
+    background-color: grey;
+}
+.sticky-nav{
+    position: fixed;
+    top: 0;
+    width:100%;
+    z-index: 1;
+}
+.navbar #cart {
+    /* position: absolute; */
+    right: 10px;
+    /* margin: 0; */
 }
 
-.navbar #cart {
-    position: absolute;
-    right: 10px;
-    margin: 0;
+span#cart img {
+    border-radius: 50%;
+}
+
+.navbar #cart a:hover {
+    text-decoration:  none;
 }
 
 .navbar .form-inline {
-    right: 110px;
-    position: absolute;
+    /* right: 110px; */
+    /* position: absolute; */
 }
 
 .navbar {
-    padding-top: 1px;
+    padding-top: 0px;
     padding-bottom: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .navbar .nav-link {
@@ -264,4 +280,16 @@
 
 body {
     background-color: grey;
+}
+.container-fluid{
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+}
+.container{
+    padding-left:0;
+    padding-right:0;
+    margin-right:auto;
+    margin-left:auto
 }

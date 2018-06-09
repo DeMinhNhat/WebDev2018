@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   $('#recipeCarousel').carousel({
     interval: 10000
   })
@@ -19,5 +20,20 @@ $(document).ready(function() {
       next.children(':first-child').clone().appendTo($(this));
     }
   });
+  //Sticky header
+  var navBar = $('#mainNav');
+  var sticky = navBar.offset().top;
 
-});
+  $(window).on('scroll',function(){
+    if(window.pageYOffset >= sticky){
+      navBar.addClass('sticky-nav');
+      navBar.addClass('bg-dark')
+    }
+    else {
+      navBar.removeClass('sticky-nav');
+      navBar.removeClass('bg-dark')
+    }
+    console.log(navBar);
+    console.log(window.pageYOffset + ' ' + sticky);
+  });
+})
