@@ -21,9 +21,9 @@ $(document).ready(function() {
     }
   });
 
-  $('.carousel-inner :first-child').classList.addClass('active');
+  $('.carousel-inner :first-child').addClass('active');
 
-  $('.carousel :first-child').classList.addClass('active');
+  $('.carousel :first-child').addClass('active');
   
   //Sticky header
   var navBar = $('#mainNav');
