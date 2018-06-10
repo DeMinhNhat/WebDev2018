@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
 	var p2 = productRepo.loadTopViewed();
 	// được mua nhiều nhất, chưa bik viết
 	var p3 = productRepo.loadTopViewed();
-
 	Promise.all([p1, p2, p3]).then(([newest, top_viewed, top_sold]) => {
 		vm = {
 			newest: newest,

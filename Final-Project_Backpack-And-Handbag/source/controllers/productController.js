@@ -77,7 +77,6 @@ router.get('/detail/:proId', (req, res) => {
 
 	productRepo.single(proId).then(rows => {
 		if (rows.length > 0) {
-
 			var p1 = productRepo.loadSameCat(rows[0].CatID);
 			var p2 = productRepo.loadSameBra(rows[0].BraID);
 

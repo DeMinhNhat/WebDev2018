@@ -1,5 +1,5 @@
-/*  */
-/* Backpack item */
+
+
 .backpack-item a {
     text-decoration:  none;
     color: black;
@@ -48,14 +48,11 @@
     margin: 5px auto;
     display: block;
 }
-/*  */
-
 .pagination{
     float: right;
     margin:10px 0 0 0;
 }
 
-/*  */
 .topPath{
     background-color: rgb(204, 203, 203);
     padding-top:5px;
@@ -118,7 +115,6 @@ h3.panel-title {
     padding-bottom: 5px;
     text-align: center;
 }
-/* Footer */
 .footer{
     background-color: #f2f2f2;
     text-align: center;
@@ -141,64 +137,10 @@ h3.panel-title {
     cursor:pointer;
     text-shadow: 1px 1px grey;
 }
-/* Toolbar-Navigator */
 #itemCount{
     background-color: white;
     border-radius: 50%;
     padding:5px 12px;
     margin-top: 5px;
     font-size: 1em;
-}
-.navbar #cart{
-    position:absolute;
-    right:10px;
-    margin:0;
-}
-.navbar .form-inline{
-    right: 110px;
-    position:absolute;
-}
-.navbar{
-    padding-top:1px;
-    padding-bottom:0px;
-    margin-bottom: 5px;
-}
-.navbar .nav-link{
-    color:whitesmoke;
-    padding: 10px 10px;
-}
-.navbar .nav-link:hover{
-    color:black;
-    background-color: white;
-}
-/* header */
-.header {
-    min-height: 200px;
-    background-color: #f0f0f0;
-}
-.header .logo{
-    margin-top:25px;
-}
-
-.header .introduce{
-    margin-top:40px;
-}
-
-#signup,#signin{
-    padding: 3px 5px;
-    margin: 0 2px;
-    position: absolute;
-    top:0;
-    right:0;
-    font-size: small;
-}
-#signin{
-    transform: translateX(-125%);
-}
-#signup{
-    transform: translateX(-20%);
-}
-/* Body */
-body{
-    background-color:grey;
 }
