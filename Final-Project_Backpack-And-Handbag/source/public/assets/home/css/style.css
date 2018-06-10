@@ -237,7 +237,9 @@ span#cart img {
 #signup {
     transform: translateX(-20%);
 }
-
+button#fb-connect, button#gg-connect{
+    border-radius:25px;
+}
 /* Backpack item */
 
 .backpack-item {

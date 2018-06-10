@@ -39,8 +39,8 @@ $(document).ready(function() {
     //     }
     // });
     
-    $('#signupModal').modal({
-        backdrop: 'static',
-        keyboard: false
-    });
+    // $('#signupModal').modal({
+    //     backdrop: 'static',
+    //     keyboard: false
+    // });
 });
