@@ -137,10 +137,3 @@ h3.panel-title {
     cursor:pointer;
     text-shadow: 1px 1px grey;
 }
-#itemCount{
-    background-color: white;
-    border-radius: 50%;
-    padding:5px 12px;
-    margin-top: 5px;
-    font-size: 1em;
-}

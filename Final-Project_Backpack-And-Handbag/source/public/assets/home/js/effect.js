@@ -28,14 +28,17 @@ $(document).ready(function() {
   //Sticky header
   var navBar = $('#mainNav');
   var sticky = navBar.offset().top;
+  var searchBar = $('.searchBar');
 
   $(window).on('scroll', function() {
     if (window.pageYOffset >= sticky) {
       navBar.addClass('sticky-nav');
-      navBar.addClass('bgdark')
+      navBar.addClass('bgdark');
+      searchBar.addClass('onTop');
     } else {
       navBar.removeClass('sticky-nav');
-      navBar.removeClass('bgdark')
+      navBar.removeClass('bgdark');
+      searchBar.removeClass('onTop');
     }
   });
 

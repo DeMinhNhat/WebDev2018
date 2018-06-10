@@ -196,7 +196,16 @@ span#cart img {
     right: 10px;
     position: absolute;
 }
+.searchBar{
+    display: none;
+}
 
+.searchBar-top{
+    margin-top:80px;
+}
+.onTop{
+    display: block;
+}
 /* header */
 
 .header {
@@ -212,6 +221,8 @@ span#cart img {
 .header .introduce {
     /* margin-top: 40px; */
 }
+
+
 
 #signup,
 #signin {
