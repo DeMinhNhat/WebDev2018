@@ -1,5 +1,5 @@
 {{#section 'title'}}
-Sản phẩm 
+Sản phẩm thuộc {{BraName}}
 {{/section}}
 
 {{#section 'css'}}
@@ -20,7 +20,7 @@ Sản phẩm
 						<a href="#"> ssgBackpack</a>
 					</span>
 					<span>/</span>
-					<span class="breadCum-item active">Sản phẩm</span>
+					<span class="breadCum-item active">{{BraName}}</span>
 				</span>
 			</div>
 			<div class="col-lg-5">
@@ -84,25 +84,24 @@ Sản phẩm
 
 				</div>
 
-				<ul id="paging-bar" class="pagination">
+				<ul id="paging-bar" class="pagination pagination-sm">
 					<li class="page-item disabled">
 						<a class="page-link" href="#">Previous</a>
 					</li>
 
-					<li><a href="#">&laquo;</a></li>
 					{{#each page_numbers}}
 					{{#if isCurrentPage}}
-					<li class="active"><a href="javascript:;">{{value}}</a></li>
+					<li class="page-item active"><a class="page-link" href="javascript:;">{{value}}</a></li>
 					{{else}}
-					<li><a href="?page={{value}}">{{value}}</a></li>
+					<li class="page-item"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
 					{{/if}}
 					{{/each}}
-					<li><a href="#">&raquo;</a></li>
 
 					<li class="page-item">
 						<a class="page-link" href="#">Next</a>
 					</li>
 				</ul>
+
 			</div>
 			{{/if}}
 		</div>
