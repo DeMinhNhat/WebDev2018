@@ -34,10 +34,13 @@ $(document).ready(function() {
     if (window.pageYOffset >= sticky) {
       navBar.addClass('sticky-nav');
       navBar.addClass('bgdark');
-      searchBar.addClass('onTop');
     } else {
       navBar.removeClass('sticky-nav');
       navBar.removeClass('bgdark');
+    }
+    if(window.pageYOffset >= 110){
+      searchBar.addClass('onTop');
+    } else{
       searchBar.removeClass('onTop');
     }
   });

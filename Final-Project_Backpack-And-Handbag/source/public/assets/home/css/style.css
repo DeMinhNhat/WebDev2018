@@ -201,7 +201,8 @@ span#cart img {
 }
 
 .searchBar-top{
-    margin-top:80px;
+    display :flex;
+    align-items: center;
 }
 .onTop{
     display: block;
@@ -217,11 +218,6 @@ span#cart img {
     margin-top: 25px;
     padding-left: 30px;
 }
-
-.header .introduce {
-    /* margin-top: 40px; */
-}
-
 
 
 #signup,
