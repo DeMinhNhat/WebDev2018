@@ -32,12 +32,11 @@ $(document).ready(function() {
   $(window).on('scroll', function() {
     if (window.pageYOffset >= sticky) {
       navBar.addClass('sticky-nav');
-      navBar.addClass('bg-dark')
+      navBar.addClass('bgdark')
     } else {
       navBar.removeClass('sticky-nav');
-      navBar.removeClass('bg-dark')
+      navBar.removeClass('bgdark')
     }
-    console.log(navBar);
-    console.log(window.pageYOffset + ' ' + sticky);
   });
+
 });

@@ -161,6 +161,9 @@ span#cart img {
     padding-bottom: 0px;
     margin-bottom: 0px;
 }
+.bgdark {
+    background-color: #141614;
+}
 /*  */
 .navbar-nav{
     padding-left:15px;
@@ -207,7 +210,7 @@ span#cart img {
 }
 
 .header .introduce {
-    margin-top: 40px;
+    /* margin-top: 40px; */
 }
 
 #signup,
@@ -283,7 +286,7 @@ span#cart img {
 }
 
 body {
-    background-color: grey;
+    background-color: #333;
 }
 .container-fluid{
     padding-right:0;
