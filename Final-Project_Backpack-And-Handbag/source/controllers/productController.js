@@ -1,6 +1,8 @@
 var express = require('express'),
-	productRepo = require('../repos/productRepo'),
-	config = require('../config/config');
+productRepo = require('../repos/productRepo'),
+brandRepo = require('../repos/brandRepo'),
+categoryRepo = require('../repos/categoryRepo'),
+config = require('../config/config');
 
 var router = express.Router();
 
@@ -15,7 +17,9 @@ router.get('/byCat/:catId', (req, res) => {
 
 	var p1 = productRepo.loadPageByCat(catId, offset);
 	var p2 = productRepo.countByCat(catId);
-	Promise.all([p1, p2]).then(([rows, count_rows]) => {
+	var p3 = categoryRepo.single(catId);
+
+	Promise.all([p1, p2, p3]).then(([rows, count_rows, cats]) => {
 		var total = count_rows[0].total;
 		var nPages = total / config.PRODUCTS_PER_PAGE;
 		if (total % config.PRODUCTS_PER_PAGE > 0)
@@ -30,6 +34,7 @@ router.get('/byCat/:catId', (req, res) => {
 		}
 
 		var vm = {
+			CatName: cats[0].CatName,
 			products: rows,
 			noProducts: rows.length === 0,
 			page_numbers: numbers
@@ -49,7 +54,9 @@ router.get('/byBra/:braId', (req, res) => {
 
 	var p1 = productRepo.loadPageByBra(braId, offset);
 	var p2 = productRepo.countByBra(braId);
-	Promise.all([p1, p2]).then(([rows, count_rows]) => {
+	var p3 = brandRepo.single(braId);
+
+	Promise.all([p1, p2, p3]).then(([rows, count_rows, bras]) => {
 		var total = count_rows[0].total;
 		var nPages = total / config.PRODUCTS_PER_PAGE;
 		if (total % config.PRODUCTS_PER_PAGE > 0)
@@ -64,6 +71,7 @@ router.get('/byBra/:braId', (req, res) => {
 		}
 
 		var vm = {
+			BraName: bras[0].BraName,
 			products: rows,
 			noProducts: rows.length === 0,
 			page_numbers: numbers
@@ -75,7 +83,7 @@ router.get('/byBra/:braId', (req, res) => {
 router.get('/detail/:proId', (req, res) => {
 	var proId = req.params.proId;
 
-	productRepo.single(proId).then(rows => {
+	productRepo.loadSingle(proId).then(rows => {
 		if (rows.length > 0) {
 			var p1 = productRepo.loadSameCat(rows[0].CatID);
 			var p2 = productRepo.loadSameBra(rows[0].BraID);

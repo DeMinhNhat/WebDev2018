@@ -72,4 +72,14 @@ exports.single = id => {
 	return db.load(sql);
 }
 
+exports.loadSingle = id => {
+	var sql = `select products.*, categories.CatName as CatName,
+	brands.BraName as BraName, brands.Origin as Origin
+	from products
+	inner join categories on products.CatID = categories.CatID
+	inner join brands on products.BraID = brands.BraID
+	where ProID = ${id}`;
+	return db.load(sql);
+}
+
 // các hàm cho việc tìm kiếm theo tên, loại, thương hiệu, giá cả...
