@@ -1,9 +1,11 @@
+var multer = require('multer'); // for upload files
 var express = require('express');
 var exphbs = require('express-handlebars');
 var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
+var dateformat = require('dateformat');
 var session = require('express-session');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
@@ -31,6 +33,10 @@ app.engine('hbs', exphbs({
 				// suffix: 'VNĐ'
 			});
 			return nf.to(n);
+		},
+		date_format: n => {
+			var df = dateformat(n, "dS, mmmm, yyyy");
+			return df;
 		}
 	}
 }));
@@ -55,6 +61,11 @@ app.use(session({
 }));
 
 app.use(handleLayoutMDW);
+
+// đang dùng để test submit
+app.post('*', (req, res) => {
+	res.redirect("http://google.com");
+});
 
 app.get('/', (req, res) => {
 	res.redirect('/home');

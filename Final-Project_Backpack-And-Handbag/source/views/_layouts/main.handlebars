@@ -22,12 +22,12 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                   <a href="/"><img src="/imgs/logo/logo-2.png"></a>
-               </div>
-               <div class="col-md-4  searchBar-top">
-                <form class="form-inline" action="#">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30">
-                    <button class="btn btn-danger" type="submit">
+                 <a href="/"><img src="/imgs/logo/logo-2.png"></a>
+             </div>
+             <div class="col-md-4 searchBar-top">
+                <form class="form-inline" method="POST" action="" id="frmSearch">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30" id="txtSearch">
+                    <button class="btn btn-danger" id="btnSearch" type="submit" href="javascript:;">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -219,7 +219,7 @@
                             </div>
                             <i class="fas fa-chevron-right"></i>
                         </div>
-                        <a class="dropdown-item" href="#">Phụ kiện</a>
+                        <a class="dropdown-item" href="/product">Phụ kiện</a>
                     </div>
                 </li>
                 <li class="nav-item">

@@ -38,9 +38,9 @@ $(document).ready(function() {
     //         next.children(':first-child').clone().appendTo($(this));
     //     }
     // });
-    
-    // $('#signupModal').modal({
-    //     backdrop: 'static',
-    //     keyboard: false
-    // });
+
+    $('#signupModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
 });

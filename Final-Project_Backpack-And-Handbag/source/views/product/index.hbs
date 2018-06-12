@@ -20,7 +20,7 @@ Các sản phẩm
 						<a href="#"> ssgBackpack</a>
 					</span>
 					<span>/</span>
-					<span class="breadCum-item active">{{BraName}}</span>
+					<span class="breadCum-item active"> Các sản phẩm</span>
 				</span>
 			</div>
 			<div class="col-lg-5">
@@ -61,7 +61,9 @@ Các sản phẩm
 
 			{{#if noProducts}}
 			<div class="col-lg-10">
-				NO PRODUCTS
+				<div style="padding:0px;margin-right:20px;margin-top:20px;margin-bottom:20px;">
+					<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
+				</div>
 			</div>
 			{{else}}
 
@@ -77,7 +79,7 @@ Các sản phẩm
 							<div class="bp-name">{{ProName}}</div>
 							<div class="bp-name">{{TinyDes}}</div>
 							<div class="bp-price">{{number_format Price}}</div>
-							<div class="bp-name">{{ImportDate}}</div>
+							<div class="bp-name">{{date_format ImportDate}}</div>
 						</a>
 					</div>
 					{{/each}}

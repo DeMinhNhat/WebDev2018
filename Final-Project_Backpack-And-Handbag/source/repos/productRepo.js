@@ -23,6 +23,17 @@ exports.loadTopSold = () => {
 	return db.load(sql);
 }
 
+exports.loadPage = offset => {
+	var sql = `select * from products 
+	limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	return db.load(sql);
+}
+
+exports.count = () => {
+	var sql = `select count(*) as total from products`;
+	return db.load(sql);
+}
+
 exports.loadAllByCat = catId => {
 	var sql = `select * from products where CatID = ${catId}`;
 	return db.load(sql);
