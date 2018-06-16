@@ -38,9 +38,11 @@ $(document).ready(function() {
     //         next.children(':first-child').clone().appendTo($(this));
     //     }
     // });
-
-    $('#signupModal').modal({
-        backdrop: 'static',
-        keyboard: false
-    });
+    /////////////// TESTING
+    //Toggle Signup modal for TESTING
+    // $('#signupModal').modal({
+    //     backdrop: 'static',
+    //     keyboard: false
+    // });
+    ////////////////////////
 });

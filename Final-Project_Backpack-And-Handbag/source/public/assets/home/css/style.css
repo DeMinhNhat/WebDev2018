@@ -186,6 +186,10 @@ span#cart img {
     transform: translateY(-2%);
 }
 
+.navbar .dropright>.dropdown-menu {
+    transform: translateX(-2%);
+}
+
 .navbar .dropdown-item:hover {
     background-color: #363C42;
     color: white;
@@ -235,7 +239,7 @@ span#cart img {
 }
 
 #signup {
-    transform: translateX(-20%);
+    transform: translateX(-25%);
 }
 button#fb-connect, button#gg-connect{
     border-radius:25px;
