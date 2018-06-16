@@ -90,7 +90,7 @@ span .active{
 }
 #productView {
     background-color: white;
-    height: 1680px;
+    min-height: 480px;
     margin-top: 10px;
     padding-top: 25px;
 }
