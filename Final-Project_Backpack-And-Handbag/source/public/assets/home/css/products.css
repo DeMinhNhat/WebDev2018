@@ -60,9 +60,15 @@
 }
 .breadCum a {
     text-decoration: none;
+    color: #000000;
+}
+
+.breadCum a:hover {
+    color: #dd4145;
 }
 span .active{
     color:#000000;
+    font-weight: 700;
 }
 .sortSel > a{
     text-decoration: none;
@@ -101,19 +107,27 @@ h3.panel-title {
 
 .panel-heading {
     border: 1px solid #d6d6d6;
-    background-color: #d6d6d6;
+    background-color: #313333;
     text-align:  center;
     display:  block;
     padding-top: 5px;
+    color: white;
 }
 
 .panel.panel-default {
     margin-top: 10px;
+    width: 180px;
 }
 .panel .list-group-item{
     padding-top:5px;
     padding-bottom: 5px;
     text-align: center;
+    color: black;
+}
+
+.panel .list-group-item:hover {
+    color: blue;
+    font-weight: 700;
 }
 .footer{
     background-color: #f2f2f2;

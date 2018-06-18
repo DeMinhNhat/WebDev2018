@@ -51,17 +51,22 @@ transform: translateX(0);
 }
 .topPath{
     background-color: rgb(204, 203, 203);
-    padding:5px;
+    padding: 5px 0;
 }
 .breadCum a {
     text-decoration: none;
+    color: #000000;
+}
+
+.breadCum a:hover {
+    color: #dd4145;
 }
 span .active{
     color:#000000;
-    font-weight: 500;
+    font-weight: 700;
 }
 /*  */
-button.btn.btn-outline-info, button.btn.btn-outline-info.collapsed {
+button.btn.btn-dark, button.btn.btn-dark.collapsed {
     margin: 20px auto 0 auto;
     display: block;
     padding: 3px;
@@ -84,8 +89,7 @@ div#describe {
 button#buynow-btn {
 }
 
-button#addcart-btn {
-}
+button#addcart-btn {font-weight: 500;}
 .detail-info {
     padding-top: 10px;
 }
@@ -121,6 +125,7 @@ div#price {
     background-color: #f2f2f2;
     padding: 10px;
     padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
 }
 /* Img slider */
