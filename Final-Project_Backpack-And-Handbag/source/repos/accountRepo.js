@@ -16,7 +16,7 @@ exports.update = user => {
 }
 
 exports.login = user => {
-	var sql = `select * from users where f_Username = '${user.username}' 
+	var sql = `select * from users where f_Email = '${user.email}' 
 	and f_Password = '${user.password}'`;
 	return db.load(sql);
 }

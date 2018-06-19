@@ -24,7 +24,7 @@ $(document).ready(function() {
   $('.carousel-inner :first-child').addClass('active');
 
   $('.carousel :first-child').addClass('active');
-  
+
   //Sticky header
   var navBar = $('#mainNav');
   var sticky = navBar.offset().top;
@@ -38,11 +38,30 @@ $(document).ready(function() {
       navBar.removeClass('sticky-nav');
       navBar.removeClass('bgdark');
     }
-    if(window.pageYOffset >= 110){
+    if (window.pageYOffset >= 110) {
       searchBar.addClass('onTop');
-    } else{
+    } else {
       searchBar.removeClass('onTop');
     }
   });
 
+  $('.Bra1').on('click', function() {
+    window.location.href = "/product/byBra/1";
+  });
+
+  $('.Bra2').on('click', function() {
+    window.location.href = "/product/byBra/2";
+  });
+
+  $('.Bra3').on('click', function() {
+    window.location.href = "/product/byBra/3";
+  });
+
+  $('.Bra4').on('click', function() {
+    window.location.href = "/product/byBra/4";
+  });
+
+  $('.Bra5').on('click', function() {
+    window.location.href = "/product/byBra/5";
+  });
 });

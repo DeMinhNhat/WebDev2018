@@ -22,12 +22,15 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                 <a href="/"><img src="/imgs/logo/logo-2.png"></a>
-             </div>
-             <div class="col-md-4 searchBar-top">
+                   <a href="/"><img src="/imgs/logo/logo-2.png"></a>
+               </div>
+               <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="POST" action="" id="frmSearch">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch">
-                    <button class="btn btn-danger" id="btnSearch" type="submit" href="javascript:;">
+                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                    <input type="hidden" value="search" name="typeSubmit">
+                    
+                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
+                    <button class="btn btn-danger" id="btnSearch" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
@@ -69,7 +72,11 @@
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form id="login-form" action="#">
+                        <form method="POST" action="" id="login-form">
+
+                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                            <input type="hidden" value="login" name="typeSubmit">
+                            
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -83,7 +90,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ đăng nhập
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-dark btn-block" form="login-form" data-dismiss="modal">Go Shopping</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}}>Go Shopping</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
@@ -113,7 +120,11 @@
                         <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
                         <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
                         <hr>
-                        <form action="" id="signup-form">
+                        <form method="POST" action="" id="signup-form">
+
+                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                            <input type="hidden" value="signup" name="typeSubmit">
+                            
                             <div class="form-group">
                                 <label for="email-signup">Email:</label>
                                 <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
@@ -176,6 +187,7 @@
                     </div>
 
                     <!-- Modal footer -->
+                    {{!-- button này nó nằm ngoài form rồi cha :3 --}}
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
                     </div>
@@ -204,22 +216,22 @@
                         <div class="dropdown dropright dropdown-item">
                             Ba lô
                             <div class="dropdown-menu dropdown-backpack">
-                                <a class="dropdown-item" href="/product/byCat/3">Backpack</a>
-                                <a class="dropdown-item" href="/product/byCat/5">Messenger</a>
+                                <a class="dropdown-item" href="/product/byCat/3">Ba lô đeo vai</a>
+                                <a class="dropdown-item" href="/product/byCat/5">Túi người đưa thư</a>
                             </div>
                             <i class="fas fa-chevron-right"></i>
                         </div>
                         {{!-- --}}
                         <div class="dropdown dropright dropdown-item">
-                            Túi xách
+                            Túi
                             <div class="dropdown-menu dropdown-backpack">
-                                <a class="dropdown-item" href="/product/byCat/1">Crossbody </a>
-                                <a class="dropdown-item" href="/product/byCat/4">Duffle</a>
-                                <a class="dropdown-item" href="/product/byCat/2">Tote</a>
+                                <a class="dropdown-item" href="/product/byCat/1">Túi vắt chéo thân</a>
+                                <a class="dropdown-item" href="/product/byCat/4">Túi du lịch</a>
+                                <a class="dropdown-item" href="/product/byCat/2">Túi xách</a>
                             </div>
                             <i class="fas fa-chevron-right"></i>
                         </div>
-                        <a class="dropdown-item" href="/product">Phụ kiện</a>
+                        <a class="dropdown-item" href="/product">Tất cả</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -239,11 +251,20 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <span id="cart">
-                    <a href="#">
-                        <span id="itemCount">0</span>
-                    </a>
-                </span>
+
+                <form method="POST" action="">
+                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                    <input type="hidden" value="cart_btn" name="typeSubmit">
+                    <span id="cart">
+                        <a type="submit">
+                            <span id="itemCount">0</span>
+                        </a>
+                    </span>
+                    {{!-- đang dùng để test :3 --}}
+                    <button class="btn btn-danger" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </ul>
         </div>
     </nav>

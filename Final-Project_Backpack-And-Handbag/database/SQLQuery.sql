@@ -29,9 +29,6 @@ CREATE TABLE `users` (
 	PRIMARY KEY (`f_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Tui thêm số lần click với ngày nhập sp vào đây để bik được sản phẩm được xem nhiều nhất, mới nhất
--- Trong phần yêu cầu có xuất xứ (chắc là made in ở đâu) => tui k bik cho cái này vào database hay dùng đinh dạng html cho vào fullDes như thầy chỉ
-
 CREATE TABLE `products` (
 	`ProID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`ProName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -60,7 +57,6 @@ CREATE TABLE `orders` (
 	FOREIGN KEY (`UserID`) REFERENCES users(`f_ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- mỗi order có nhiều order details chứa các sp (mỗi order details là 1 sp được chọn mua trong 1 order) (tui nghĩ là thế :3)
 CREATE TABLE `orderdetails` (
 	`ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`OrderID` int(11) UNSIGNED NOT NULL,
@@ -74,7 +70,6 @@ CREATE TABLE `orderdetails` (
 	INDEX ProId (ProID),
 	FOREIGN KEY (`ProID`) REFERENCES products(`ProID`) ON DELETE CASCADE
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
- -- tui chưa bik cái amount để làm gì
 
 insert into  brands (BraID,BraName,Origin) value ( 1, "Herschel", "Canada");
 insert into  brands (BraID,BraName,Origin) value ( 2, "Nike", "Amenican");

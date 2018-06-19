@@ -62,10 +62,9 @@ app.use(session({
 
 app.use(handleLayoutMDW);
 
-// đang dùng để test submit
-app.post('*', (req, res) => {
-	res.redirect("http://google.com");
-});
+// tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
+var postController = require('./controllers/postController');
+app.use('', postController);
 
 app.get('/', (req, res) => {
 	res.redirect('/home');
@@ -73,6 +72,7 @@ app.get('/', (req, res) => {
 
 app.use('/home', homeController);
 app.use('/product', productController);
+app.use('/account', accountController);
 
 app.use(handle404MDW);
 
