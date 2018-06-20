@@ -73,10 +73,10 @@ CREATE TABLE `orderdetails` (
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 insert into  brands (BraID,BraName,Origin) value ( 1, "Herschel", "Canada");
-insert into  brands (BraID,BraName,Origin) value ( 2, "Nike", "Amenican");
-insert into  brands (BraID,BraName,Origin) value ( 3, "North-face", "Amenican");
+insert into  brands (BraID,BraName,Origin) value ( 2, "Nike", "Amenica");
+insert into  brands (BraID,BraName,Origin) value ( 3, "North-face", "Amenica");
 insert into  brands (BraID,BraName,Origin) value ( 4, "Swiss-gear", " Switzerland");
-insert into  brands (BraID,BraName,Origin) value ( 5, "Under-armour", "American");
+insert into  brands (BraID,BraName,Origin) value ( 5, "Under-armour", "America");
 
 insert into  categories (CatID,CatName) value ( 1, "Túi vắt chéo thân")	;
 insert into  categories (CatID,CatName) value ( 2, "Túi xách");
