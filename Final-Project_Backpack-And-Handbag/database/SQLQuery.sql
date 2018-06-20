@@ -22,9 +22,10 @@ CREATE TABLE `users` (
 	`f_ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 	`f_Username` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
 	`f_Password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-	`f_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
 	`f_Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
 	`f_DOB` date NOT NULL,
+	`f_Gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+	`f_Phone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
 	`f_Permission` int(11) NOT NULL,
 	PRIMARY KEY (`f_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

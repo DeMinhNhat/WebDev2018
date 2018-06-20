@@ -1,4 +1,8 @@
-var express = require('express');
+var express = require('express'),
+	sha256 = require('crypto-js/sha256'),
+	moment = require('moment');
+
+var restrict = require('../middle-wares/restrict');
 var accountRepo = require('../repos/accountRepo');
 
 var router = express.Router();
@@ -7,46 +11,78 @@ router.post('*', (req, res) => {
 
 	var typeSubmit = req.body.typeSubmit;
 
-	if (typeSubmit === 'search')
-		res.redirect("http://google.com");
-	else
-	if (typeSubmit === 'signup')
-		res.redirect("https://bitbucket.org/");
-	else
-		// test thực sự :))
-		if (typeSubmit === 'login') {
-
-			var user = {
-				email: req.body.email,
-				password: req.body.pswd
+	switch (typeSubmit) {
+		case 'search':
+			search(req, res);
+			break;
+		case 'signup':
+			signup(req, res);
+			break;
+		case 'login':
+			login(req, res);
+			break;
+		default:
+			var vm = {
+				showError: true,
+				errorMsg: 'Something goes wrong'
 			};
-
-			accountRepo.login(user).then(rows => {
-				if (rows.length > 0) {
-					req.session.isLogged = true;
-					req.session.curUser = rows[0];
-					req.session.cart = [];
-
-					var url = '/';
-					if (req.query.retUrl) {
-						url = req.query.retUrl;
-					}
-					res.redirect(url);
-				} else {
-					var vm = {
-						showError: true,
-						errorMsg: 'Login failed'
-					};
-					res.redirect("http://www.passportjs.org/");
-				}
-			});
-		}
-	else
-	if (typeSubmit === 'cart_btn')
-		res.redirect("http://facebook.com");
-	else
-		// trường hợp k có typeSubmit :(((
-		res.redirect("http://pornhub.com");
+			res.redirect(req.headers.referer, vm);
+	}
 });
 
 module.exports = router;
+
+var login = (req, res) => {
+	var user = {
+		email: req.body.email,
+		password: req.body.pswd
+	};
+
+	accountRepo.login(user).then(rows => {
+		if (rows.length > 0) {
+			req.session.isLogged = true;
+			req.session.curUser = rows[0];
+			req.session.cart = [];
+
+			res.redirect(req.headers.referer);
+		} else {
+			var vm = {
+				showError: true,
+				errorMsg: 'Login failed'
+			};
+			res.redirect(req.headers.referer);
+		}
+	});
+}
+
+var signup = (req, res) => {
+	var birday = moment(req.body.birday).format('YYYY-MM-DDTHH:mm');
+
+	var user = {
+		email: req.body.email,
+		username: req.body.username,
+		password: sha256(req.body.pswd).toString(),
+		dob: birday,
+		gender: req.body.gender,
+		phone: req.body.phone,
+		permisson: 0
+	};
+
+	accountRepo.add(user).then(value => {
+		accountRepo.login(user).then(rows => {
+			if (rows.length > 0) {
+				req.session.isLogged = true;
+				req.session.curUser = rows[0];
+				req.session.cart = [];
+
+				res.redirect(req.headers.referer);
+			} else {
+				var vm = {
+					showError: true,
+					errorMsg: 'Login failed'
+				};
+				res.redirect(req.headers.referer);
+			}
+		});
+	});
+}

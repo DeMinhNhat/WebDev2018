@@ -9,8 +9,16 @@
     <link rel="stylesheet" href="/assets/fontawesome-5.0.13/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/home/css/style.css">
     <link rel="stylesheet" href="/assets/home/css/slider.css">
+    <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
 
     {{{_sections.css}}}
+
+    <script type="text/javascript">
+    $('#birday-signup').datepicker({
+        format: 'd/m/yyyy',
+        autoclose: true
+    });
+    </script>
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
@@ -22,10 +30,11 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                   <a href="/"><img src="/imgs/logo/logo-2.png"></a>
-               </div>
-               <div class="col-md-4 searchBar-top">
+                 <a href="/"><img src="/imgs/logo/logo-2.png"></a>
+             </div>
+             <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="POST" action="" id="frmSearch">
+
                     {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                     <input type="hidden" value="search" name="typeSubmit">
                     
@@ -36,6 +45,11 @@
                 </form>
             </div>
             <div class=" col-md-4">
+                {{#if layoutVM.isLogged}}
+                {{!-- theo tui thì cho cái gì đó ở đây để nhấn dô thì hiện cái form chỉnh sửa thông tin cá nhân --}}
+                <button type="button" class="btn btn-secondary" type="button">{{layoutVM.curUser.f_Username}}</button>
+                <button type="button" class="btn btn-secondary">Đăng xuất</button>
+                {{else}}
                 <button type="button" class="btn btn-secondary" type="button" id="signin" data-toggle="modal" data-target="#signinModal"
                 data-backdrop="static" data-keyboard="false">
                 <i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
@@ -43,6 +57,7 @@
                 <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
                 data-keyboard="false">
                 <i class="fas fa-user"></i> Đăng kí</button>
+                {{/if}}
 
                 <div class="lang_Sel">
                     Ngôn ngữ:
@@ -109,67 +124,68 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Đăng kí</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Đăng kí&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                            <button type="button" class="btn btn-danger" id="gg-connect">Google +</button></h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                    </div>
+                        </div>
 
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <span>Using </span>
-                        <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                        <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
-                        <hr>
-                        <form method="POST" action="" id="signup-form">
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            {{!-- <span>Using </span>
+                            <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                            <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                            <hr> --}}
+                            <form method="POST" action="" id="signup-form">
 
-                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                            <input type="hidden" value="signup" name="typeSubmit">
-                            
-                            <div class="form-group">
-                                <label for="email-signup">Email:</label>
-                                <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="username-signup">Họ tên:</label>
-                                <input type="text" class="form-control" id="username-signup" placeholder="Katty" name="username">
-                            </div>
-                            <div class="form-group">
-                                <label for="pswd-signup">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="pswd-signup" placeholder="*********" name="pswd">
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
-                                <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="form-group">
-                                        <label for="birday-signup">Ngày sinh:</label>
-                                        <input type="date" class="form-control" id="birday-signup" placeholder="Birthday" name="birday">
+                                {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                                <input type="hidden" value="signup" name="typeSubmit">
+
+                                <div class="form-group">
+                                    <label for="email-signup">Email:</label>
+                                    <input type="email" class="form-control" id="email-signup" placeholder="katie@email.com" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username-signup">Họ tên:</label>
+                                    <input type="text" class="form-control" id="username-signup" placeholder="Katty" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pswd-signup">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="pswd-signup" placeholder="*********" name="pswd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
+                                    <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label for="birday-signup">Ngày sinh:</label>
+                                            <input type="date" class="form-control" id="birday-signup" placeholder="Birthday" name="birday">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="gender-signup">Giới tính:</label>
+                                            <select name="gender" id="gender-signup" class="custom-select">
+                                                <option selected>Chọn...</option>
+                                                <option value="male">Nam</option>
+                                                <option value="female">Nữ</option>
+                                                <option value="other">Khác</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="gender-signup">Giới tính:</label>
-                                        <select name="gender" id="gender-signup" class="custom-select">
-                                            <option selected>Chọn...</option>
-                                            <option value="male">Nam</option>
-                                            <option value="female">Nữ</option>
-                                            <option value="other">Khác</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <label for="phoneNum-signup">Điện thoại:</label>
+                                    <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="phoneNum-signup">Điện thoại:</label>
-                                <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
-                            </div>
-                            <div class="form-group">
+                            {{!-- <div class="form-group">
                                 <label for="address-signup">Địa chỉ:</label>
                                 <input type="text" class="form-control" name="phone" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
-                            </div>
-
+                            </div> --}}
                             <hr>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
@@ -177,20 +193,21 @@
                                     <a href="#">Điều khoản sử dụng</a>
                                 </label>
                             </div>
-                            <div class="form-group form-check">
+                            {{!-- <div class="form-group form-check">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
                                 </label>
-                            </div>
+                            </div> --}}
                             <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                            <button type="submit" class="btn btn-primary btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
                         </form>
                     </div>
 
                     <!-- Modal footer -->
                     {{!-- button này nó nằm ngoài form rồi cha :3 --}}
-                    <div class="modal-footer">
+                    {{!-- <div class="modal-footer">
                         <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -252,19 +269,22 @@
                     </button>
                 </form>
 
-                <form method="POST" action="">
-                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                    <input type="hidden" value="cart_btn" name="typeSubmit">
-                    <span id="cart">
-                        <a type="submit">
-                            <span id="itemCount">0</span>
-                        </a>
-                    </span>
-                    {{!-- đang dùng để test :3 --}}
-                    <button class="btn btn-danger" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
+                {{#if showError}}
+                <div class="alert alert-danger">
+                    <strong>Title!</strong> {{errorMsg}} ...
+                </div>
+                {{/if}}
+                {{!-- có vẻ như bị bể phông --}}
+                {{#if layoutVM.isLogged}}
+                <span id="cart">
+                    <a type="submit">
+                        <span id="itemCount">{{layoutVM.cartSummary}}</span>
+
+                    </a>
+                </span>
+                {{else}}
+                {{!-- cho cái gì đó dô đây để họ biết họ chưa đăng nhập nên chưa đặt được cái gì --}}
+                {{/if}}
             </ul>
         </div>
     </nav>
@@ -337,6 +357,7 @@
                     <script type="text/javascript" src="/assets/jquery/date-format.min.js"></script>
                     <script src="/assets/bootstrap-4.1.1/js/bootstrap.min.js"></script>
                     <script src="/assets/home/js/effect.js"></script>
+                    <script src="/assets/datepicker/datepicker.js"></script>
                     
                     {{{_sections.js}}}
 

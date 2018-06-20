@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
 			brands: bras,
 			isLogged: req.session.isLogged,
 			curUser: req.session.curUser,
-			// cartSummary: cartRepo.getNumberOfItems(req.session.cart)
+			cartSummary: cartRepo.getNumberOfItems(req.session.cart)
 		}
 
 		next();

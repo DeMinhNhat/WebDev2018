@@ -29,10 +29,6 @@ router.post('/register', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-    res.render('account/login');
-});
-
 router.post('/login', (req, res) => {
     var user = {
         username: req.body.username,
