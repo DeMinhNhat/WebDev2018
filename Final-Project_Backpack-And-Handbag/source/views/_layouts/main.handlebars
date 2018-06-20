@@ -30,14 +30,10 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                 <a href="/"><img src="/imgs/logo/logo-2.png"></a>
-             </div>
-             <div class="col-md-4 searchBar-top">
-                <form class="form-inline" method="POST" action="" id="frmSearch">
-
-                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                    <input type="hidden" value="search" name="typeSubmit">
-                    
+                   <a href="/"><img src="/imgs/logo/logo-2.png"></a>
+               </div>
+               <div class="col-md-4 searchBar-top">
+                <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
                     <button class="btn btn-danger" id="btnSearch" type="submit">
                         <i class="fas fa-search"></i>
@@ -91,7 +87,7 @@
 
                             {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                             <input type="hidden" value="login" name="typeSubmit">
-                            
+
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -261,9 +257,10 @@
                     <a class="nav-link" href="#">KHUYẾN MÃI</a>
                 </li>
             </ul>
+
             <ul class="navbar navbar-right">
-                <form class="form-inline searchBar" action="#">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30">
+                <form class="form-inline searchBar" method="GET" action="/product/search">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30" name="search">
                     <button class="btn btn-danger" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
@@ -271,9 +268,10 @@
 
                 {{#if showError}}
                 <div class="alert alert-danger">
-                    <strong>Title!</strong> {{errorMsg}} ...
+                    <strong>Title!</strong> {{errorMsg}}
                 </div>
                 {{/if}}
+
                 {{!-- có vẻ như bị bể phông --}}
                 {{#if layoutVM.isLogged}}
                 <span id="cart">

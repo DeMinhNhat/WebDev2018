@@ -1,5 +1,5 @@
 {{#section 'title'}}
-Sản phẩm thuộc {{CatName}}
+Tìm kiếm sản phẩm
 {{/section}}
 
 {{#section 'css'}}
@@ -19,8 +19,6 @@ Sản phẩm thuộc {{CatName}}
 					<span class="breadCum-item">
 						<a href="#"> ssgBackpack</a>
 					</span>
-					<span>/</span>
-					<span class="breadCum-item active">{{CatName}}</span>
 				</span>
 			</div>
 			<div class="col-lg-5">
@@ -86,7 +84,7 @@ Sản phẩm thuộc {{CatName}}
 
 				</div>
 
-				<ul id="paging-bar" class="pagination">
+				<ul id="paging-bar" class="pagination pagination-sm">
 					<li class="page-item disabled">
 						<a class="page-link" href="#">Previous</a>
 					</li>
@@ -95,7 +93,7 @@ Sản phẩm thuộc {{CatName}}
 					{{#if isCurrentPage}}
 					<li class="page-item active"><a class="page-link" href="javascript:;">{{value}}</a></li>
 					{{else}}
-					<li class="page-item"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+					<li class="page-item"><a class="page-link" href="?page={{value}}&search={{sstring}}">{{value}}</a></li>
 					{{/if}}
 					{{/each}}
 

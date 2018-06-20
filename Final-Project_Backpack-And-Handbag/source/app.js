@@ -12,6 +12,8 @@ var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
 
+// tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
+var allController = require('./controllers/allController');
 var productController = require('./controllers/productController');
 var homeController = require('./controllers/homeController');
 
@@ -59,14 +61,11 @@ app.use(session({
 
 app.use(handleLayoutMDW);
 
-// tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
-var postController = require('./controllers/postController');
-app.use('', postController);
-
 app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
+app.use('', allController);
 app.use('/home', homeController);
 app.use('/product', productController);
 

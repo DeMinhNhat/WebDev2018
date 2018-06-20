@@ -95,7 +95,7 @@ INSERT INTO products (ProID, ProName, TinyDes, FullDes, Price, CatID, BraID, Qua
 	139.99,4,1,12,72,'2017-02-22'),
 (5, "Mica Tote","Sweet and Young", "The contemporary Mica tote features a zippered compartment with extended handles that allow it to be comfortably worn on the shoulder.",
 	49.99,2,1,26,5,'2018-06-21'),
-(6, "Novel Duffle ","Picturesque and Width", "The Major League Baseball® Herschel Novel™ duffle is an ideal weekender that features a side-access shoe compartment, along with iconic team logos and colors.",
+(6, "Novel Duffle","Picturesque and Width", "The Major League Baseball® Herschel Novel™ duffle is an ideal weekender that features a side-access shoe compartment, along with iconic team logos and colors.",
 	99.99,4,1,37,9,'2018-01-19'),
 (7, "Odell Messenger","Schoolly and Pure", "The functional Odell messenger features a streamlined design with a clip-fastened seatbelt webbing strap and ample main compartment.",
 	69.99,5,1,29,15,'2018-02-18'),

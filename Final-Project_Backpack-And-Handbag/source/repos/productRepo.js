@@ -93,4 +93,29 @@ exports.loadSingle = id => {
 	return db.load(sql);
 }
 
+exports.loadPageByWords = (words, offset) => {
+
+	var sql = `select * from products where `;
+
+	for (var i = 0; i < words.length; i += 1) {
+		var word = `%` + words[i] + `%`;
+		sql = sql + `ProName like '${word}' or `;
+	}
+	sql += `1!=1  limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+
+	return db.load(sql);
+}
+
+exports.countByWords = words => {
+
+	var sql = `select count(*) as total from products where `;
+	for (var i = 0; i < words.length; i += 1) {
+		var word = `%` + words[i] + `%`;
+		sql = sql + `ProName like '${word}' or `;
+	}
+	sql += `1!=1`;
+
+	return db.load(sql);
+}
+
 // các hàm cho việc tìm kiếm theo tên, loại, thương hiệu, giá cả...
