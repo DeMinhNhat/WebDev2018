@@ -2,6 +2,72 @@
 Error
 {{/section}}
 
-<div class="container body" style="padding:0px;">
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/home/css/products.css">
+{{/section}}
+
+{{#section 'js'}}
+<script src="/assets/home/js/products.js"></script>
+{{/section}}
+
+{{!-- <div class="container body" style="padding:0px;">
 	<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
+</div> --}}
+
+<div class="container">
+	<div class="main">
+		<div class="topPath row">
+			<div class="col-lg-7">
+				<span class="breadCum">
+					<i class="fas fa-home"></i>
+					<span class="breadCum-item">
+						<a href="#"> ssgBackpack</a>
+					</span>
+					<span>/</span>
+					<span class="breadCum-item active">{{BraName}}</span>
+				</span>
+			</div>
+			<div class="col-lg-5">
+				<span class="sortSel">
+					<a href="#" class="active">Nổi bật</a>
+					<span> / </span>
+					<a href="#">Bán chạy</a>
+					<span> / </span>
+					<a href="#">Mới nhất</a>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Nhà sản xuất</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.brands}}
+						<a href="/product/byBra/{{BraID}}" class="list-group-item">{{BraName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Vendor -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Loại sản phẩm</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.categories}}
+						<a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Types -->
+			</div>
+
+			<div class="col-lg-10">
+				<div style="padding:0px;margin-right:20px;margin-top:20px;margin-bottom:20px;">
+					<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
