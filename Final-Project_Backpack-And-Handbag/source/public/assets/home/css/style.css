@@ -225,7 +225,9 @@ span#cart img {
 
 
 #signup,
-#signin {
+#signin,
+#signout,
+#account {
     padding: 3px 5px;
     margin: 0 2px;
     position: absolute;
@@ -241,6 +243,16 @@ span#cart img {
 #signup {
     transform: translateX(-25%);
 }
+
+#account {
+    transform: translateX(-120%);
+    width:100px;
+}
+
+#signout {
+    transform: translateX(-20%);
+}
+
 button#fb-connect, button#gg-connect{
     border-radius:25px;
 }

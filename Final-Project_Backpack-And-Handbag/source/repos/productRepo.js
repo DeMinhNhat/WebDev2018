@@ -6,15 +6,15 @@ exports.loadAll = () => {
 	return db.load(sql);
 }
 
-exports.loadNewest = () => {
+exports.loadNewest = (amount, offset) => {
 	var sql = `select * from products
-	order by ImportDate desc limit ${config.PRODUCTS_TO_EXPOSE}`;
+	order by ImportDate desc limit ${amount} offset ${offset}`;
 	return db.load(sql);
 }
 
-exports.loadTopViewed = () => {
+exports.loadTopViewed = (amount, offset) => {
 	var sql = `select * from products
-	order by Clicks desc limit ${config.PRODUCTS_TO_EXPOSE}`;
+	order by Clicks desc limit ${amount} offset ${offset}`;
 	return db.load(sql);
 }
 

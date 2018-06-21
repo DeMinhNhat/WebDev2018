@@ -4,7 +4,7 @@ $(document).ready(function() {
     interval: 10000
   });
 
-  $('.carousel .carousel-item').each(function() {
+  $('.carousel.product .carousel-inner .carousel-item').each(function() {
     var next = $(this).next();
     if (!next.length) {
       next = $(this).siblings(':first');
@@ -22,8 +22,6 @@ $(document).ready(function() {
   });
 
   $('.carousel-inner :first-child').addClass('active');
-
-  $('.carousel :first-child').addClass('active');
 
   //Sticky header
   var navBar = $('#mainNav');

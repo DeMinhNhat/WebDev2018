@@ -10,32 +10,31 @@ Sản phẩm
 {{/section}}
 
 {{#section 'js'}}
-<script src="/assets/home/js/product-details.js"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="/assets/home/js/product-detail.js"></script>
 {{/section}}
 
 <div class="container">
 	{{#with product}}
 	<div class="product-detail">
 		<div class="topPath row">
-				<div class="col-lg-7">
-					<span class="breadCum">
-						<i class="fas fa-home"></i>
-						<span class="breadCum-item">
-							<a href="/"> ssgBackpack</a>
-						</span>
-						<span>/</span>
-						<span class="breadCum-item">
-							<a href="#"> Sản phẩm</a>
-						</span>
-						<span>/</span>
-						<span class="breadCum-item active">
-							{{ProName}}
-						</span>
+			<div class="col-lg-7">
+				<span class="breadCum">
+					<i class="fas fa-home"></i>
+					<span class="breadCum-item">
+						<a href="/"> ssgBackpack</a>
 					</span>
-				</div>
-				<div class="col-lg-5">
-				</div>
+					<span>/</span>
+					<span class="breadCum-item">
+						<a href="/product"> Sản phẩm</a>
+					</span>
+					<span>/</span>
+					<span class="breadCum-item active">
+						{{ProName}}
+					</span>
+				</span>
+			</div>
+			<div class="col-lg-5">
+			</div>
 		</div>
 
 		<div class="essential-info">
@@ -43,7 +42,7 @@ Sản phẩm
 				<div class="col-md-7">
 					<div class="imgSlider">
 						<!-- Slider for Product Images -->
-						<div id="overviewSlide" class="carousel slide" data-ride="carousel">
+						<div id="overviewSlide" class="carousel detail slide" data-ride="carousel">
 							<ol class="carousel-indicators">
 								<li data-target="#overviewSlide" data-slide-to="0" class="active"></li>
 								<li data-target="#overviewSlide" data-slide-to="1"></li>
@@ -51,13 +50,13 @@ Sản phẩm
 							</ol>
 							<div class="carousel-inner w-100" role="listbox">
 								<div class="carousel-item">
-									<img src="/imgs/products/{{ProID}}/1.jpg" alt="" class="d-block img-fluid center">
+									<img src="/imgs/products/{{ProID}}/1.jpg" height="185" width="185" style="max-height:90%; max-width:90%;">
 								</div>
 								<div class="carousel-item">
-									<img src="/imgs/products/{{ProID}}/2.jpg" alt="" class="d-block img-fluid center">
+									<img src="/imgs/products/{{ProID}}/2.jpg" height="185" width="185" style="max-height:90%; max-width:90%;">
 								</div>
 								<div class="carousel-item">
-									<img src="/imgs/products/{{ProID}}/3.jpg" alt="" class="d-block img-fluid center">
+									<img src="/imgs/products/{{ProID}}/3.jpg" height="185" width="185" style="max-height:90%; max-width:90%;">
 								</div>
 							</div>
 							<a class="carousel-control-prev" href="#overviewSlide" role="button" data-slide="prev">
@@ -118,7 +117,7 @@ Sản phẩm
 	<div class="sameTypeProducts">
 		<div class="secTitle">SẢN PHẨM CÙNG LOẠI</div>
 		<div class="row mx-auto my-auto">
-			<div id="recipeCarousel4" class="carousel slide w-100" data-ride="carousel">
+			<div id="recipeCarousel4" class="carousel product slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100" role="listbox">
 
 					{{#each same_cats}}
@@ -154,7 +153,7 @@ Sản phẩm
 	<div class="sameVendorProducts">
 		<div class="secTitle">CÙNG NHÀ CUNG CẤP</div>
 		<div class="row mx-auto my-auto">
-			<div id="recipeCarousel2" class="carousel slide w-100" data-ride="carousel">
+			<div id="recipeCarousel2" class="carousel product slide w-100" data-ride="carousel">
 				<div class="carousel-inner w-100" role="listbox">
 
 					{{#each same_bras}}
