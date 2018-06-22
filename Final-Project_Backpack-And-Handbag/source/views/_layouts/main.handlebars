@@ -14,7 +14,6 @@
     {{{_sections.css}}}
 
     <script type="text/javascript">
-    
     </script>
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
@@ -27,9 +26,9 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                   <a href="/"><img src="/imgs/logos/logo-2.png"></a>
-               </div>
-               <div class="col-md-4 searchBar-top">
+                 <a href="/"><img src="/imgs/logos/logo-2.png"></a>
+             </div>
+             <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
                     <button class="btn btn-danger" id="btnSearch" type="submit">
@@ -249,7 +248,7 @@
                                 <div class="col-md-7">
                                     <div class="form-group">
                                         <label for="birday-change">Ngày sinh:</label>
-                                        <input type="date" class="form-control" id="birday-change" placeholder="Birthday" name="birday">
+                                        <input type="date" class="form-control" id="birday-change" placeholder="Birthday" value="{{date_formatV2 layoutVM.curUser.f_DOB}}" name="birday">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -321,7 +320,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link new-click" href="javascript:;">SẢN PHẨM MỚI</a>
+                    <a class="nav-link" href="javascript:;">SẢN PHẨM MỚI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:;">BÁN CHẠY NHẤT</a>

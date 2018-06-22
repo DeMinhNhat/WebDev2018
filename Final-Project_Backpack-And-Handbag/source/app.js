@@ -34,7 +34,11 @@ app.engine('hbs', exphbs({
 			return nf.to(n);
 		},
 		date_format: n => {
-			var df = dateformat(n, "dS, mmmm, yyyy");
+			var df = dateformat(n, "dS, mm, yyyy");
+			return df;
+		},
+		date_formatV2: n => {
+			var df = dateformat(n, "yyyy-mm-dd");
 			return df;
 		}
 	}
@@ -43,7 +47,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(
 	path.resolve(__dirname, 'public')
-));
+	));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
