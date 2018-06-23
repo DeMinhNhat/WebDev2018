@@ -53,7 +53,7 @@
                 <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> Đăng kí</button>
                 {{/if}}
 
-                <div class="lang_Sel">
+                {{!-- <div class="lang_Sel">
                     Ngôn ngữ:
                     <a href="#">
                         <img src="/imgs/icons/flag-eng.png">
@@ -61,8 +61,8 @@
                     <a href="#">
                         <img src="/imgs/icons/flag-vie.png">
                     </a>
-                </div>
-                <br>
+                </div> --}}
+                <br><br>
                 <img src="/imgs/logos/freeship-2.png"> <span>Giao hàng miễn phí</span>
                 <br>
                 <br>
@@ -178,7 +178,7 @@
                                 </div>
                             {{!-- <div class="form-group">
                                 <label for="address-signup">Địa chỉ:</label>
-                                <input type="text" class="form-control" name="phone" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
+                                <input type="text" class="form-control" name="address" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
                             </div> --}}
                             <hr>
                             <div class="form-group form-check">
@@ -349,7 +349,6 @@
                 <span id="cart">
                     <a type="submit">
                         <span id="itemCount">{{layoutVM.cartSummary}}</span>
-
                     </a>
                 </span>
                 {{else}}

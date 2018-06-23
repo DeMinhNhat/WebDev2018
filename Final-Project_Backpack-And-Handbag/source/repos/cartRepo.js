@@ -18,7 +18,6 @@ exports.getNumberOfItems = cart => {
 	for (var i = cart.length - 1; i >= 0; i--) {
 		n += cart[i].quantity;
 	}
-
 	return n;
 }
 
@@ -29,7 +28,6 @@ exports.add = (cart, item) => {
 			return;
 		}
 	}
-
 	cart.push(item);
 }
 

@@ -8,13 +8,14 @@
 .backpack-item a:hover {color: mediumvioletred;}
 .backpack-item{
     height: 390px;
-    width: 250px;
+    width: 270px;
     border: 1px solid darkgray;
     background-color: white;
     display: block;
     position:relative;
     float:left;
-    margin: 0px 25px 25px 25px;
+    margin: 0px 5px 25px 25px;
+    padding: 0 5px;
 }
 .backpack-item:hover{
     -webkit-box-shadow: 5px 7px 13px -1px rgba(0,0,0,0.75);
