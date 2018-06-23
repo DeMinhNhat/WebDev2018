@@ -39,7 +39,7 @@ Sản phẩm
 
 		<div class="essential-info">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-sm-7">
 					<div class="imgSlider">
 						<!-- Slider for Product Images -->
 						<div id="overviewSlide" class="carousel detail slide" data-ride="carousel">
@@ -71,15 +71,23 @@ Sản phẩm
 					</div>
 					<!-- End of Img Slider -->
 				</div>
-				<div class="col-md-5">
+				<div class="col-sm-5">
 					<div class="detail-info">
 						<div id="tensp">{{ProName}}</div>
+						<span id="tinydes">{{TinyDes}} | </span>
+						<span id="importdate">{{date_format ImportDate}}</span>
+						<br>
 						<div id="price">{{number_format Price}}</div>
-						<div id="importdate">{{date_format ImportDate}}</div>
-						<div id="tinydes">{{TinyDes}}</div>
-
-						<button id="buynow-btn" type="button" class="btn btn-danger">Mua ngay</button>
-						<button id="addcart-btn" type="button" class="btn btn-outline-primary">Thêm vào giỏ</button>
+						<br>
+						<form action="" method="post">
+							<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+							<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
+							<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+							<br>
+							<button type="submit" id="addcart-btn" type="button" class="btn btn-danger">
+							<i class="fas fa-cart-plus"></i> Thêm vào giỏ
+							</button>
+						</form>
 						{{#if layoutVM.isLogged}}
 							<form class="" id="frmAddItem" method="POST" action="/cart/add">
     
