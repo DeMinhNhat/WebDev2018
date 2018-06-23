@@ -85,10 +85,6 @@ div#describe {
     margin: 10px auto;
     display:  block;
 }
-
-button#buynow-btn {
-}
-
 button#addcart-btn {font-weight: 500;}
 .detail-info {
     padding-top: 10px;
@@ -141,7 +137,7 @@ ol.carousel-indicators>li.active {
     background-color: darkgray;
     width: 60px;
     height: 70px;
-    transform: translateY(90px);
+    transform: translateY(60px);
 }
 img.d-block {
     max-width: 700px;
@@ -150,6 +146,12 @@ img.d-block {
 .imgSlider {
     padding: 10px;
     background-color: #b99c5b;
+}
+.imgSlider img{
+    height:600px;
+    margin-left:auto;
+    margin-right:auto;
+    display:inline-flex;
 }
 .center{
     /* display: block; */
