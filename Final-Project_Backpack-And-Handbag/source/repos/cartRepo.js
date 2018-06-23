@@ -25,6 +25,7 @@ exports.add = (cart, item) => {
 	for (var i = cart.length - 1; i >= 0; i--) {
 		if (cart[i].product.ProID === item.product.ProID) {
 			cart[i].quantity += item.quantity;
+			cart[i].amount += item.amount;
 			return;
 		}
 	}
