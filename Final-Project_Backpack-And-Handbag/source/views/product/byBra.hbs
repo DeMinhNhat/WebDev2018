@@ -17,7 +17,7 @@ Sản phẩm thuộc {{BraName}}
 				<span class="breadCum">
 					<i class="fas fa-home"></i>
 					<span class="breadCum-item">
-						<a href="#"> ssgBackpack</a>
+						<a href="/"> ssgBackpack</a>
 					</span>
 					<span>/</span>
 					<span class="breadCum-item active">{{BraName}}</span>
@@ -62,7 +62,7 @@ Sản phẩm thuộc {{BraName}}
 			{{#if noProducts}}
 			<div class="col-lg-10">
 				<div style="padding:0px;margin-right:20px;margin-top:20px;margin-bottom:20px;">
-					<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
+					<img src="/imgs/icons/no-product.png" style="max-height:100%; max-width:100%;">
 				</div>
 			</div>
 			{{else}}
@@ -87,21 +87,21 @@ Sản phẩm thuộc {{BraName}}
 				</div>
 
 				<ul id="paging-bar" class="pagination pagination-sm">
-					<li class="page-item disabled">
-						<a class="page-link" href="#">Previous</a>
-					</li>
+					{{!-- <li class="page-item disabled">
+						<a class="page-link" href="javascript:;">Previous</a>
+					</li> --}}
 
 					{{#each page_numbers}}
 					{{#if isCurrentPage}}
 					<li class="page-item active"><a class="page-link" href="javascript:;">{{value}}</a></li>
 					{{else}}
-					<li class="page-item"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+					<li class="page-item none"><a class="page-link" href="?page={{value}}">{{value}}</a></li>
 					{{/if}}
 					{{/each}}
 
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
+					{{!-- <li class="page-item">
+						<a class="page-link" href="javascript:;">Next</a>
+					</li> --}}
 				</ul>
 
 			</div>

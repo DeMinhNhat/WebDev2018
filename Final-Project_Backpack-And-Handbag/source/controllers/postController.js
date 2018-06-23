@@ -2,8 +2,10 @@ var express = require('express'),
 	sha256 = require('crypto-js/sha256'),
 	moment = require('moment');
 
-var restrict = require('../middle-wares/restrict');
+var config = require('../config/config');
+var cartRepo = require('../repos/cartRepo');
 var accountRepo = require('../repos/accountRepo');
+var productRepo = require('../repos/productRepo');
 
 var router = express.Router();
 
@@ -12,21 +14,24 @@ router.post('*', (req, res) => {
 	var typeSubmit = req.body.typeSubmit;
 
 	switch (typeSubmit) {
-		case 'search':
-			search(req, res);
-			break;
 		case 'signup':
 			signup(req, res);
 			break;
 		case 'login':
 			login(req, res);
 			break;
+		case 'logout':
+			logout(req, res);
+			break;
+		case 'addToCart':
+			addToCart(req, res);
+			break;
 		default:
 			var vm = {
 				showError: true,
 				errorMsg: 'Something goes wrong'
 			};
-			res.redirect(req.headers.referer, vm);
+			res.redirect(req.headers.referer);
 	}
 });
 
@@ -35,7 +40,7 @@ module.exports = router;
 var login = (req, res) => {
 	var user = {
 		email: req.body.email,
-		password: req.body.pswd
+		password: sha256(req.body.pswd).toString()
 	};
 
 	accountRepo.login(user).then(rows => {
@@ -53,6 +58,14 @@ var login = (req, res) => {
 			res.redirect(req.headers.referer);
 		}
 	});
+}
+
+var logout = (req, res) => {
+	req.session.isLogged = false;
+	req.session.curUser = null;
+	req.session.cart = [];
+
+	res.redirect(req.headers.referer);
 }
 
 var signup = (req, res) => {
@@ -84,5 +97,17 @@ var signup = (req, res) => {
 				res.redirect(req.headers.referer);
 			}
 		});
+	});
+}
+
+var addToCart = (req, res) => {
+	productRepo.single(req.body.proId).then(rows => {
+		var item = {
+			product: rows[0],
+			quantity: +req.body.quantity,
+			amount: rows[0].Price * +req.body.quantity
+		};
+		cartRepo.add(req.session.cart, item);
+		res.redirect(req.headers.referer);
 	});
 }

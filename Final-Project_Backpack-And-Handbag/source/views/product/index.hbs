@@ -17,7 +17,7 @@ Các sản phẩm
 				<span class="breadCum">
 					<i class="fas fa-home"></i>
 					<span class="breadCum-item">
-						<a href="#"> ssgBackpack</a>
+						<a href="/"> ssgBackpack</a>
 					</span>
 					<span>/</span>
 					<span class="breadCum-item active"> Sản phẩm</span>
@@ -62,7 +62,7 @@ Các sản phẩm
 			{{#if noProducts}}
 			<div class="col-lg-10">
 				<div style="padding:0px;margin-right:20px;margin-top:20px;margin-bottom:20px;">
-					<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
+					<img src="/imgs/icons/no-product.png" style="max-height:100%; max-width:100%;">
 				</div>
 			</div>
 			{{else}}
@@ -87,9 +87,9 @@ Các sản phẩm
 				</div>
 
 				<ul id="paging-bar" class="pagination pagination-sm">
-					<li class="page-item disabled">
+					{{!-- <li class="page-item disabled">
 						<a class="page-link" href="#">Previous</a>
-					</li>
+					</li> --}}
 
 					{{#each page_numbers}}
 					{{#if isCurrentPage}}
@@ -99,9 +99,9 @@ Các sản phẩm
 					{{/if}}
 					{{/each}}
 
-					<li class="page-item">
+					{{!-- <li class="page-item">
 						<a class="page-link" href="#">Next</a>
-					</li>
+					</li> --}}
 				</ul>
 
 			</div>

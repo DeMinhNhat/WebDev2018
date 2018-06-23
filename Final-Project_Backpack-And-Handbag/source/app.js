@@ -12,6 +12,8 @@ var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
 
+// tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
+var postController = require('./controllers/postController');
 var productController = require('./controllers/productController');
 var homeController = require('./controllers/homeController');
 
@@ -32,7 +34,11 @@ app.engine('hbs', exphbs({
 			return nf.to(n);
 		},
 		date_format: n => {
-			var df = dateformat(n, "dS, mmmm, yyyy");
+			var df = dateformat(n, "dS, mm, yyyy");
+			return df;
+		},
+		date_formatV2: n => {
+			var df = dateformat(n, "yyyy-mm-dd");
 			return df;
 		}
 	}
@@ -41,7 +47,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(
 	path.resolve(__dirname, 'public')
-));
+	));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -59,14 +65,11 @@ app.use(session({
 
 app.use(handleLayoutMDW);
 
-// tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
-var postController = require('./controllers/postController');
-app.use('', postController);
-
 app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
+app.use('', restrict, postController);
 app.use('/home', homeController);
 app.use('/product', productController);
 

@@ -14,10 +14,6 @@
     {{{_sections.css}}}
 
     <script type="text/javascript">
-    $('#birday-signup').datepicker({
-        format: 'd/m/yyyy',
-        autoclose: true
-    });
     </script>
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
@@ -30,14 +26,10 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                 <a href="/"><img src="/imgs/logo/logo-2.png"></a>
+                 <a href="/"><img src="/imgs/logos/logo-2.png"></a>
              </div>
              <div class="col-md-4 searchBar-top">
-                <form class="form-inline" method="POST" action="" id="frmSearch">
-
-                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                    <input type="hidden" value="search" name="typeSubmit">
-                    
+                <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
                     <button class="btn btn-danger" id="btnSearch" type="submit">
                         <i class="fas fa-search"></i>
@@ -46,17 +38,19 @@
             </div>
             <div class=" col-md-4">
                 {{#if layoutVM.isLogged}}
-                {{!-- theo tui thì cho cái gì đó ở đây để nhấn dô thì hiện cái form chỉnh sửa thông tin cá nhân --}}
-                <button type="button" class="btn btn-secondary" type="button">{{layoutVM.curUser.f_Username}}</button>
-                <button type="button" class="btn btn-secondary">Đăng xuất</button>
-                {{else}}
-                <button type="button" class="btn btn-secondary" type="button" id="signin" data-toggle="modal" data-target="#signinModal"
-                data-backdrop="static" data-keyboard="false">
-                <i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+                <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
 
-                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
-                data-keyboard="false">
-                <i class="fas fa-user"></i> Đăng kí</button>
+                <form method="POST" action="">
+                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                    <input type="hidden" value="logout" name="typeSubmit">
+
+                    <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                </form>
+                
+                {{else}}
+                <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+
+                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> Đăng kí</button>
                 {{/if}}
 
                 <div class="lang_Sel">
@@ -69,10 +63,10 @@
                     </a>
                 </div>
                 <br>
-                <img src="/imgs/logo/freeship-2.png"> <span>Giao hàng miễn phí</span>
+                <img src="/imgs/logos/freeship-2.png"> <span>Giao hàng miễn phí</span>
                 <br>
                 <br>
-                <img src="/imgs/logo/100percent-2.png"> Cam kết chính hãng
+                <img src="/imgs/logos/100percent-2.png"> Cam kết chính hãng
             </div>
         </div>
         <!-- End of row -->
@@ -91,7 +85,7 @@
 
                             {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                             <input type="hidden" value="login" name="typeSubmit">
-                            
+
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -212,12 +206,86 @@
                 </div>
             </div>
         </div>
-            <!-- End of sign up modal
-            -->
+        <!-- End of signup modal-->
+
+        <div class="modal fade" id="changeInfoModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Thay đổi thông tin</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form method="POST" action="" id="changeInfo-form">
+                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                            <input type="hidden" value="changeInfo" name="typeSubmit">
+
+                            <div class="form-group">
+                                <label for="email-change">Email:</label>
+                                <input type="email" class="form-control" id="email-change" placeholder="katie@email.com" value="{{layoutVM.curUser.f_Email}}" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="username-change">Họ tên:</label>
+                                <input type="text" class="form-control" id="username-change" placeholder="Katty" value="{{layoutVM.curUser.f_Username}}" name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="pswd-change">Mật khẩu cũ:</label>
+                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="old-pswd">
+                            </div>
+                            <div class="form-group">
+                                <label for="pswd-change">Mật khẩu mới:</label>
+                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="new-pswd">
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pswd-change">Xác nhận mật khẩu mới:</label>
+                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="re-pswd">
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <label for="birday-change">Ngày sinh:</label>
+                                        <input type="date" class="form-control" id="birday-change" placeholder="Birthday" value="{{date_formatV2 layoutVM.curUser.f_DOB}}" name="birday">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="gender-change">Giới tính:</label>
+                                        <select name="gender" id="gender-change" class="custom-select">
+                                            <option selected>Chọn...</option>
+                                            <option value="male">Nam</option>
+                                            <option value="female">Nữ</option>
+                                            <option value="other">Khác</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneNum-change">Điện thoại:</label>
+                                <input type="tel" class="form-control" value="{{layoutVM.curUser.f_Phone}}" name="phone" id="phoneNum-change" placeholder="(+84) 123 456 789">
+                            </div>
+                            <hr>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với
+                                    <a href="#">Điều khoản sử dụng</a>
+                                </label>
+                            </div>
+                            <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                            <button type="submit" class="btn btn-primary btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End of header -->
+        <!-- End of sign up modal-->
     </div>
-    {{!-- --}}
+    <!-- End of header -->
+</div>
+{{!-- --}}
 </div>
 
 <div class="container-fluid">
@@ -252,18 +320,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">SẢN PHẨM MỚI</a>
+                    <a class="nav-link" href="javascript:;">SẢN PHẨM MỚI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">BÁN CHẠY NHẤT</a>
+                    <a class="nav-link" href="javascript:;">BÁN CHẠY NHẤT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">KHUYẾN MÃI</a>
+                    <a class="nav-link" href="javascript:;">XEM NHIỀU NHẤT</a>
                 </li>
             </ul>
+
             <ul class="navbar navbar-right">
-                <form class="form-inline searchBar" action="#">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30">
+                <form class="form-inline searchBar" method="GET" action="/product/search">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30" name="search">
                     <button class="btn btn-danger" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
@@ -271,9 +340,10 @@
 
                 {{#if showError}}
                 <div class="alert alert-danger">
-                    <strong>Title!</strong> {{errorMsg}} ...
+                    <strong>Title!</strong> {{errorMsg}}
                 </div>
                 {{/if}}
+
                 {{!-- có vẻ như bị bể phông --}}
                 {{#if layoutVM.isLogged}}
                 <span id="cart">
@@ -297,7 +367,7 @@
     <div class="footer">
         <div class="row">
             <div class="col-sm-3">
-                <img src="/imgs/logo/logo-2.png" alt="" class="logo-sm">
+                <img src="/imgs/logos/logo-2.png" alt="" class="logo-sm">
                 <div class="contactInfo">
                     <i class="fas fa-map-marker-alt"></i> 227, Nguyễn Văn Cừ, Q.5, Tp.HCM
                     <br>
@@ -358,6 +428,7 @@
                     <script src="/assets/bootstrap-4.1.1/js/bootstrap.min.js"></script>
                     <script src="/assets/home/js/effect.js"></script>
                     <script src="/assets/datepicker/datepicker.js"></script>
+                    <script src='https://www.google.com/recaptcha/api.js'></script>
                     
                     {{{_sections.js}}}
 

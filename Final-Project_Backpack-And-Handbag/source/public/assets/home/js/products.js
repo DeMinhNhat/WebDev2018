@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     //Count child div in productView div
     var count = Math.ceil($('#productView > div').length / 3.0);
