@@ -85,7 +85,7 @@ div#describe {
     margin: 10px auto;
     display:  block;
 }
-button#addcart-btn {font-weight: 500;}
+button#addcart-btn {font-weight: 500;margin-top: 5px;}
 .detail-info {
     padding-top: 10px;
 }
@@ -114,7 +114,7 @@ span#luotxem {
 div#price {
     font-size: 1.3em;
     font-weight: bold;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     color: #696969;
 }
 .product-detail {
