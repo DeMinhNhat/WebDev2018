@@ -13,9 +13,6 @@
 
     {{{_sections.css}}}
 
-    <script type="text/javascript">
-    </script>
-
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
@@ -28,6 +25,7 @@
                 <div class="logo col-md-4">
                  <a href="/"><img src="/imgs/logos/logo-2.png"></a>
              </div>
+
              <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
@@ -150,7 +148,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
-                                    <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
+                                    <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="repswd">
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -223,6 +221,8 @@
                             {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                             <input type="hidden" value="changeInfo" name="typeSubmit">
 
+                            <input type="hidden" value="{{layoutVM.curUser.f_ID}}" name="id">
+
                             <div class="form-group">
                                 <label for="email-change">Email:</label>
                                 <input type="email" class="form-control" id="email-change" placeholder="katie@email.com" value="{{layoutVM.curUser.f_Email}}" name="email">
@@ -233,15 +233,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="pswd-change">Mật khẩu cũ:</label>
-                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="old-pswd">
+                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="oldpswd">
                             </div>
                             <div class="form-group">
                                 <label for="pswd-change">Mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="new-pswd">
+                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="newpswd">
                             </div>
                             <div class="form-group">
                                 <label for="re-pswd-change">Xác nhận mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="re-pswd">
+                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="repswd">
                             </div>
                             <hr>
                             <div class="row">
@@ -255,7 +255,7 @@
                                     <div class="form-group">
                                         <label for="gender-change">Giới tính:</label>
                                         <select name="gender" id="gender-change" class="custom-select">
-                                            <option selected>Chọn...</option>
+                                            <option value="none" selected>Chọn...</option>
                                             <option value="male">Nam</option>
                                             <option value="female">Nữ</option>
                                             <option value="other">Khác</option>
@@ -428,7 +428,7 @@
                     <script src="/assets/home/js/effect.js"></script>
                     <script src="/assets/datepicker/datepicker.js"></script>
                     <script src='https://www.google.com/recaptcha/api.js'></script>
-                    
+
                     {{{_sections.js}}}
 
                     </html>
