@@ -1,6 +1,4 @@
-{{#section 'title'}}
-Trang Chủ
-{{/section}}
+{{#section 'title'}} Trang Chủ {{/section}}
 
 <div class="container">
 	<hr>
@@ -52,8 +50,21 @@ Trang Chủ
 								<div class="bp-name">{{ProName}}</div>
 								<div class="bp-name">{{TinyDes}}</div>
 								<div class="bp-price">{{number_format Price}}</div>
-								<div class="bp-name">{{date_format ImportDate}}</div>
+								{{!--
+								<div class="bp-name">{{date_format ImportDate}}</div> --}}
 							</a>
+							<div class="btn-toolbar" role="toolbar">
+								<div class="btn-group btn-group-sm" role="group">
+									<form action="" method="post">
+										<input type="hidden" value="addToCart" name="typeSubmit">
+										<button type="submit" class="btn btn-danger addToCart">
+											<i class="fas fa-cart-plus"></i>
+										</button>
+									</form>
+									<button onclick="window.location.href='/product/detail/{{ProID}}'" 
+									type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					{{/each}}
@@ -85,8 +96,19 @@ Trang Chủ
 								<div class="bp-name">{{ProName}}</div>
 								<div class="bp-name">{{TinyDes}}</div>
 								<div class="bp-price">{{number_format Price}}</div>
-								<div class="bp-name">{{date_format ImportDate}}</div>
+								{{!-- <div class="bp-name">{{date_format ImportDate}}</div> --}}
 							</a>
+							<div class="btn-toolbar" role="toolbar">
+								<div class="btn-group btn-group-sm" role="group">
+									<form action="" method="post">
+										<input type="hidden" value="addToCart" name="typeSubmit">
+										<button type="submit" class="btn btn-danger addToCart">
+											<i class="fas fa-cart-plus"></i>
+										</button>
+									</form>
+									<button onclick="window.location.href='/product/detail/{{ProID}}'" type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					{{/each}}
@@ -119,8 +141,19 @@ Trang Chủ
 								<div class="bp-name">{{ProName}}</div>
 								<div class="bp-name">{{TinyDes}}</div>
 								<div class="bp-price">{{number_format Price}}</div>
-								<div class="bp-name">{{date_format ImportDate}}</div>
+								{{!-- <div class="bp-name">{{date_format ImportDate}}</div> --}}
 							</a>
+							<div class="btn-toolbar" role="toolbar">
+								<div class="btn-group btn-group-sm" role="group">
+									<form action="" method="post">
+										<input type="hidden" value="addToCart" name="typeSubmit">
+										<button type="submit" class="btn btn-danger addToCart">
+											<i class="fas fa-cart-plus"></i>
+										</button>
+									</form>
+									<button onclick="window.location.href='/product/detail/{{ProID}}'" type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					{{/each}}
@@ -168,8 +201,7 @@ Trang Chủ
 
 						<i class="fas fa-quote-left"></i>
 						I bought a fantastic backpack made of great quality leather. The service was fantastic! And the bag was a great price for
-						the amazing quality. Would shop here again. And maybe order something next time to get a bespoke
-						item.
+						the amazing quality. Would shop here again. And maybe order something next time to get a bespoke item.
 						<i class="fas fa-quote-right"></i>
 					</p>
 				</div>

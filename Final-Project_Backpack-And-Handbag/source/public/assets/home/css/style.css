@@ -310,6 +310,17 @@ button#fb-connect, button#gg-connect{
     margin: 5px auto;
     display: block;
 }
+.backpack-item .btn-group{
+    display: none;
+    position: absolute;
+    right:3px;
+}
+.backpack-item:hover .btn-group{
+    display: -webkit-inline-flex;
+}
+.backpack-item .btn-group .btn{
+    margin-left:2px;
+}
 
 /* Main Container */
 
