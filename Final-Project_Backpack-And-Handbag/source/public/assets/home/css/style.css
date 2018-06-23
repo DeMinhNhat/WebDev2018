@@ -314,6 +314,7 @@ button#fb-connect, button#gg-connect{
     display: none;
     position: absolute;
     right:3px;
+    bottom:3px;
 }
 .backpack-item:hover .btn-group{
     display: -webkit-inline-flex;
