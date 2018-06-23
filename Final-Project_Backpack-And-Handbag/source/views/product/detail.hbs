@@ -80,6 +80,11 @@ Sản phẩm
 
 						<button id="buynow-btn" type="button" class="btn btn-danger">Mua ngay</button>
 						<button id="addcart-btn" type="button" class="btn btn-outline-primary">Thêm vào giỏ</button>
+						{{#if layoutVM.isLogged}}
+							<form class="" id="frmAddItem" method="POST" action="/cart/add">
+    
+							</form>
+						{{/if}}
 						<br>
 						Nhà sản xuất:
 						<span id="nsx">{{BraName}}</span>
