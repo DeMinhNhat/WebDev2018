@@ -59,6 +59,7 @@ var login = (req, res) => {
 				errorMsg: 'Login failed'
 			};
 			res.redirect(req.headers.referer);
+			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 		}
 	});
 }
@@ -117,7 +118,6 @@ var changeInfo = (req, res) => {
 		phone: req.body.phone,
 		permisson: 0
 	};
-	console.log(user);
 
 	accountRepo.update(user).then(value => {
 		accountRepo.login(user).then(rows => {
@@ -140,12 +140,15 @@ var changeInfo = (req, res) => {
 
 var addToCart = (req, res) => {
 	productRepo.single(req.body.proId).then(rows => {
+		if (rows[0].Quantity < +req.body.quantity) {
+			res.redirect(req.headers.referer);
+			return;
+		}
 		var item = {
 			product: rows[0],
 			quantity: +req.body.quantity,
 			amount: rows[0].Price * +req.body.quantity
 		};
-		console.log(req.body.proId);
 		cartRepo.add(req.session.cart, item);
 		res.redirect(req.headers.referer);
 	});

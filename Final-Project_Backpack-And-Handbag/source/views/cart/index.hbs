@@ -1,61 +1,99 @@
 {{#section 'title'}}
-    Cart
+Giỏ hàng
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/home/css/products.css">
 {{/section}}
 
 {{#section 'js'}}
-<script type="text/javascript">
-	$('.removeItem').on('click', function() {
-	    var id = $(this).data('proid');
-	    $('#txtP').val(id);
-	    $('#frmRemoveItem').submit();
-	});
-</script>
+<script src="/assets/home/js/products.js"></script>
 {{/section}}
 
-<style>
-	#cart { background-color: white;}
-</style>
+<div class="container">
+	<div class="main">
+		<div class="topPath row">
+			<div class="col-lg-7">
+				<span class="breadCum">
+					<i class="fas fa-home"></i>
+					<span class="breadCum-item">
+						<a href="/"> ssgBackpack</a>
+					</span>
+					<span>/</span>
+					<span class="breadCum-item active">Giỏ hàng</span>
+				</span>
+			</div>
+			<div class="col-lg-5">
+				<span class="sortSel">
+					<a href="#" class="active">Nổi bật</a>
+					<span> / </span>
+					<a href="#">Bán chạy</a>
+					<span> / </span>
+					<a href="#">Mới nhất</a>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Nhà sản xuất</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.brands}}
+						<a href="/product/byBra/{{BraID}}" class="list-group-item">{{BraName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Vendor -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Loại sản phẩm</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.categories}}
+						<a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Types -->
+			</div>
 
-<form id="frmRemoveItem" method="post" action="/cart/remove">
-	<input type="hidden" name="proId" id="txtP">
-</form>
-<div class="row">
-	
-	<div class="container" id="cart">
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Product</th>
-					<th>Price</th>
-					<th>Quantity</th>
-					<th>Amount</th>
-					<th>&nbsp;</th>
-				</tr>
-			</thead>
-			<tbody>
-				{{#each items}}
-				<tr>
-					<td>{{product.ProName}}</td>
-					<td>{{number_format product.Price}}</td>
-					<td>{{quantity}}</td>
-					<td>{{number_format amount}}</td>
-					<td class="text-right">
-						<a data-proid="{{product.ProID}}" class="btn btn-danger btn-xs removeItem" href="javascript:;" role="button">
-							<span class="glyphicon glyphicon-remove"></span>
-						</a>
-					</td>
-				</tr>
-				{{/each}}
-			</tbody>
-			<tfoot>
-				<tr>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>Total: 9,999,999</td>
-					<td>&nbsp;</td>
-				</tr>
-			</tfoot>
-		</table>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-3">
+						<img src="/imgs/products/1/1.jpg" height="140" width="140" style="max-height:100%; max-width:100%;">
+					</div>
+					<div class="col-sm-3">
+						<div class="bp-name">sadsadsa</div>
+						<div class="bp-name">dasdasda</div>
+						<form method="POST" action="">
+							<input type="hidden" value="addToCart" name="typeSubmit">
+							<input type="hidden" value="{{ProID}}" name="proId">
+							<input type="hidden" value="1" name="quantity">
+							<button class="btn btn-danger" type="submit">
+								<i class="fas fa-cart-plus"></i>
+							</button>
+						</form>
+					</div>
+					<div class="col-sm-3">
+						<div class="bp-price">4534</div>
+					</div>
+					<div class="col-sm-3">
+						<form method="POST" action="">
+							<input type="hidden" value="addToCart" name="typeSubmit">
+							<input type="hidden" value="{{ProID}}" name="proId">
+							<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+							<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
+							<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+							<br>
+							<button type="submit" id="addcart-btn" type="button" class="btn btn-danger">
+								<i class="fas fa-cart-plus"></i> Thêm vào giỏ
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
