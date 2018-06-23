@@ -23,10 +23,10 @@
         <div class="header">
             <div class="row">
                 <div class="logo col-md-4">
-                 <a href="/"><img src="/imgs/logos/logo-2.png"></a>
-             </div>
+                   <a href="/"><img src="/imgs/logos/logo-2.png"></a>
+               </div>
 
-             <div class="col-md-4 searchBar-top">
+               <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
                     <button class="btn btn-danger" id="btnSearch" type="submit">
@@ -48,7 +48,7 @@
                 {{else}}
                 <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
 
-                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> Đăng kí</button>
+                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
                 {{/if}}
 
                 {{!-- <div class="lang_Sel">
@@ -191,7 +191,7 @@
                                 </label>
                             </div> --}}
                             <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <button type="submit" class="btn btn-primary btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
                         </form>
                     </div>
 
@@ -275,7 +275,7 @@
                                 </label>
                             </div>
                             <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <button type="submit" class="btn btn-primary btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
                         </form>
                     </div>
                 </div>
@@ -338,21 +338,24 @@
                     </button>
                 </form>
 
-                {{#if showError}}
+                {{!-- {{#if showError}}
                 <div class="alert alert-danger">
                     <strong>Title!</strong> {{errorMsg}}
                 </div>
-                {{/if}}
+                {{/if}} --}}
 
-                {{!-- có vẻ như bị bể phông --}}
                 {{#if layoutVM.isLogged}}
                 <span id="cart">
-                    <a href="/cart">
+                    <a href="/cart/index">
                         <span id="itemCount">{{layoutVM.cartSummary}}</span>
                     </a>
                 </span>
                 {{else}}
-                {{!-- cho cái gì đó dô đây để họ biết họ chưa đăng nhập nên chưa đặt được cái gì --}}
+                <span id="cart">
+                    <a href="/">
+                        <span id="itemCount">&nbsp;&nbsp;</span>
+                    </a>
+                </span>
                 {{/if}}
             </ul>
         </div>

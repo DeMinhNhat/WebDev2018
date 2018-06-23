@@ -74,7 +74,9 @@ Sản phẩm thuộc {{BraName}}
 					{{#each products}}
 					<div class="backpack-item">
 						<a href="/product/detail/{{ProID}}">
-							<div class="bp-saleoff">-1%</div>
+							{{#if SaleOff}}
+							<div class="bp-saleoff">-{{SaleOff}}%</div>
+							{{/if}}
 							<img src="/imgs/products/{{ProID}}/1.jpg" height="240" width="300" style="max-height:100%; max-width:100%;">
 							<div class="bp-name">{{ProName}}</div>
 							<div class="bp-name">{{TinyDes}}</div>

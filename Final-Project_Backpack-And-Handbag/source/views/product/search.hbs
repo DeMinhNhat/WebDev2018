@@ -72,7 +72,9 @@ Tìm kiếm sản phẩm
 					{{#each products}}
 					<div class="backpack-item">
 						<a href="/product/detail/{{ProID}}">
-							<div class="bp-saleoff">-1%</div>
+							{{#if SaleOff}}
+							<div class="bp-saleoff">-{{SaleOff}}%</div>
+							{{/if}}
 							<img src="/imgs/products/{{ProID}}/1.jpg" height="240" width="300" style="max-height:100%; max-width:100%;">
 							<div class="bp-name">{{ProName}}</div>
 							<div class="bp-name">{{TinyDes}}</div>
@@ -80,26 +82,26 @@ Tìm kiếm sản phẩm
 							{{!-- <div class="bp-name">{{date_format ImportDate}}</div> --}}
 						</a>
 						<div class="btn-toolbar" role="toolbar">
-								<div class="btn-group btn-group-sm" role="group">
-									{{#if ../layoutVM.isLogged}}
-									<form method="POST" action="">
-										<input type="hidden" value="addToCart" name="typeSubmit">
-										<input type="hidden" value="{{ProID}}" name="proId">
-										<input type="hidden" value="1" name="quantity">
-										<button class="btn btn-danger" type="submit">
-											<i class="fas fa-cart-plus"></i>
-										</button>
-									</form>
-									{{else}}
-									{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
-									<button class="btn btn-danger" onclick="window.location.href='#'">
+							<div class="btn-group btn-group-sm" role="group">
+								{{#if ../layoutVM.isLogged}}
+								<form method="POST" action="">
+									<input type="hidden" value="addToCart" name="typeSubmit">
+									<input type="hidden" value="{{ProID}}" name="proId">
+									<input type="hidden" value="1" name="quantity">
+									<button class="btn btn-danger" type="submit">
 										<i class="fas fa-cart-plus"></i>
 									</button>
-									{{/if}}
-									<button onclick="window.location.href='/product/detail/{{ProID}}'" 
-									type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
-								</div>
+								</form>
+								{{else}}
+								{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
+								<button class="btn btn-danger" onclick="window.location.href='#'">
+									<i class="fas fa-cart-plus"></i>
+								</button>
+								{{/if}}
+								<button onclick="window.location.href='/product/detail/{{ProID}}'" 
+								type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
 							</div>
+						</div>
 					</div>
 					{{/each}}
 
