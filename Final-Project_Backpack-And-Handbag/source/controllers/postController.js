@@ -29,6 +29,9 @@ router.post('*', (req, res) => {
 		case 'addToCart':
 			addToCart(req, res);
 			break;
+		case 'removeFromCart':
+			removeFromCart(req, res);
+			break;
 		default:
 			var vm = {
 				showError: true,
@@ -152,4 +155,9 @@ var addToCart = (req, res) => {
 		cartRepo.add(req.session.cart, item);
 		res.redirect(req.headers.referer);
 	});
+}
+
+var removeFromCart = (req, res) => {
+	cartRepo.remove(req.session.cart, +req.body.proId);
+    res.redirect(req.headers.referer);
 }

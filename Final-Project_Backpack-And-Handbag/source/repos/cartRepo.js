@@ -65,7 +65,7 @@ exports.increaseOne = (cart, proId) => {
 	}
 }
 
-exports.addToOrders = (cart) => {
+/*exports.addToOrders = (cart) => {
 	var total = 0;
 	for (var i = cart.length - 1; i >= 0; i--) {
 		total += cart[i].quantity;
@@ -74,4 +74,12 @@ exports.addToOrders = (cart) => {
 	var vm = {
 
 	}
+}*/
+
+exports.getTotal = (items) => {
+	var total = 0;
+	for (var i = items.length - 1; i >= 0; i--) {
+		total += items[i].amount;
+	}
+	return total;
 }
