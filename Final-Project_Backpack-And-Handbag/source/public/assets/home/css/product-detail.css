@@ -162,23 +162,6 @@ img.d-block {
     position:  absolute;
     bottom: -5px;
 }
-<<<<<<< HEAD
-input[type=number]{
-    text-align: center;
-    width:90px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
-=======
-
-#numItems {
-    width:40px;
-    text-align: center;
-}
 
 #subByOne, #addByOne, #numItems {
   display: inline-block;
@@ -188,15 +171,24 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #subByOne, #addByOne {
-    background-color: #C8CDCF;
+    background-color: #6C757D;
 }
 
-input[type='number'] {
+#numItems {
+    width:40px;
+    text-align: center;
     -moz-appearance:textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
->>>>>>> 9139e6e6ca18340ad0a1f24bc6033edb2ba807bd
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
