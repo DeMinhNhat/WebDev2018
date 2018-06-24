@@ -25,6 +25,7 @@ exports.add = (cart, item) => {
 	for (var i = cart.length - 1; i >= 0; i--) {
 		if (cart[i].product.ProID === item.product.ProID) {
 			cart[i].quantity += item.quantity;
+			cart[i].amount += item.amount;
 			return;
 		}
 	}
@@ -37,5 +38,40 @@ exports.remove = (cart, proId) => {
 			cart.splice(i, 1);
 			return;
 		}
+	}
+}
+
+exports.decreaseOne = (cart, proId) => {
+	for (var i = cart.length - 1; i >= 0; i--) {
+		if (proId === cart[i].product.ProID) {
+			if (cart[i].quantity === 1)
+				cart.splice(i, 1);
+			else {
+				cart[i].quantity -= 1;
+				cart[i].amount -= cart[i].product.Price;
+			}
+			return;
+		}
+	}
+}
+
+exports.increaseOne = (cart, proId) => {
+	for (var i = cart.length - 1; i >= 0; i--) {
+		if (proId === cart[i].product.ProID) {
+			cart[i].quantity += 1;
+			cart[i].amount += cart[i].product.Price;
+			return;
+		}
+	}
+}
+
+exports.addToOrders = (cart) => {
+	var total = 0;
+	for (var i = cart.length - 1; i >= 0; i--) {
+		total += cart[i].quantity;
+	}
+
+	var vm = {
+
 	}
 }

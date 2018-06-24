@@ -23,6 +23,9 @@ router.post('*', (req, res) => {
 		case 'logout':
 			logout(req, res);
 			break;
+		case 'changeInfo':
+			changeInfo(req, res);
+			break;
 		case 'addToCart':
 			addToCart(req, res);
 			break;
@@ -56,6 +59,7 @@ var login = (req, res) => {
 				errorMsg: 'Login failed'
 			};
 			res.redirect(req.headers.referer);
+			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 		}
 	});
 }
@@ -100,8 +104,46 @@ var signup = (req, res) => {
 	});
 }
 
+var changeInfo = (req, res) => {
+	var birday = moment(req.body.birday).format('YYYY-MM-DDTHH:mm');
+
+	var user = {
+		id: req.body.id,
+		email: req.body.email,
+		username: req.body.username,
+		oldpassword: sha256(req.body.oldpswd).toString(),
+		password: sha256(req.body.newpswd).toString(),
+		dob: birday,
+		gender: req.body.gender,
+		phone: req.body.phone,
+		permisson: 0
+	};
+
+	accountRepo.update(user).then(value => {
+		accountRepo.login(user).then(rows => {
+			if (rows.length > 0) {
+				req.session.isLogged = true;
+				req.session.curUser = rows[0];
+				req.session.cart = [];
+
+				res.redirect(req.headers.referer);
+			} else {
+				var vm = {
+					showError: true,
+					errorMsg: 'Login failed'
+				};
+				res.redirect(req.headers.referer);
+			}
+		});
+	});
+}
+
 var addToCart = (req, res) => {
 	productRepo.single(req.body.proId).then(rows => {
+		if (rows[0].Quantity < +req.body.quantity) {
+			res.redirect(req.headers.referer);
+			return;
+		}
 		var item = {
 			product: rows[0],
 			quantity: +req.body.quantity,

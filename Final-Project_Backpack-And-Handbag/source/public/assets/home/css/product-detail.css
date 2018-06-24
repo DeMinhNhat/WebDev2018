@@ -2,30 +2,30 @@
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-display: flex;
+    display: flex;
 }
 /* For General Sliders */
 .sameTypeProducts .carousel-inner .carousel-item-right.active,
 .sameTypeProducts .carousel-inner .carousel-item-next,
 .sameVendorProducts .carousel-inner .carousel-item-right.active,
 .sameVendorProducts .carousel-inner .carousel-item-next  {
-transform: translateX(20%); 
-/* was 25% */
+    transform: translateX(20%); 
+    /* was 25% */
 }
 
 .sameTypeProducts .carousel-inner .carousel-item-left.active, 
 .sameTypeProducts .carousel-inner .carousel-item-prev,
 .sameVendorProducts .carousel-inner .carousel-item-left.active, 
 .sameVendorProducts .carousel-inner .carousel-item-prev {
-transform: translateX(-20%);
-/* was 25% */
+    transform: translateX(-20%);
+    /* was 25% */
 }
 
 .sameTypeProducts .carousel-inner .carousel-item-right,
 .sameTypeProducts .carousel-inner .carousel-item-left,
 .sameVendorProducts .carousel-inner .carousel-item-right,
 .sameVendorProducts .carousel-inner .carousel-item-left{ 
-transform: translateX(0);
+    transform: translateX(0);
 
 }
 .carousel-inner.w-100 {
@@ -96,7 +96,7 @@ div#tensp {
     margin-top: 100px;
 }
 
-span#nsx, span#xuatxu, span#loaisp {
+span#nsx, span#xuatxu, span#loaisp, span#tinydes, span#importdate {
     font-weight: bold;
     margin: 10px 0;
     color: dimgrey;
@@ -162,6 +162,7 @@ img.d-block {
     position:  absolute;
     bottom: -5px;
 }
+<<<<<<< HEAD
 input[type=number]{
     text-align: center;
     width:90px;
@@ -172,4 +173,30 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+=======
+
+#numItems {
+    width:40px;
+    text-align: center;
+}
+
+#subByOne, #addByOne, #numItems {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 2px 0;
+  /*padding: 5px 0;*/
+}
+
+#subByOne, #addByOne {
+    background-color: #C8CDCF;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+>>>>>>> 9139e6e6ca18340ad0a1f24bc6033edb2ba807bd
 }

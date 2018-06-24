@@ -13,12 +13,10 @@
 
     {{{_sections.css}}}
 
-    <script type="text/javascript">
-    </script>
-
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
+
 </head>
 
 <body>
@@ -28,6 +26,7 @@
                 <div class="logo col-md-4">
                  <a href="/"><img src="/imgs/logos/logo-2.png"></a>
              </div>
+
              <div class="col-md-4 searchBar-top">
                 <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                     <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
@@ -50,7 +49,7 @@
                 {{else}}
                 <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
 
-                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> Đăng kí</button>
+                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
                 {{/if}}
 
                 {{!-- <div class="lang_Sel">
@@ -92,14 +91,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="pwd">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                                <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd">
                             </div>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
                                     <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ đăng nhập
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}}>Go Shopping</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}} id="login-btn">Go Shopping</button>
                         </form>
                     </div>
                     <!-- Modal footer -->
@@ -150,7 +149,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="re-pswd-signup">Xác nhận mật khẩu:</label>
-                                    <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="re-pswd">
+                                    <input type="password" class="form-control" id="re-pswd-signup" placeholder="*********" name="repswd">
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -193,7 +192,7 @@
                                 </label>
                             </div> --}}
                             <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <button type="submit" class="btn btn-primary btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
                         </form>
                     </div>
 
@@ -223,6 +222,8 @@
                             {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                             <input type="hidden" value="changeInfo" name="typeSubmit">
 
+                            <input type="hidden" value="{{layoutVM.curUser.f_ID}}" name="id">
+
                             <div class="form-group">
                                 <label for="email-change">Email:</label>
                                 <input type="email" class="form-control" id="email-change" placeholder="katie@email.com" value="{{layoutVM.curUser.f_Email}}" name="email">
@@ -233,15 +234,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="pswd-change">Mật khẩu cũ:</label>
-                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="old-pswd">
+                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="oldpswd">
                             </div>
                             <div class="form-group">
                                 <label for="pswd-change">Mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="new-pswd">
+                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="newpswd">
                             </div>
                             <div class="form-group">
                                 <label for="re-pswd-change">Xác nhận mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="re-pswd">
+                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="repswd">
                             </div>
                             <hr>
                             <div class="row">
@@ -255,7 +256,7 @@
                                     <div class="form-group">
                                         <label for="gender-change">Giới tính:</label>
                                         <select name="gender" id="gender-change" class="custom-select">
-                                            <option selected>Chọn...</option>
+                                            <option value="none" selected>Chọn...</option>
                                             <option value="male">Nam</option>
                                             <option value="female">Nữ</option>
                                             <option value="other">Khác</option>
@@ -275,7 +276,7 @@
                                 </label>
                             </div>
                             <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <button type="submit" class="btn btn-primary btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
+                            <button type="submit" class="btn btn-dark btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
                         </form>
                     </div>
                 </div>
@@ -338,13 +339,12 @@
                     </button>
                 </form>
 
-                {{#if showError}}
+                {{!-- {{#if showError}}
                 <div class="alert alert-danger">
                     <strong>Title!</strong> {{errorMsg}}
                 </div>
-                {{/if}}
+                {{/if}} --}}
 
-                {{!-- có vẻ như bị bể phông --}}
                 {{#if layoutVM.isLogged}}
                 <span id="cart">
                     <a href="/cart">
@@ -352,7 +352,11 @@
                     </a>
                 </span>
                 {{else}}
-                {{!-- cho cái gì đó dô đây để họ biết họ chưa đăng nhập nên chưa đặt được cái gì --}}
+                <span id="cart">
+                    <a href="/">
+                        <span id="itemCount">&nbsp;&nbsp;</span>
+                    </a>
+                </span>
                 {{/if}}
             </ul>
         </div>
@@ -428,7 +432,7 @@
                     <script src="/assets/home/js/effect.js"></script>
                     <script src="/assets/datepicker/datepicker.js"></script>
                     <script src='https://www.google.com/recaptcha/api.js'></script>
-                    
+
                     {{{_sections.js}}}
 
                     </html>

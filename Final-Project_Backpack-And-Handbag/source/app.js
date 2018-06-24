@@ -48,7 +48,7 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(
 	path.resolve(__dirname, 'public')
-	));
+));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
-app.use('', restrict, postController);
+app.use('', postController);
 app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/cart', restrict, cartController);

@@ -81,8 +81,10 @@ router.get('/search', (req, res) => {
 
 router.get('/byCat/:catId', (req, res) => {
 	var catId = req.params.catId;
-	if (catId < 1)
+	if (catId < 1 || catId > 5) {
 		res.render('error/index');
+		return;
+	}
 
 	var page = req.query.page;
 	if (!page) page = 1;
@@ -120,8 +122,10 @@ router.get('/byCat/:catId', (req, res) => {
 
 router.get('/byBra/:braId', (req, res) => {
 	var braId = req.params.braId;
-	if (braId < 1)
+	if (braId < 1 || braId > 5) {
 		res.render('error/index');
+		return;
+	}
 
 	var page = req.query.page;
 	if (!page) page = 1;
@@ -159,8 +163,10 @@ router.get('/byBra/:braId', (req, res) => {
 
 router.get('/detail/:proId', (req, res) => {
 	var proId = req.params.proId;
-	if (proId < 1)
+	if (proId < 1 || proId > 50) {
 		res.render('error/index');
+		return;
+	}
 
 	productRepo.loadSingle(proId).then(rows => {
 		if (rows.length > 0) {

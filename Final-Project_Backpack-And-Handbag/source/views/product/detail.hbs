@@ -74,47 +74,61 @@ Sản phẩm
 				<div class="col-sm-5">
 					<div class="detail-info">
 						<div id="tensp">{{ProName}}</div>
-						<span id="tinydes">{{TinyDes}} | </span>
-						<span id="importdate">{{date_format ImportDate}}</span>
+						<span id="tinydes">{{TinyDes}}</span>
 						<br>
 						<div id="price">{{number_format Price}}</div>
 						<br>
-						<form action="" method="post">
-							<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
-							<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
-							<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
-							<br>
-							<button type="submit" id="addcart-btn" type="button" class="btn btn-danger">
+					</form>
+					{{#if ../layoutVM.isLogged}}
+					<form method="POST" action="">
+						<input type="hidden" value="addToCart" name="typeSubmit">
+						<input type="hidden" value="{{ProID}}" name="proId">
+						<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+						<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
+						<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+						<br>
+						<button type="submit" id="addcart-btn" type="button" class="btn btn-danger">
 							<i class="fas fa-cart-plus"></i> Thêm vào giỏ
-							</button>
-						</form>
-						{{#if layoutVM.isLogged}}
-							<form class="" id="frmAddItem" method="POST" action="/cart/add">
-    
-							</form>
-						{{/if}}
-						<br>
-						Nhà sản xuất:
-						<span id="nsx">{{BraName}}</span>
-						<br> Xuất xứ:
-						<span id="xuatxu">{{Origin}}</span>
-						<br> Loại sản phẩm:
-						<span id="loaisp">{{CatName}}</span>
-						<br>
-						<hr> Lượt xem:
-						<span id="luotxem">{{Clicks}}</span>
-						<br>Lượt mua:
-						<span id="soluongban">{{Quantity}}</span>
-						<br>
-					</div>
+						</button>
+					</form>
+					{{else}}
+					{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
+					<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+					<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
+					<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+					<br>
+					<button class="btn btn-danger" onclick="window.location.href='#'" id="addcart-btn" type="button">
+						<i class="fas fa-cart-plus"></i> Thêm vào giỏ
+					</button>
+					{{/if}}
+					<br>
+					Nhà sản xuất:
+					<span id="nsx">{{BraName}}</span>
+					<br> Xuất xứ:
+					<span id="xuatxu">{{Origin}}</span>
+					<br> Loại sản phẩm:
+					<span id="loaisp">{{CatName}}</span>
+					<br> Ngày nhập:
+					<span id="importdate">{{date_format ImportDate}}</span>
+					<br>
+					<hr> Lượt xem:
+					<span id="luotxem">{{Clicks}}</span>
+					<br>Lượt mua:
+					<span id="soluongban">{{Quantity}}</span>
+					<br>
 				</div>
-				<!-- End of col-md-5 -->
 			</div>
+			<!-- End of col-md-5 -->
 		</div>
-		<!-- End of essential-info -->
-		<button class="btn btn-dark" data-toggle="collapse" data-target="#describe">Mô tả sản phẩm</button>
-		<div class="more-info collapse" id="describe">
-			<p id="details">{{FullDes}}</p>
+	</div>
+	<!-- End of essential-info -->
+	<p>
+		<button class="btn btn-dark" type="button">
+			Mô tả sản phẩm
+		</button>
+	</p>
+	<div class="more-info" id="describe">
+		<div id="details">{{FullDes}}</div>
 			{{!-- <div class="dimension">Dimension: 17"(H) x 12"(W) x 5.75"(D), 19.5L</div>
 			<img src="/assets/images/products/bp_01/10066_sizingtile.jpg" alt="Size">
 			<img src="/assets/images/products/bp_01/detail01.jpg" alt="Buckle">
@@ -137,13 +151,36 @@ Sản phẩm
 					<div class="carousel-item">
 						<div class="backpack-item">
 							<a href="/product/detail/{{ProID}}">
-								<div class="bp-saleoff">-1%</div>
+								{{#if SaleOff}}
+								<div class="bp-saleoff">-{{SaleOff}}%</div>
+								{{/if}}
 								<img src="/imgs/products/{{ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
 								<div class="bp-name">{{ProName}}</div>
 								<div class="bp-name">{{TinyDes}}</div>
 								<div class="bp-price">{{number_format Price}}</div>
 								{{!-- <div class="bp-name">{{date_format ImportDate}}</div> --}}
 							</a>
+							<div class="btn-toolbar" role="toolbar">
+								<div class="btn-group btn-group-sm" role="group">
+									{{#if ../layoutVM.isLogged}}
+									<form method="POST" action="">
+										<input type="hidden" value="addToCart" name="typeSubmit">
+										<input type="hidden" value="{{ProID}}" name="proId">
+										<input type="hidden" value="1" name="quantity">
+										<button class="btn btn-danger" type="submit">
+											<i class="fas fa-cart-plus"></i>
+										</button>
+									</form>
+									{{else}}
+									{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
+									<button class="btn btn-danger" onclick="window.location.href='#'">
+										<i class="fas fa-cart-plus"></i>
+									</button>
+									{{/if}}
+									<button onclick="window.location.href='/product/detail/{{ProID}}'" 
+									type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					{{/each}}
@@ -173,13 +210,36 @@ Sản phẩm
 					<div class="carousel-item">
 						<div class="backpack-item">
 							<a href="/product/detail/{{ProID}}">
-								<div class="bp-saleoff">-1%</div>
+								{{#if SaleOff}}
+								<div class="bp-saleoff">-{{SaleOff}}%</div>
+								{{/if}}
 								<img src="/imgs/products/{{ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
 								<div class="bp-name">{{ProName}}</div>
 								<div class="bp-name">{{TinyDes}}</div>
 								<div class="bp-price">{{number_format Price}}</div>
 								{{!-- <div class="bp-name">{{date_format ImportDate}}</div> --}}
 							</a>
+							<div class="btn-toolbar" role="toolbar">
+								<div class="btn-group btn-group-sm" role="group">
+									{{#if ../layoutVM.isLogged}}
+									<form method="POST" action="">
+										<input type="hidden" value="addToCart" name="typeSubmit">
+										<input type="hidden" value="{{ProID}}" name="proId">
+										<input type="hidden" value="1" name="quantity">
+										<button class="btn btn-danger" type="submit">
+											<i class="fas fa-cart-plus"></i>
+										</button>
+									</form>
+									{{else}}
+									{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
+									<button class="btn btn-danger" onclick="window.location.href='#'">
+										<i class="fas fa-cart-plus"></i>
+									</button>
+									{{/if}}
+									<button onclick="window.location.href='/product/detail/{{ProID}}'" 
+									type="button" class="btn btn-outline-info productDetail">Chi tiết</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					{{/each}}
