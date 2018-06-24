@@ -37,7 +37,7 @@ router.post('*', (req, res) => {
 				showError: true,
 				errorMsg: 'Something goes wrong'
 			};
-			res.redirect(req.headers.referer);
+			res.render('error/index', vm);
 	}
 });
 
@@ -55,14 +55,17 @@ var login = (req, res) => {
 			req.session.curUser = rows[0];
 			req.session.cart = [];
 
-			res.redirect(req.headers.referer);
+			// res.redirect(req.headers.referer);
+			// res.status(0).redirect('back');
+			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+			res.redirect('back');
 		} else {
 			var vm = {
 				showError: true,
 				errorMsg: 'Login failed'
 			};
-			res.redirect(req.headers.referer);
-			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+			res.render('error/index', vm);
 		}
 	});
 }
@@ -99,11 +102,17 @@ var signup = (req, res) => {
 			} else {
 				var vm = {
 					showError: true,
-					errorMsg: 'Login failed'
+					errorMsg: 'Signup failed'
 				};
-				res.redirect(req.headers.referer);
+				res.render('error/index', vm);
 			}
 		});
+	}).catch(err => {
+		var vm = {
+			showError: true,
+			errorMsg: 'Signup failed'
+		};
+		res.render('error/index', vm);
 	});
 }
 
@@ -133,11 +142,17 @@ var changeInfo = (req, res) => {
 			} else {
 				var vm = {
 					showError: true,
-					errorMsg: 'Login failed'
+					errorMsg: 'Change Info failed'
 				};
-				res.redirect(req.headers.referer);
+				res.render('error/index', vm);
 			}
 		});
+	}).catch(err => {
+		var vm = {
+			showError: true,
+			errorMsg: 'Change Info failed'
+		};
+		res.render('error/index', vm);
 	});
 }
 
@@ -159,5 +174,5 @@ var addToCart = (req, res) => {
 
 var removeFromCart = (req, res) => {
 	cartRepo.remove(req.session.cart, +req.body.proId);
-    res.redirect(req.headers.referer);
+	res.redirect(req.headers.referer);
 }

@@ -4,15 +4,25 @@ Error
 
 {{#section 'css'}}
 <link rel="stylesheet" href="/assets/home/css/products.css">
+<link rel="stylesheet" href="/assets/home/css/error.css">
 {{/section}}
 
 {{#section 'js'}}
 <script src="/assets/home/js/products.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$(".errorMsg").fadeIn(3000).fadeOut(3000);
+});
+</script>
 {{/section}}
 
 {{!-- <div class="container body" style="padding:0px;">
 	<img src="/imgs/icons/404.png" style="max-height:100%; max-width:100%;">
 </div> --}}
+
+{{#if showError}}
+<span class="errorMsg">{{errorMsg}}</span>
+{{/if}}
 
 <div class="container">
 	<div class="main">
