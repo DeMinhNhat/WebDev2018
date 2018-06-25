@@ -96,7 +96,7 @@ Sản phẩm thuộc {{BraName}}
 								</form>
 								{{else}}
 								{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
-								<button class="btn btn-danger" onclick="window.location.href='#'">
+								<button class="btn btn-danger" type="button" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
 									<i class="fas fa-cart-plus"></i>
 								</button>
 								{{/if}}

@@ -54,6 +54,7 @@ CREATE TABLE `orders` (
 	`OrderDate` datetime NOT NULL,
 	`UserID` int(11) UNSIGNED NOT NULL,
 	`Total` bigint(20) NOT NULL,
+	`State` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,	-- Đã giao = 1 | Chưa giao = 0
 	PRIMARY KEY (`OrderID`),
 	INDEX UserId (UserID),
 	FOREIGN KEY (`UserID`) REFERENCES users(`f_ID`) ON DELETE CASCADE

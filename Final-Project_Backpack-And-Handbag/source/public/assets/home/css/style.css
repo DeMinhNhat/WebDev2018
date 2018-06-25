@@ -259,9 +259,19 @@ span#cart img {
     transform: translateX(-20%);
 }
 
-button#fb-connect, button#gg-connect{
+button#fb-connect, button#gg-connect, button#login-signup-btn {
     border-radius:25px;
 }
+
+button#login-signup-btn {
+    float: right;
+    box-align: right;
+    width: 25%;
+    margin: 0 auto;
+    padding: 5px;
+    color: #FFFFFF;
+}
+
 /* Backpack item */
 
 .backpack-item {

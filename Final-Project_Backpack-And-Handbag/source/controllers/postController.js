@@ -77,8 +77,12 @@ var logout = (req, res) => {
 	req.session.isLogged = false;
 	req.session.curUser = null;
 	req.session.cart = [];
-
-	res.redirect(req.headers.referer);
+	
+	var url = req.originalUrl;
+	if (url.indexOf('cart') > -1)
+		res.redirect('/');
+	else
+		res.redirect(req.headers.referer);
 }
 
 var signup = (req, res) => {
@@ -184,3 +188,4 @@ var getAmount = (req, res) => {
 	cartRepo.getAmount(req.session.cart, +req.body.proId, +req.body.quantity);
 	res.redirect(req.headers.referer);
 }
+
