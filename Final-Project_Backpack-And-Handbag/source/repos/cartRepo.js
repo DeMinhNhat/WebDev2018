@@ -80,16 +80,19 @@ exports.getAmount = (cart, proId, quantity) => {
 				cart[i].quantity++;
 				cart[i].amount += cart[i].product.Price;
 				return;
-			}
-			else {
+			} else {
 				if (cart[i].quantity === 1)
 					cart.splice(i, 1);
 				else {
 					cart[i].quantity--;
 					cart[i].amount -= cart[i].product.Price;
 				}
-				return;	
+				return;
 			}
 		}
 	}
+}
+
+exports.addSingleCartItemToDB = (cartItem, orderId) => {
+	
 }

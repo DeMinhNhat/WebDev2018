@@ -65,7 +65,6 @@ CREATE TABLE `orderdetails` (
 	`OrderID` int(11) UNSIGNED NOT NULL,
 	`ProID` int(11) UNSIGNED NOT NULL,
 	`Quantity` int(11) NOT NULL,
-	`Price` bigint(20) NOT NULL,
 	`Amount` int(11) NOT NULL,
 	PRIMARY KEY (`ID`),
 	INDEX OrderId (OrderID),

@@ -1,0 +1,85 @@
+{{#section 'title'}}
+Các đơn hàng
+{{/section}}
+
+{{#section 'css'}}
+<link rel="stylesheet" href="/assets/home/css/products.css">
+<style type="text/css">
+table.shopping-cart td{
+	vertical-align: middle;
+}
+</style>
+{{/section}}
+
+{{#section 'js'}}
+<script src="/assets/home/js/products.js"></script>
+{{/section}}
+
+<div class="container">
+	<div class="main">
+		<div class="topPath row">
+			<div class="col-lg-7">
+				<span class="breadCum">
+					<i class="fas fa-home"></i>
+					<span class="breadCum-item">
+						<a href="/"> ssgBackpack</a>
+					</span>
+					<span>/</span>
+					<span class="breadCum-item active">Các đơn hàng</span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10 col-md-10 col-lg-10">
+				<div class="container" id="cart" style="background-color:white">
+					<table class="table table-hover shopping-cart">
+						<thead>
+							<tr>
+								<th>ID đơn hàng</th>
+								<th>Ngày đặt hàng</th>
+								<th>Khách hàng</th>
+								<th>Số lượng</th>
+								<th>Tình trạng</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each orders}}
+							<tr>
+								<td>{{OrderID}}</td>
+								<td>{{date_format OrderDate}}</td>
+								<td>{{f_Username}}</td>
+								<td>{{Total}}</td>
+								<td>{{State}}</td>
+							</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-sm-2 col-md-2 col-lg-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Nhà sản xuất</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.brands}}
+						<a href="/product/byBra/{{BraID}}" class="list-group-item">{{BraName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Vendor -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Loại sản phẩm</h3>
+					</div>
+					<div class="list-group">
+						{{#each layoutVM.categories}}
+						<a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
+						{{/each}}
+					</div>
+				</div>
+				<!-- End of panel Types -->
+			</div>
+		</div>
+	</div>
+</div>

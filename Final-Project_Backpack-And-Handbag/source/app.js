@@ -17,6 +17,7 @@ var postController = require('./controllers/postController');
 var productController = require('./controllers/productController');
 var homeController = require('./controllers/homeController');
 var cartController = require('./controllers/cartController');
+var orderController = require('./controllers/orderController');
 
 var app = express();
 
@@ -73,6 +74,7 @@ app.get('/', (req, res) => {
 app.use('', postController);
 app.use('/home', homeController);
 app.use('/product', productController);
+app.use('/order', orderController);
 app.use('/cart', restrict, cartController);
 
 app.use(handle404MDW);

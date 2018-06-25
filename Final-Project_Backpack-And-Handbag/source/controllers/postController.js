@@ -4,6 +4,7 @@ var express = require('express'),
 
 var config = require('../config/config');
 var cartRepo = require('../repos/cartRepo');
+var orderRepo = require('../repos/orderRepo');
 var accountRepo = require('../repos/accountRepo');
 var productRepo = require('../repos/productRepo');
 
@@ -77,7 +78,7 @@ var logout = (req, res) => {
 	req.session.isLogged = false;
 	req.session.curUser = null;
 	req.session.cart = [];
-	
+
 	var url = req.originalUrl;
 	if (url.indexOf('cart') > -1)
 		res.redirect('/');
@@ -189,3 +190,95 @@ var getAmount = (req, res) => {
 	res.redirect(req.headers.referer);
 }
 
+// đặt hàng
+
+// orders : {
+// 		OrderID: 2
+// 		UserID: 5
+// 		OrderDate: 02/27/2017
+// 		Total: 12
+//		State: 1	// đã giao
+// }
+
+// orderdetails => [
+// 		{
+// 			ID: 23	// cái này k quan trọng lắm
+// 			OrderID: 2	// ID của cái trên
+// 			ProID: 5	// ID của sản phẩm
+// 			Quantity: 3	// số lượng sản phẩm đặt
+// 			Price: $20	// chắc là giá mỗi sản phẩm == (tui tính bỏ cái này khỏi db)
+// 			Amount: $60	// tổng tiền cho số lần đặt sản phẩm này
+// 		},
+// 		...
+// ]
+
+
+var payment = (req, res) => {
+
+	if (req.session.cart.length < 1) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Sorry. Cart is empty'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
+	// get order info from req
+
+	// add the order
+	orderRepo.add(order).then(value => {
+
+		// get ID of the order (OrderID)
+		orderRepo.getLastInsertID().then(rows => {
+
+			//add all orderdetails
+			if (rows.length > 0) {
+
+				var orderID = rows[0].orderID;
+
+				if (orderID < 1) {
+					var vm = {
+						showError: true,
+						errorMsg: 'Payment Process failed'
+					};
+					res.render('error/index', vm);
+					return;
+				}
+				// else
+				var arr_p = [];
+				for (var i = 0; i < req.session.cart.length; i++) {
+					var cartItem = req.session.cart[i];
+					var p = cartRepo.addSingleCartItemToDB(cartItem, orderID);
+					arr_p.push(p);
+				}
+				Promise.all(arr_p).then(result => {
+
+				});
+
+			} else {
+				var vm = {
+					showError: true,
+					errorMsg: 'Payment Process failed'
+				};
+				res.render('error/index', vm);
+			}
+
+		}).catch(err => {
+			var vm = {
+				showError: true,
+				errorMsg: 'Payment Process failed'
+			};
+			res.render('error/index', vm);
+		});
+
+	}).catch(err => {
+		var vm = {
+			showError: true,
+			errorMsg: 'Payment Process failed'
+		};
+		res.render('error/index', vm);
+	});
+}
+
+// check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
