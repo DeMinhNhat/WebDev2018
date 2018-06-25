@@ -41,7 +41,7 @@ exports.remove = (cart, proId) => {
 	}
 }
 
-exports.decreaseOne = (cart, proId) => {
+/*exports.decreaseOne = (cart, proId) => {
 	for (var i = cart.length - 1; i >= 0; i--) {
 		if (proId === cart[i].product.ProID) {
 			if (cart[i].quantity === 1)
@@ -65,7 +65,7 @@ exports.increaseOne = (cart, proId) => {
 	}
 }
 
-/*exports.addToOrders = (cart) => {
+exports.addToOrders = (cart) => {
 	var total = 0;
 	for (var i = cart.length - 1; i >= 0; i--) {
 		total += cart[i].quantity;
@@ -82,4 +82,25 @@ exports.getTotal = (items) => {
 		total += items[i].amount;
 	}
 	return total;
+}
+
+exports.getAmount = (cart, proId, quantity) => {
+	for (var i = cart.length - 1; i >= 0; i--) {
+		if (proId === cart[i].product.ProID) {
+			if (quantity > cart[i].quantity) {
+				cart[i].quantity++;
+				cart[i].amount += cart[i].product.Price;
+				return;
+			}
+			else {
+				if (cart[i].quantity === 1)
+					cart.splice(i, 1);
+				else {
+					cart[i].quantity--;
+					cart[i].amount -= cart[i].product.Price;
+				}
+				return;	
+			}
+		}
+	}
 }
