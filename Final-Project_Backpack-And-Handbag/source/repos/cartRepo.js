@@ -93,6 +93,17 @@ exports.getAmount = (cart, proId, quantity) => {
 	}
 }
 
+// cartItem => [
+// 	{
+// 		productID: 4,
+// 		quantity: 2,
+//		amount: 99
+// 	},
+// ]
+
 exports.addSingleCartItemToDB = (cartItem, orderId) => {
-	
+	var sql = `insert into orderdetails(OrderID, ProID, Quantity, Amount)
+	values('${orderId}', '${cartItem.product.ProId}',
+	'${cartItem.quantity}', '${cartItem.amount}')`;
+	return db.save(sql);
 }

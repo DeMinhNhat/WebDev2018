@@ -36,6 +36,9 @@ router.post('*', (req, res) => {
 		case 'getAmount':
 			getAmount(req, res);
 			break;
+		case 'payment':
+			payment(req, res);
+			break;
 		default:
 			var vm = {
 				showError: true,
@@ -206,7 +209,6 @@ var getAmount = (req, res) => {
 // 			OrderID: 2	// ID của cái trên
 // 			ProID: 5	// ID của sản phẩm
 // 			Quantity: 3	// số lượng sản phẩm đặt
-// 			Price: $20	// chắc là giá mỗi sản phẩm == (tui tính bỏ cái này khỏi db)
 // 			Amount: $60	// tổng tiền cho số lần đặt sản phẩm này
 // 		},
 // 		...
@@ -225,7 +227,14 @@ var payment = (req, res) => {
 	}
 
 	// get order info from req
+	var orderDate = moment(req.body.orderDate).format('YYYY-MM-DDTHH:mm');
 
+	var order = {
+		orderDate: orderDate,
+		userID: req.session.curUser.f_ID,
+		total: cartRepo.getTotal(req.session.cart), // tổng số tiền
+		state: 0
+	};
 	// add the order
 	orderRepo.add(order).then(value => {
 
@@ -240,7 +249,7 @@ var payment = (req, res) => {
 				if (orderID < 1) {
 					var vm = {
 						showError: true,
-						errorMsg: 'Payment Process failed'
+						errorMsg: 'Payment Process failed: error1'
 					};
 					res.render('error/index', vm);
 					return;
@@ -253,13 +262,20 @@ var payment = (req, res) => {
 					arr_p.push(p);
 				}
 				Promise.all(arr_p).then(result => {
-
+					req.session.cart = [];
+					res.redirect('/order');
+				}).catch(err => {
+					var vm = {
+						showError: true,
+						errorMsg: 'Payment Process failed: error2'
+					};
+					res.render('error/index', vm);
 				});
 
 			} else {
 				var vm = {
 					showError: true,
-					errorMsg: 'Payment Process failed'
+					errorMsg: 'Payment Process failed: error3'
 				};
 				res.render('error/index', vm);
 			}
@@ -267,7 +283,7 @@ var payment = (req, res) => {
 		}).catch(err => {
 			var vm = {
 				showError: true,
-				errorMsg: 'Payment Process failed'
+				errorMsg: 'Payment Process failed: error4'
 			};
 			res.render('error/index', vm);
 		});
@@ -275,7 +291,7 @@ var payment = (req, res) => {
 	}).catch(err => {
 		var vm = {
 			showError: true,
-			errorMsg: 'Payment Process failed'
+			errorMsg: 'Payment Process failed: error5'
 		};
 		res.render('error/index', vm);
 	});
