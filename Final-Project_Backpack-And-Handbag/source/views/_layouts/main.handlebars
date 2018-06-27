@@ -17,7 +17,7 @@
 
     <title>{{{_sections.title}}}</title>
 <script language="javascript"> 
-    function InValidateForm() // Check form login
+        function InValidateForm() // Check form login
     {
     var email = document.getElementById('email').value; 
     var password = document.getElementById('pswd').value; 
@@ -43,8 +43,10 @@
         var max_birday_signup_legit = new Date(2010,01,01);
         var min_birday_signup_legit = new Date(1900,01,01);
         var gender_signup = document.getElementById('gender-signup').value;
-        var phoneNum_signup = document.getElementById('phoneNum-signup').value;   
-             if (email_signup == '') 
+        var phoneNum_signup = document.getElementById('phoneNum-signup').value;  
+        var username_validate=/^[0-9a-zA-Z_.-]+$/.test(username_signup);
+        var term_signup = document.getElementById("term-signup").checked;
+                     if (email_signup == '') 
         { 
             alert('Bạn chưa nhập email'); 
         }
@@ -52,6 +54,10 @@
         {
             alert('Bạn chưa nhập tên'); 
         }
+        else if(!username_validate)
+        {
+            alert('Tên đăng nhập không hợp lệ');
+        }      
         else if (password_signup == '') 
         {
             alert('Bạn chưa nhập mật khẩu'); 
@@ -79,7 +85,11 @@
         else if( gender_signup== 'none') 
         {
             alert('Bạn chưa nhập giới tính');
-        }  
+        } 
+        else if(!term_signup)
+        {
+            alert('Bạn chưa đồng ý với điều khoản');
+        } 
         else
         { 
         return true; 
@@ -253,7 +263,7 @@
                             <hr>
                             <div class="form-group form-check">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="accept-term" checked=""> Tôi đồng ý với
+                                    <input class="form-check-input" type="checkbox" name="accept-term" id="term-signup"checked=""> Tôi đồng ý với
                                     <a href="#">Điều khoản sử dụng</a>
                                 </label>
                             </div>
