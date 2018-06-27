@@ -368,8 +368,8 @@ var checkTrade = (req, res) => {
 
 		for (var i = 0; i < rows.length; i++) {
 			var pros = {
-				proID: rows[i].ProID,
-				quantity: rows[i].Quantity
+				proID: +rows[i].ProID,
+				quantity: +rows[i].Quantity
 			}
 
 			arr_pros.push(pros);
@@ -380,6 +380,13 @@ var checkTrade = (req, res) => {
 			orderRepo.updateState(orderID, 1).then(value => {
 				res.redirect(req.headers.referer);
 			});
+		}).catch(err => {
+			console.log(err);
+			var vm = {
+				showError: true,
+				errorMsg: 'Check trade failed'
+			};
+			res.render('error/index', vm);
 		});
 	});
 }

@@ -131,9 +131,10 @@ exports.UpdateMultiQuantities = arr_pros => {
 	var sql = ``;
 
 	for (var i = 0; i < arr_pros.length; i++) {
-		sql += `update products set Quantity = Quantity - '${arr_pros[i].quantity}',
-	SoldQuantity = SoldQuantity + '${arr_pros[i].quantity}'
-	where ProID = '${arr_pros[i].proID}';`;
+		sql += `update products set Quantity = Quantity - ${arr_pros[i].quantity},
+		SoldQuantity = SoldQuantity + ${arr_pros[i].quantity} 
+		where ProID = ${arr_pros[i].proID}; `;
 	}
-	return db.save(sql);
+	console.log(sql);
+	return db.saveAll(sql);
 }
