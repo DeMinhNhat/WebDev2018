@@ -74,7 +74,7 @@ app.get('/', (req, res) => {
 app.use('', postController);
 app.use('/home', homeController);
 app.use('/product', productController);
-app.use('/order', orderController);
+app.use('/order', restrict, orderController);
 app.use('/cart', restrict, cartController);
 
 app.use(handle404MDW);

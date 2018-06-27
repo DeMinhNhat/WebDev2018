@@ -1,5 +1,6 @@
 var db = require('./database');
 var config = require('../config/config');
+var format = require('pg-format');
 
 // cart => [
 // 	{
@@ -105,5 +106,12 @@ exports.addSingleCartItemToDB = (cartItem, orderId) => {
 	var sql = `insert into orderdetails(OrderID, ProID, Quantity, Amount)
 	values('${orderId}', '${cartItem.product.ProId}',
 	'${cartItem.quantity}', '${cartItem.amount}')`;
+	return db.save(sql);
+}
+
+exports.addMultiCartItemToDB = (ods) => {
+	var sql = format(`insert into orderdetails(OrderID, ProID, Quantity, Amount)
+	values %L`, ods);
+	console.log(sql);
 	return db.save(sql);
 }

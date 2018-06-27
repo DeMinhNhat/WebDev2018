@@ -83,7 +83,7 @@ var logout = (req, res) => {
 	req.session.cart = [];
 
 	var url = req.originalUrl;
-	if (url.indexOf('cart') > -1)
+	if (url.indexOf('cart') > -1 || url.indexOf('order') > -1)
 		res.redirect('/');
 	else
 		res.redirect(req.headers.referer);
@@ -214,7 +214,6 @@ var getAmount = (req, res) => {
 // 		...
 // ]
 
-
 var payment = (req, res) => {
 
 	if (req.session.cart.length < 1) {
@@ -235,66 +234,44 @@ var payment = (req, res) => {
 		total: cartRepo.getTotal(req.session.cart), // tổng số tiền
 		state: 0
 	};
+
 	// add the order
 	orderRepo.add(order).then(value => {
 
-		// get ID of the order (OrderID)
-		orderRepo.getLastInsertID().then(rows => {
+		var orderID = value.insertId;
 
-			//add all orderdetails
-			if (rows.length > 0) {
+		console.log(orderID);
 
-				var orderID = rows[0].orderID;
+		var arr_ods = [];
 
-				if (orderID < 1) {
-					var vm = {
-						showError: true,
-						errorMsg: 'Payment Process failed: error1'
-					};
-					res.render('error/index', vm);
-					return;
-				}
-				// else
-				var arr_p = [];
-				for (var i = 0; i < req.session.cart.length; i++) {
-					var cartItem = req.session.cart[i];
-					var p = cartRepo.addSingleCartItemToDB(cartItem, orderID);
-					arr_p.push(p);
-				}
-				Promise.all(arr_p).then(result => {
-					req.session.cart = [];
-					res.redirect('/order');
-				}).catch(err => {
-					var vm = {
-						showError: true,
-						errorMsg: 'Payment Process failed: error2'
-					};
-					res.render('error/index', vm);
-				});
+		for (var i = 0; i < req.session.cart.length; i++) {
+			var cartItem = req.session.cart[i];
 
-			} else {
-				var vm = {
-					showError: true,
-					errorMsg: 'Payment Process failed: error3'
-				};
-				res.render('error/index', vm);
-			}
+			var od = [+orderID, +cartItem.product.ProID, +cartItem.quantity, +cartItem.amount];
+			console.log(od);
+			arr_ods.push(od);
+		}
+
+		cartRepo.addMultiCartItemToDB(arr_ods).then(value => {
+			req.session.cart = [];
+			res.redirect('/order');
 
 		}).catch(err => {
 			var vm = {
 				showError: true,
-				errorMsg: 'Payment Process failed: error4'
+				errorMsg: 'Payment Process failed. Err: addToCart'
 			};
 			res.render('error/index', vm);
+			return;
 		});
 
 	}).catch(err => {
 		var vm = {
 			showError: true,
-			errorMsg: 'Payment Process failed: error5'
+			errorMsg: 'Payment Process failed. Err: addToOrder'
 		};
 		res.render('error/index', vm);
 	});
-}
+};
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
