@@ -7,6 +7,7 @@ var cartRepo = require('../repos/cartRepo');
 var orderRepo = require('../repos/orderRepo');
 var accountRepo = require('../repos/accountRepo');
 var productRepo = require('../repos/productRepo');
+var productDetailRepo = require('../repos/productDetailRepo');
 
 var router = express.Router();
 
@@ -39,6 +40,9 @@ router.post('*', (req, res) => {
 		case 'payment':
 			payment(req, res);
 			break;
+		case 'checkTrade':
+			checkTrade(req, res);
+			break;
 		default:
 			var vm = {
 				showError: true,
@@ -55,6 +59,15 @@ var login = (req, res) => {
 		email: req.body.email,
 		password: sha256(req.body.pswd).toString()
 	};
+
+	if (req.session.isLogged === true) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Login failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
 
 	accountRepo.login(user).then(rows => {
 		if (rows.length > 0) {
@@ -78,6 +91,16 @@ var login = (req, res) => {
 }
 
 var logout = (req, res) => {
+
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Logout failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
 	req.session.isLogged = false;
 	req.session.curUser = null;
 	req.session.cart = [];
@@ -90,6 +113,16 @@ var logout = (req, res) => {
 }
 
 var signup = (req, res) => {
+
+	if (req.session.isLogged === true) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Signup failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
 	var birday = moment(req.body.birday).format('YYYY-MM-DDTHH:mm');
 
 	var user = {
@@ -128,6 +161,16 @@ var signup = (req, res) => {
 }
 
 var changeInfo = (req, res) => {
+
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Change Info failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
 	var birday = moment(req.body.birday).format('YYYY-MM-DDTHH:mm');
 
 	var user = {
@@ -168,6 +211,16 @@ var changeInfo = (req, res) => {
 }
 
 var addToCart = (req, res) => {
+
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Add to cart failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
 	productRepo.single(req.body.proId).then(rows => {
 		if (rows[0].Quantity < +req.body.quantity) {
 			res.redirect(req.headers.referer);
@@ -184,6 +237,16 @@ var addToCart = (req, res) => {
 }
 
 var removeFromCart = (req, res) => {
+
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Remove from cart failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
 	cartRepo.remove(req.session.cart, +req.body.proId);
 	res.redirect(req.headers.referer);
 }
@@ -215,6 +278,15 @@ var getAmount = (req, res) => {
 // ]
 
 var payment = (req, res) => {
+
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Payment failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
 
 	if (req.session.cart.length < 1) {
 		var vm = {
@@ -275,3 +347,46 @@ var payment = (req, res) => {
 };
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
+
+var checkTrade = (req, res) => {
+
+	// need permission of admin
+	if (req.session.isLogged === false) {
+		var vm = {
+			showError: true,
+			errorMsg: 'Check trade failed'
+		};
+		res.render('error/index', vm);
+		return;
+	}
+
+	var orderID = req.body.orderId;
+
+	productDetailRepo.getAllByOrderID(orderID).then(rows => {
+
+		var arr_pros = [];
+
+		for (var i = 0; i < rows.length; i++) {
+			var pros = {
+				proID: +rows[i].ProID,
+				quantity: +rows[i].Quantity
+			}
+
+			arr_pros.push(pros);
+		}
+
+		productRepo.UpdateMultiQuantities(arr_pros).then(value => {
+			// update state = 1
+			orderRepo.updateState(orderID, 1).then(value => {
+				res.redirect(req.headers.referer);
+			});
+		}).catch(err => {
+			console.log(err);
+			var vm = {
+				showError: true,
+				errorMsg: 'Check trade failed'
+			};
+			res.render('error/index', vm);
+		});
+	});
+}
