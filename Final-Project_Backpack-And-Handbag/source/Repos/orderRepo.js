@@ -23,15 +23,8 @@ exports.add = order => {
 	return db.save(sql);
 }
 
-exports.updateState = order => {
-	var sql = `update orders set State = '${order.state}'
-	where OrderID = '${order.orderID}'`;
+exports.updateState = (orderID, state) => {
+	var sql = `update orders set State = '${state}'
+	where OrderID = '${orderID}'`;
 	return db.save(sql);
-}
-
-// do not do this query when not insert orders (add order) before
-// *important* if not, everything goes wrong :))
-exports.getLastInsertID = () => {
-	var sql = `select LAST_INSERT_ID() as orderID`;
-	return db.load(sql);
 }

@@ -18,8 +18,9 @@ exports.loadTopViewed = (amount, offset) => {
 	return db.load(sql);
 }
 
-exports.loadTopSold = () => {
-	// chưa bik câu sql sao....
+exports.loadTopSold = (amount, offset) => {
+	var sql = `select * from products
+	order by SoldQuantity desc limit ${amount} offset ${offset}`;
 	return db.load(sql);
 }
 
@@ -118,4 +119,21 @@ exports.countByWords = words => {
 	return db.load(sql);
 }
 
-// các hàm cho việc tìm kiếm theo tên, loại, thương hiệu, giá cả...
+exports.UpdateQuantities = (proID, quantity) => {
+	var sql = `update products set Quantity = Quantity - '${quantity}',
+	SoldQuantity = SoldQuantity + '${quantity}'
+	where ProID = '${proID}'`;
+	return db.save(sql);
+}
+
+exports.UpdateMultiQuantities = arr_pros => {
+
+	var sql = ``;
+
+	for (var i = 0; i < arr_pros.length; i++) {
+		sql += `update products set Quantity = Quantity - '${arr_pros[i].quantity}',
+	SoldQuantity = SoldQuantity + '${arr_pros[i].quantity}'
+	where ProID = '${arr_pros[i].proID}';`;
+	}
+	return db.save(sql);
+}

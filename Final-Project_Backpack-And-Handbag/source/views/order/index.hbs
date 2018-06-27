@@ -13,7 +13,20 @@ table.shopping-cart td{
 
 {{#section 'js'}}
 <script src="/assets/home/js/products.js"></script>
+
+<script type="text/javascript">
+$('.checkTrade').on('click', function() {
+	var id = $(this).data('orderid');
+	$('#frmCheckTrade #orderId').val(id);
+	$('#frmCheckTrade').submit();
+});
+</script>
 {{/section}}
+
+<form id="frmCheckTrade" method="POST" action="">
+	<input type="hidden" value="checkTrade" name="typeSubmit">
+	<input type="hidden" name="orderId" id="orderId">
+</form>
 
 <div class="container">
 	<div class="main">
@@ -64,6 +77,7 @@ table.shopping-cart td{
 								<th>Khách hàng</th>
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
+								<th>Check nhận</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -74,6 +88,11 @@ table.shopping-cart td{
 								<td>{{f_Username}}</td>
 								<td>{{number_format Total}}</td>
 								<td>{{State}}</td>
+								<td class="text-center">
+									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-angle-up"></i>
+									</a>
+								</td>
 							</tr>
 							{{/each}}
 						</tbody>
