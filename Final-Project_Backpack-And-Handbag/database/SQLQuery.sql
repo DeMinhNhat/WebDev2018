@@ -74,6 +74,9 @@ CREATE TABLE `orderdetails` (
 	FOREIGN KEY (`ProID`) REFERENCES products(`ProID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+insert into users(f_Username, f_Password, f_Email, f_DOB, f_Gender, f_Phone, f_Permission)
+values('admin', '1', 'admin@gmail.com', '1997-09-09', 'female', 0908012378, 1);
+
 insert into  brands (BraID,BraName,Origin) value ( 1, "Herschel", "Canada");
 insert into  brands (BraID,BraName,Origin) value ( 2, "Nike", "Amenica");
 insert into  brands (BraID,BraName,Origin) value ( 3, "North-face", "Amenica");

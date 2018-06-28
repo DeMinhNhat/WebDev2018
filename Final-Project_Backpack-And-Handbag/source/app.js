@@ -19,7 +19,6 @@ var productController = require('./controllers/productController');
 var homeController = require('./controllers/homeController');
 var cartController = require('./controllers/cartController');
 var orderController = require('./controllers/orderController');
-var adminController = require('./controllers/adminController');
 
 var app = express();
 
