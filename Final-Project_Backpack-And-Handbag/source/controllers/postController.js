@@ -351,7 +351,8 @@ var payment = (req, res) => {
 var checkTrade = (req, res) => {
 
 	// need permission of admin
-	if (req.session.isLogged === false) {
+	// if (req.session.isLogged === false || req.session.curUser.f_Permission=== false) 
+	{
 		var vm = {
 			showError: true,
 			errorMsg: 'Check trade failed'
@@ -362,31 +363,42 @@ var checkTrade = (req, res) => {
 
 	var orderID = req.body.orderId;
 
-	productDetailRepo.getAllByOrderID(orderID).then(rows => {
-
-		var arr_pros = [];
-
-		for (var i = 0; i < rows.length; i++) {
-			var pros = {
-				proID: +rows[i].ProID,
-				quantity: +rows[i].Quantity
-			}
-
-			arr_pros.push(pros);
-		}
-
-		productRepo.UpdateMultiQuantities(arr_pros).then(value => {
-			// update state = 1
-			orderRepo.updateState(orderID, 1).then(value => {
-				res.redirect(req.headers.referer);
-			});
-		}).catch(err => {
-			console.log(err);
+	orderRepo.single(orderID).then(rows => {
+		if (rows[0].State === 1) {
 			var vm = {
 				showError: true,
-				errorMsg: 'Check trade failed'
+				errorMsg: 'Trade is cheched'
 			};
 			res.render('error/index', vm);
-		});
+			return;
+		} else {
+			productDetailRepo.getAllByOrderID(orderID).then(rows => {
+
+				var arr_pros = [];
+
+				for (var i = 0; i < rows.length; i++) {
+					var pros = {
+						proID: +rows[i].ProID,
+						quantity: +rows[i].Quantity
+					}
+
+					arr_pros.push(pros);
+				}
+
+				productRepo.UpdateMultiQuantities(arr_pros).then(value => {
+					// update state = 1
+					orderRepo.updateState(orderID, 1).then(value => {
+						res.redirect(req.headers.referer);
+					});
+				}).catch(err => {
+					console.log(err);
+					var vm = {
+						showError: true,
+						errorMsg: 'Check trade failed'
+					};
+					res.render('error/index', vm);
+				});
+			});
+		}
 	});
 }

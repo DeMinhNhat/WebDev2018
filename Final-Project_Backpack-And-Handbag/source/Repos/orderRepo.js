@@ -17,6 +17,13 @@ exports.loadAll = () => {
 	return db.load(sql);
 }
 
+exports.loadAllByUserID = userID => {
+	var sql = `select orders.*, users.*
+	from orders inner join users on orders.UserID = users.f_ID 
+	where userID = '${userID}'`;
+	return db.load(sql);
+}
+
 exports.add = order => {
 	var sql = `insert into orders(OrderDate, UserID, Total, State)
 	values('${order.orderDate}', '${order.userID}', '${order.total}', '${order.state}')`;
@@ -27,4 +34,9 @@ exports.updateState = (orderID, state) => {
 	var sql = `update orders set State = '${state}'
 	where OrderID = '${orderID}'`;
 	return db.save(sql);
+}
+
+exports.single = orderID => {
+	var sql = `select * from orders where OrderID = '${orderID}'`;
+	return db.load(sql);
 }
