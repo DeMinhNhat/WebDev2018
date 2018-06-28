@@ -37,13 +37,14 @@
                     </form>
                 </div>
                 <div class=" col-md-4">
-                    {{#if layoutVM.adminLogged}}
+                    {{!-- {{#if layoutVM.adminLogged}}
                     <form method="POST" action="">
                         <input type="hidden" value="adminLogout" name="typeSubmit">
                         <button class="btn btn-secondary" type="submit" id="signout">
                             <i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
                     </form>
-                    {{else}} {{#if layoutVM.isLogged}}
+                    {{else}}  --}}
+                    {{#if layoutVM.isLogged}}
                     <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static"
                         data-keyboard="false">
                         <i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
@@ -56,7 +57,12 @@
                             <i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
                     </form>
                     <button class="btn btn-secondary" type="button" id="trackOrder">
-                        <i class="far fa-file-alt"></i> Đơn hàng đã mua
+                        <i class="far fa-file-alt"></i> 
+                        {{#if layoutVM.curUser.f_Permission}}
+                          Các đơn hàng
+                        {{else}}
+                        Đơn hàng đã mua
+                        {{/if}}
                     </button>
 
                     {{else}}
@@ -67,7 +73,9 @@
                     <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
                         data-keyboard="false">
                         <i class="fas fa-user-circle"></i> Đăng kí</button>
-                    {{/if}} {{/if}} {{!--
+                    {{/if}} 
+                    {{!-- {{/if}}  --}}
+                    {{!--
                     <div class="lang_Sel">
                         Ngôn ngữ:
                         <a href="#">
