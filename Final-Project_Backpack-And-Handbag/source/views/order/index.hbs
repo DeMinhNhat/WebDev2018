@@ -78,6 +78,8 @@ $('.checkTrade').on('click', function() {
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
 								<th>Check nhận</th>
+								<th>Đã giao</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -93,6 +95,19 @@ $('.checkTrade').on('click', function() {
 										<i class="fas fa-angle-up"></i>
 									</a>
 								</td>
+								{{#if State}}
+								<td>
+									<a role="button">
+										<i class="fas fa-check"></i>
+									</a>
+								</td>
+								{{else}}
+								<td>
+									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-minus-square"></i>
+									</a>
+								</td>
+								{{/if}}
 							</tr>
 							{{/each}}
 						</tbody>
