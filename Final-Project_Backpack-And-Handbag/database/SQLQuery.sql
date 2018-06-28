@@ -40,6 +40,7 @@ CREATE TABLE `products` (
 	`BraID` int(11) UNSIGNED NOT NULL,
 	`Quantity` int(11) NOT NULL,
 	`Clicks` int(11) NOT NULL DEFAULT 0,
+	`SoldQuantity` int(11) NOT NULL DEFAULT 0,
 	`ImportDate` date NOT NULL,
 	`SaleOff` int(11) UNSIGNED NOT NULL DEFAULT 0,
 	PRIMARY KEY (`ProID`),

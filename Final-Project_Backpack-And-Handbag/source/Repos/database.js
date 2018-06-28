@@ -1,6 +1,4 @@
 var mysql = require('mysql');
-var mssql = require('mssql');
-var nodesql = require('node-mysql');
 
 exports.load = sql => {
     return new Promise((resolve, reject) => {
@@ -50,28 +48,27 @@ exports.save = sql => {
     });
 }
 
-exports.saveAll = (sql, values) => {
+exports.saveAll = sql => {
     return new Promise((resolve, reject) => {
-        var cn = nodesql.createConnection({
+        var cn = mysql.createConnection({
             host: 'localhost',
             port: 3306,
             user: 'root',
             password: '',
-            database: 'qlbh'
+            database: 'qlbh',
+            multipleStatements: true
         });
 
         cn.connect();
-        console.log('connect');
-        cn.query(sql, [values], function(error, result) {
+
+        cn.query(sql, function(error, value) {
             if (error) {
                 reject(error);
             } else {
-                resolve(result);
+                resolve(value);
             }
-            console.log('running');
-            cn.end();
-            console.log('end');
 
+            cn.end();
         });
     });
 }
