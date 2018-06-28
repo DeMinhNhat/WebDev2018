@@ -45,6 +45,7 @@ router.post('*', (req, res) => {
 			break;
 		case 'adminLogout':
 			adminLogout(req, res);
+			break;
 		case 'checkTrade':
 			checkTrade(req, res);
 			break;
@@ -354,35 +355,31 @@ var payment = (req, res) => {
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
 
 var adminLogin = (req, res) => {
-    var user = {
-        username: req.body.username,
+	var user = {
+		username: req.body.username,
 		password: sha256(req.body.pswd).toString(),
 		permission: +req.body.permission
 	};
-    accountRepo.adminlogin(user).then(rows => {
+	accountRepo.adminlogin(user).then(rows => {
 		if (rows.length > 0) {
 			req.session.curUser = rows[0];
-
+			req.session.adminLogged = true;
 			// res.redirect(req.headers.referer);
 			// res.status(0).redirect('back');
 			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-
-			res.render('admin/index');
+			res.redirect('/admin');
 		} else {
-			var vm = {
-				showError: true,
-				errorMsg: 'Login failed'
-			};
-			res.render('admin/login', vm);
+			res.redirect(`/admin/login?errormsg=Login failed`);
 		}
-	}); 
+	});
 }
 
-var adminLogout = (res, req) => {
+var adminLogout = (req, res) => {
+	console.log('adjfpiaj');
 	req.session.adminLogged = false;
 	req.session.curUser = null;
-		
-	res.redirect(req.headers.referer);
+
+	res.redirect('/admin');
 }
 
 var checkTrade = (req, res) => {

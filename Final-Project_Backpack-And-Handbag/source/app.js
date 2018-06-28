@@ -77,12 +77,11 @@ app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/order', restrict, orderController);
 app.use('/cart', restrict, cartController);
-app.use('/administrator', function (req, res, next){
-	if (req.session.adminLogged === false){
-		res.render('admin/login');
+app.use('/admin', function (req, res, next) {
+	if (req.path !== '/login' && req.session.adminLogged === false) {
+		res.redirect('/admin/login');
 	}
-	else{
-		req.session.adminLogged = true;
+	else {
 		next();
 	}
 }, adminController);
