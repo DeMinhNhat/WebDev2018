@@ -72,9 +72,8 @@ $('.checkTrade').on('click', function() {
 					<table class="table table-hover shopping-cart">
 						<thead>
 							<tr>
-								<th>ID đơn hàng</th>
-								<th>Ngày đặt hàng</th>
 								<th>Khách hàng</th>
+								<th>Ngày đặt hàng</th>
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
 								<th>Check nhận</th>
@@ -83,11 +82,11 @@ $('.checkTrade').on('click', function() {
 							</tr>
 						</thead>
 						<tbody>
+							{{#if layoutVM.curUser.f_Permission}}
 							{{#each orders}}
 							<tr>
-								<td>{{OrderID}}</td>
-								<td>{{date_format OrderDate}}</td>
 								<td>{{f_Username}}</td>
+								<td>{{date_format OrderDate}}</td>
 								<td>{{number_format Total}}</td>
 								<td>{{State}}</td>
 								<td class="text-center">
@@ -110,6 +109,34 @@ $('.checkTrade').on('click', function() {
 								{{/if}}
 							</tr>
 							{{/each}}
+							{{else}}
+							{{#each cusOrders}}
+							<tr>
+								<td>{{f_Username}}</td>
+								<td>{{date_format OrderDate}}</td>
+								<td>{{number_format Total}}</td>
+								<td>{{State}}</td>
+								<td class="text-center">
+									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-angle-up"></i>
+									</a>
+								</td>
+								{{#if State}}
+								<td>
+									<a role="button">
+										<i class="fas fa-check"></i>
+									</a>
+								</td>
+								{{else}}
+								<td>
+									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-minus-square"></i>
+									</a>
+								</td>
+								{{/if}}
+							</tr>
+							{{/each}}
+							{{/if}}
 						</tbody>
 					</table>
 				</div>

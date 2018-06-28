@@ -25,7 +25,9 @@
             var min_birday_signup_legit = new Date(1900,01,01);
             var gender_signup = document.getElementById('gender-signup').value;
             var phoneNum_signup = document.getElementById('phoneNum-signup').value;  
-            var username_validate=/^[0-9a-zA-Z_.-]+$/.test(username_signup);
+            // var username_validate=/^[0-9a-zA-Z_.-]+$/.test(username_signup);
+            var username_validate=/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/.test(username_signup);
+            
             var term_signup = document.getElementById("term-signup").checked;
             if (email_signup == '') 
             { 

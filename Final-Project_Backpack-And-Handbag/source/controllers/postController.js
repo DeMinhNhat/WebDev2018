@@ -50,11 +50,9 @@ router.post('*', (req, res) => {
 			checkTrade(req, res);
 			break;
 		default:
-			var vm = {
-				showError: true,
-				errorMsg: 'Something goes wrong'
-			};
-			res.render('error/index', vm);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;
 	}
 });
 
@@ -304,7 +302,6 @@ var payment = (req, res) => {
 			var cartItem = req.session.cart[i];
 
 			var od = [+orderID, +cartItem.product.ProID, +cartItem.quantity, +cartItem.amount];
-			console.log(od);
 			arr_ods.push(od);
 		}
 
@@ -316,7 +313,6 @@ var payment = (req, res) => {
 			req.session.isWrong = true;
 			res.redirect('back');
 			req.session.isWrong = false;
-			return;
 		});
 
 	}).catch(err => {
@@ -328,7 +324,8 @@ var payment = (req, res) => {
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
 
-var adminLogin = (req, res) => {
+// Admin Login and Logout
+/*var adminLogin = (req, res) => {
 	var user = {
 		username: req.body.username,
 		password: sha256(req.body.pswd).toString(),
@@ -354,18 +351,11 @@ var adminLogout = (req, res) => {
 	req.session.curUser = null;
 
 	res.redirect('/admin');
-}
+}*/
 
 var checkTrade = (req, res) => {
 
 	// need permission of admin
-	// if (req.session.isLogged === false || req.session.curUser.f_Permission=== false) 
-	//{
-		var vm = {
-			showError: true,
-			errorMsg: 'Check trade failed'
-		};
-		res.render('error/index', vm);
 	if (req.session.isLogged === false || req.session.curUser.f_Permission === false) {
 		req.session.isWrong = true;
 		res.redirect('back');
@@ -394,12 +384,9 @@ var checkTrade = (req, res) => {
 				res.redirect(req.headers.referer);
 			});
 		}).catch(err => {
-			console.log(err);
-			var vm = {
-				showError: true,
-				errorMsg: 'Check trade failed'
-			};
-			res.render('error/index', vm);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;;
 		});
 	});
 
