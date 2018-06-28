@@ -34,6 +34,7 @@ exports.updateState = (orderID, state) => {
 	var sql = `update orders set State = '${state}'
 	where OrderID = '${orderID}'`;
 	return db.save(sql);
+
 }
 
 exports.single = orderID => {
