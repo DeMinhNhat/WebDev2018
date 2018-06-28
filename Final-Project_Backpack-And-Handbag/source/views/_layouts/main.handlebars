@@ -100,7 +100,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()">
+                            <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()" autocomplete="off">
 
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="login" name="typeSubmit">
@@ -118,7 +118,7 @@
                                         <input class="form-check-input" type="checkbox" name="remember" checked=""> Ghi nhớ đăng nhập
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}}>Go Shopping</button>
+                                <button type="submit" class="btn btn-dark btn-block" form="login-form">Go Shopping</button>
                             </form>
                         </div>
                         <!-- Modal footer -->
@@ -147,12 +147,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            {{!--
-                            <span>Using </span>
-                            <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                            <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
-                            <hr> --}}
-                            <form method="POST" action="" id="signup-form" onsubmit="return UpValidateForm()">
+                            <form method="POST" action="" id="signup-form" onsubmit="return UpValidateForm()" autocomplete="off">
 
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="signup" name="typeSubmit">
@@ -185,7 +180,7 @@
                                         <div class="form-group">
                                             <label for="gender-signup">Giới tính:</label>
                                             <select name="gender" id="gender-signup" class="custom-select">
-                                                <option value="none" selected>Chọn...</option>
+                                                <option value="none" selected="true" disabled="disabled">Chọn...</option>
                                                 <option value="male">Nam</option>
                                                 <option value="female">Nữ</option>
                                                 <option value="other">Khác</option>
@@ -243,7 +238,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="POST" action="" id="changeInfo-form">
+                            <form method="POST" action="" id="changeInfo-form" autocomplete="off">
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="changeInfo" name="typeSubmit">
 
