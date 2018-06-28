@@ -40,12 +40,6 @@ router.post('*', (req, res) => {
 		case 'payment':
 			payment(req, res);
 			break;
-		case 'adminLogin':
-			adminLogin(req, res);
-			break;
-		case 'adminLogout':
-			adminLogout(req, res);
-			break;
 		case 'checkTrade':
 			checkTrade(req, res);
 			break;
@@ -83,7 +77,10 @@ var login = (req, res) => {
 		if (rows.length > 0) {
 			req.session.isLogged = true;
 			req.session.curUser = rows[0];
-			req.session.cart = [];
+			if (req.session.prevUser === null || req.session.curUser.f_ID !== req.session.prevUser.f_ID) {
+				req.session.cart = [];
+			}
+			req.session.prevUser = rows[0];
 
 			res.redirect('back');
 		} else {
@@ -105,7 +102,6 @@ var logout = (req, res) => {
 
 	req.session.isLogged = false;
 	req.session.curUser = null;
-	req.session.cart = [];
 
 	var url = req.originalUrl;
 	if (url.indexOf('cart') > -1 || url.indexOf('order') > -1)
@@ -140,7 +136,10 @@ var signup = (req, res) => {
 			if (rows.length > 0) {
 				req.session.isLogged = true;
 				req.session.curUser = rows[0];
-				req.session.cart = [];
+				if (req.session.prevUser === null || req.session.curUser.f_ID !== req.session.prevUser.f_ID) {
+					req.session.cart = [];
+				}
+				req.session.prevUser = rows[0];
 
 				res.redirect('back');
 			} else {
@@ -184,7 +183,10 @@ var changeInfo = (req, res) => {
 			if (rows.length > 0) {
 				req.session.isLogged = true;
 				req.session.curUser = rows[0];
-				req.session.cart = [];
+				if (req.session.prevUser === null || req.session.curUser.f_ID !== req.session.prevUser.f_ID) {
+					req.session.cart = [];
+				}
+				req.session.prevUser = rows[0];
 
 				res.redirect('back');
 			} else {
