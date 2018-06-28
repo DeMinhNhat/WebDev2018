@@ -40,6 +40,12 @@ router.post('*', (req, res) => {
 		case 'payment':
 			payment(req, res);
 			break;
+		case 'adminLogin':
+			adminLogin(req, res);
+			break;
+		case 'adminLogout':
+			adminLogout(req, res);
+			break;
 		case 'checkTrade':
 			checkTrade(req, res);
 			break;
@@ -322,9 +328,44 @@ var payment = (req, res) => {
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
 
+var adminLogin = (req, res) => {
+	var user = {
+		username: req.body.username,
+		password: sha256(req.body.pswd).toString(),
+		permission: +req.body.permission
+	};
+	accountRepo.adminlogin(user).then(rows => {
+		if (rows.length > 0) {
+			req.session.curUser = rows[0];
+			req.session.adminLogged = true;
+			// res.redirect(req.headers.referer);
+			// res.status(0).redirect('back');
+			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+			res.redirect('/admin');
+		} else {
+			res.redirect(`/admin/login?errormsg=Login failed`);
+		}
+	});
+}
+
+var adminLogout = (req, res) => {
+	console.log('adjfpiaj');
+	req.session.adminLogged = false;
+	req.session.curUser = null;
+
+	res.redirect('/admin');
+}
+
 var checkTrade = (req, res) => {
 
 	// need permission of admin
+	// if (req.session.isLogged === false || req.session.curUser.f_Permission=== false) 
+	//{
+		var vm = {
+			showError: true,
+			errorMsg: 'Check trade failed'
+		};
+		res.render('error/index', vm);
 	if (req.session.isLogged === false || req.session.curUser.f_Permission === false) {
 		req.session.isWrong = true;
 		res.redirect('back');
@@ -333,6 +374,34 @@ var checkTrade = (req, res) => {
 	}
 
 	var orderID = req.body.orderId;
+
+	productDetailRepo.getAllByOrderID(orderID).then(rows => {
+
+		var arr_pros = [];
+
+		for (var i = 0; i < rows.length; i++) {
+			var pros = {
+				proID: +rows[i].ProID,
+				quantity: +rows[i].Quantity
+			}
+
+			arr_pros.push(pros);
+		}
+
+		productRepo.UpdateMultiQuantities(arr_pros).then(value => {
+			// update state = 1
+			orderRepo.updateState(orderID, 1).then(value => {
+				res.redirect(req.headers.referer);
+			});
+		}).catch(err => {
+			console.log(err);
+			var vm = {
+				showError: true,
+				errorMsg: 'Check trade failed'
+			};
+			res.render('error/index', vm);
+		});
+	});
 
 	orderRepo.single(orderID).then(rows => {
 		if (rows[0].State === 1) {

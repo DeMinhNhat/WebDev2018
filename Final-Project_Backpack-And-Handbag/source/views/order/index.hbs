@@ -76,7 +76,10 @@ $('.checkTrade').on('click', function() {
 								<th>Ngày đặt hàng</th>
 								<th>Khách hàng</th>
 								<th>Số Tiền</th>
+								<th>Tình trạng</th>
+								<th>Check nhận</th>
 								<th>Đã giao</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -86,6 +89,12 @@ $('.checkTrade').on('click', function() {
 								<td>{{date_format OrderDate}}</td>
 								<td>{{f_Username}}</td>
 								<td>{{number_format Total}}</td>
+								<td>{{State}}</td>
+								<td class="text-center">
+									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-angle-up"></i>
+									</a>
+								</td>
 								{{#if State}}
 								<td>
 									<a role="button">

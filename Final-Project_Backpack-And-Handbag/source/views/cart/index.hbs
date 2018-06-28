@@ -5,45 +5,45 @@ Giỏ hàng
 {{#section 'css'}}
 <link rel="stylesheet" href="/assets/home/css/products.css">
 <style type="text/css">
-table.shopping-cart td{
-	vertical-align: middle;
-}
+	table.shopping-cart td, table.Payment-order-info td, table.Payment-user-info td{
+		padding: 5px;
+		vertical-align: middle;
+	}
+
+	button.Payment{
+		width: 100%;
+	}
 </style>
 {{/section}}
 
 {{#section 'js'}}
 <script src="/assets/home/js/products.js"></script>
 <script type="text/javascript">
-$('.removeItem').on('click', function() {
-	var id = $(this).data('proid');
-	$('#frmRemoveItem #txtP').val(id);
-	$('#frmRemoveItem').submit();
-});
-$('.addByOne').on('click', function() {
-	var quantity = $('#numItems');
-	if(quantity && parseInt(quantity[0].value) < 10){
-		quantity[0].value = parseInt(quantity[0].value) + 1;
-	}
-	var id = $(this).data('proid');
-	$('#frmGetAmount #txtP').val(id);
-	$('#txtQ').val(quantity[0].value);
-	$('#frmGetAmount').submit();
-});
-$('.subByOne').on('click', function() {
-	var quantity = $('#numItems');
-	if(quantity && parseInt(quantity[0].value) < 10){
-		quantity[0].value = parseInt(quantity[0].value) - 1;
-	}
-	var id = $(this).data('proid');
-	$('#frmGetAmount #txtP').val(id);
-	$('#txtQ').val(quantity[0].value);
-	$('#frmGetAmount').submit();
-});
-
-$('#payment').on('click', function() {
-	$('#frmPayment #orderDate').val((new Date()).toISOString());
-	$('#frmPayment').submit();
-});
+	$('.removeItem').on('click', function() {
+	    var id = $(this).data('proid');
+	    $('#frmRemoveItem #txtP').val(id);
+	    $('#frmRemoveItem').submit();
+	});
+	$('.addByOne').on('click', function() {
+		var quantity = $('#numItems');
+        if(quantity && parseInt(quantity[0].value) < 10){
+                quantity[0].value = parseInt(quantity[0].value) + 1;
+        }
+		var id = $(this).data('proid');
+		$('#frmGetAmount #txtP').val(id);
+		$('#txtQ').val(quantity[0].value);
+		$('#frmGetAmount').submit();
+	});
+	$('.subByOne').on('click', function() {
+		var quantity = $('#numItems');
+        if(quantity && parseInt(quantity[0].value) < 10){
+                quantity[0].value = parseInt(quantity[0].value) - 1;
+        }
+		var id = $(this).data('proid');
+		$('#frmGetAmount #txtP').val(id);
+		$('#txtQ').val(quantity[0].value);
+		$('#frmGetAmount').submit();
+	});
 </script>
 {{/section}}
 
@@ -56,17 +56,6 @@ $('#payment').on('click', function() {
 	<input type="hidden" value="getAmount" name="typeSubmit">
 	<input type="hidden" name="proId" id="txtP">
 	<input type="hidden" name="quantity" id="txtQ">
-</form>
-
-<form id="frmGetAmount" method="POST" action="">
-	<input type="hidden" value="getAmount" name="typeSubmit">
-	<input type="hidden" name="proId" id="txtP">
-	<input type="hidden" name="quantity" id="txtQ">
-</form>
-
-<form id="frmPayment" method="POST" action="">
-	<input type="hidden" value="payment" name="typeSubmit">
-	<input type="hidden" id="orderDate" name="orderDate">
 </form>
 
 <div class="container">
@@ -82,101 +71,86 @@ $('#payment').on('click', function() {
 					<span class="breadCum-item active">Giỏ hàng</span>
 				</span>
 			</div>
-			{{!-- <div class="col-lg-5">
-				<span class="sortSel">
-					<a href="#" class="active">Nổi bật</a>
-					<span> / </span>
-					<a href="#">Bán chạy</a>
-					<span> / </span>
-					<a href="#">Mới nhất</a>
-				</span>
-			</div> --}}
 		</div>
 		<div class="row">
-			<div class="col-sm-2 col-md-2 col-lg-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Nhà sản xuất</h3>
-					</div>
-					<div class="list-group">
-						{{#each layoutVM.brands}}
-						<a href="/product/byBra/{{BraID}}" class="list-group-item">{{BraName}}</a>
-						{{/each}}
-					</div>
+			<form class="col-sm-3 col-md-3 col-lg-3" method="POST" action="">
+				<div class="container" style="background-color:white">
+					<button class="btn btn-primary" style="width: 100%; margin: 15px 0 15px 0">Thanh toán</button>
+					<h3 class="panel-title">Thông tin đơn hàng</h3>
+					<table class="table table-hover Payment-order-info">
+						<tbody>
+							<tr>
+								<td>
+									Tổng tiền:
+									<small style="letter-spacing: 0;
+													line-height: 16px;
+													display: block;
+													text-align: left;
+													margin-top: 5px;">
+										Tạm tính ({{layoutVM.cartSummary}} sản phẩm)
+									</small>
+								</td>
+								<td>{{number_format total}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3 class="panel-title">Thông tin người mua</h3>
+					<table class="table table-hover Payment-user-info">
+						<tbody>
+							<tr>
+								<td>Người mua:</td>
+								<td>{{layoutVM.curUser.f_Username}}</td>
+							</tr>
+							<tr>
+								<td>Liên hệ (sđt):</td>
+								<td>{{layoutVM.curUser.f_Phone}}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<!-- End of panel Vendor -->
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Loại sản phẩm</h3>
-					</div>
-					<div class="list-group">
-						{{#each layoutVM.categories}}
-						<a href="/product/byCat/{{CatID}}" class="list-group-item">{{CatName}}</a>
-						{{/each}}
-					</div>
-				</div>
-				<!-- End of panel Types -->
-			</div>
+			</form>
 
-			<div class="col-sm-10 col-md-10 col-lg-10">
+			<div class="col-sm-9 col-md-9 col-lg-9">
 				<div class="container" id="cart" style="background-color:white">
 					<table class="table table-hover shopping-cart">
-						<thead>
-							<tr>
-								<th>&nbsp;</th>
-								<th>Sản Phẩm</th>
-								<th>Giá tiền</th>
-								<th>Số lượng</th>
-								<th>Thành tiền</th>
-								<th>&nbsp;</th>
-							</tr>
-						</thead>
-						<tbody>
-							{{#each items}}
-							<tr>
-								<td>
-									<img src="/imgs/products/{{product.ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
-								</td>
-								<td>{{product.ProName}}</td>
-								<td>{{number_format product.Price}}</td>
-								<td>
-									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm subByOne" href="javascript:;" role="button">
-										<span aria-hidden="true">-</span>
-									</a>
-									<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center" readonly>
-									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm addByOne" href="javascript:;" role="button">
-										<span aria-hidden="true">+</span>
-									</a>
-								</td>
-								<td>{{number_format amount}}</td>
-								<td class="text-right">
-									<a data-proid="{{product.ProID}}" class="btn btn-danger removeItem" href="javascript:;" role="button">
-										<span aria-hidden="true">&times;</span>
-									</a>
-								</td>
-							</tr>
-							{{/each}}
-						</tbody>
-						<tfoot>
-							<tr>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>Tổng tiền: {{number_format total}}</td>
-								<td>&nbsp;</td>
-							</tr>
-							<tr>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<td>&nbsp;</td>
-								<!-- Hành động thanh toán chưa biết làm gì-->
-								<td><button class="btn btn-primary" data-toggle="collapse" href="javascript:;" id="payment" role="button" aria-expanded="false" aria-controls="Payment">Thanh toán</button></td>
-								<td>&nbsp;</td>
-							</tr>
-						</tfoot>
-					</table>
+							<thead>
+								<tr>
+									<th>&nbsp;</th>
+									<th>Sản Phẩm</th>
+									<th>Giá tiền</th>
+									<th>Số lượng</th>
+									<th>Thành tiền</th>
+									<th>&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{#each items}}
+								<tr>
+									<td>
+										<img src="/imgs/products/{{product.ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
+									</td>
+									<td>{{product.ProName}}</td>
+									<td>{{number_format product.Price}}</td>
+									<td>
+										<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm subByOne" href="javascript:;" role="button">
+											<span aria-hidden="true">-</span>
+										</a>
+										<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center" readonly>
+										<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm addByOne" href="javascript:;" role="button">
+											<span aria-hidden="true">+</span>
+										</a>
+									</td>
+									<td>{{number_format amount}}</td>
+									<td class="text-right">
+										<a data-proid="{{product.ProID}}" class="btn btn-danger removeItem" href="javascript:;" role="button">
+											<span aria-hidden="true">&times;</span>
+										</a>
+									</td>
+								</tr>
+								{{/each}}
+							</tbody>
+							<tfoot></tfoot>
+						</table>
 				</div>
 			</div>
 		</div>

@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="/assets/home/css/style.css">
     <link rel="stylesheet" href="/assets/home/css/slider.css">
     <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
-    <link rel="stylesheet" href="/assets/home/css/error.css">
-
-    {{{_sections.css}}}
+    <link rel="stylesheet" href="/assets/home/css/error.css"> {{{_sections.css}}}
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
+<<<<<<< HEAD
     </head>
 
     {{#if layoutVM.isWrong}}
@@ -30,6 +29,87 @@
                     <div class="logo col-md-4">
                        <a href="/"><img src="/imgs/logos/logo-2.png"></a>
                    </div>
+=======
+    <script language="javascript"> 
+        function InValidateForm() // Check form login
+        {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pswd').value;
+            if (email == '') {
+                alert('Bạn chưa nhập email');
+            } else if (password == '') {
+                alert('Bạn chưa nhập mật khẩu');
+            } else {
+                return true;
+            }
+            return false;
+        }
+        function UpValidateForm() //Check form đăng kí
+        {
+            var email_signup = document.getElementById('email-signup').value;
+            var password_signup = document.getElementById('pswd-signup').value;
+            var username_signup = document.getElementById('username-signup').value;
+            var re_pswd_signup = document.getElementById('re-pswd-signup').value;
+            var birday_signup = new Date(document.getElementById('birday-signup').value);
+            var max_birday_signup_legit = new Date(2010, 01, 01);
+            var min_birday_signup_legit = new Date(1900, 01, 01);
+            var gender_signup = document.getElementById('gender-signup').value;
+            var phoneNum_signup = document.getElementById('phoneNum-signup').value;
+            var username_validate = /^[0-9a-zA-Z_.-]+$/.test(username_signup);
+            var term_signup = document.getElementById("term-signup").checked;
+            if (email_signup == '') {
+                alert('Bạn chưa nhập email');
+            }
+            else if (username_signup == '') {
+                alert('Bạn chưa nhập tên');
+            }
+            else if (!username_validate) {
+                alert('Tên đăng nhập không hợp lệ');
+            }
+            else if (password_signup == '') {
+                alert('Bạn chưa nhập mật khẩu');
+            }
+            else if (password_signup !== re_pswd_signup) {
+                alert('Bạn chưa nhập mật khẩu lại trùng khớp');
+            }
+            else if ($("#birday-signup").val() == "") {
+                alert("Bạn chưa nhập năm sinh");
+            }
+            else if (birday_signup > max_birday_signup_legit) {
+                alert('Năm không hợp lệ (tuổi quá nhỏ)');
+            }
+            else if (birday_signup < min_birday_signup_legit) {
+                alert('Năm không hợp lệ (tuổi quá lớn)');
+            }
+            else if (phoneNum_signup == '') {
+                alert('Bạn chưa nhập số điện thoại');
+            }
+            else if (gender_signup == 'none') {
+                alert('Bạn chưa nhập giới tính');
+            }
+            else if (!term_signup) {
+                alert('Bạn chưa đồng ý với điều khoản');
+            }
+            else {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+
+{{#if layoutVM.isWrong}}
+<span class="errorMsg">Thất bại!!!</span>
+{{/if}}
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="row">
+                <div class="logo col-md-4">
+                    </a>
+                </div>
+>>>>>>> aa38184dc80d129110674541eecc032cd20c1fdb
 
                    <div class="col-md-4 searchBar-top">
                     <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
@@ -40,98 +120,117 @@
                     </form>
                 </div>
                 <div class=" col-md-4">
-                    {{#if layoutVM.isLogged}}
-                    <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
+                    {{#if layoutVM.adminLogged}}
+                    <form method="POST" action="">
+                        <input type="hidden" value="adminLogout" name="typeSubmit">
+                        <button class="btn btn-secondary" type="submit" id="signout">
+                            <i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                    </form>
+                    {{else}} {{#if layoutVM.isLogged}}
+                    <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static"
+                        data-keyboard="false">
+                        <i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
 
                     <form method="POST" action="">
                         {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                         <input type="hidden" value="logout" name="typeSubmit">
 
-                        <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                        <button class="btn btn-secondary" type="submit" id="signout">
+                            <i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
                     </form>
 
                     {{else}}
-                    <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+                    <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static"
+                        data-keyboard="false">
+                        <i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
 
-                    <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
-                    {{/if}}
-
-                {{!-- <div class="lang_Sel">
-                    Ngôn ngữ:
-                    <a href="#">
-                        <img src="/imgs/icons/flag-eng.png">
-                    </a>
-                    <a href="#">
-                        <img src="/imgs/icons/flag-vie.png">
-                    </a>
-                </div> --}}
-                <br><br>
-                <img src="/imgs/logos/freeship-2.png"> <span>Giao hàng miễn phí</span>
-                <br>
-                <br>
-                <img src="/imgs/logos/100percent-2.png"> Cam kết chính hãng
-            </div>
-        </div>
-        <!-- End of row -->
-        <!-- Modal login -->
-        <div class="modal fade" id="signinModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Đăng nhập</h4>
-                        {{!-- <button type="button" class="btn btn-secondary" id="login-signup-btn" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false" data-dismiss="modal"><i class="fas fa-server"></i> Đăng kí</button> --}}
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()">
-
-                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                            <input type="hidden" value="login" name="typeSubmit">
-
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">Mật khẩu:</label>
-                                <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd">
-                            </div>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="remember" checked=""> Ghi nhớ đăng nhập
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}}>Go Shopping</button>
-                        </form>
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <span>Or using </span>
-                        <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                        <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
-                    </div>
-
+                    <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
+                        data-keyboard="false">
+                        <i class="fas fa-user-circle"></i> Đăng kí</button>
+                    {{/if}} {{/if}} {{!--
+                    <div class="lang_Sel">
+                        Ngôn ngữ:
+                        <a href="#">
+                            <img src="/imgs/icons/flag-eng.png">
+                        </a>
+                        <a href="#">
+                            <img src="/imgs/icons/flag-vie.png">
+                        </a>
+                    </div> --}}
+                    <br>
+                    <br>
+                    <img src="/imgs/logos/freeship-2.png">
+                    <span>Giao hàng miễn phí</span>
+                    <br>
+                    <br>
+                    <img src="/imgs/logos/100percent-2.png"> Cam kết chính hãng
                 </div>
             </div>
-        </div>
-        <!-- End of login Modal -->
-        <div class="modal fade" id="signupModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Đăng kí&nbsp;&nbsp;&nbsp;
+            <!-- End of row -->
+            <!-- Modal login -->
+            <div class="modal fade" id="signinModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Đăng nhập</h4>
+                            {{!--
+                            <button type="button" class="btn btn-secondary" id="login-signup-btn" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
+                                data-keyboard="false" data-dismiss="modal">
+                                <i class="fas fa-server"></i> Đăng kí</button> --}}
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()">
+
+                                {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                                <input type="hidden" value="login" name="typeSubmit">
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Mật khẩu:</label>
+                                    <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd">
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember" checked=""> Ghi nhớ đăng nhập
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-dark btn-block" form="login-form" {{!-- data-dismiss="modal" --}}>Go Shopping</button>
+                            </form>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <span>Or using </span>
                             <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
-                            <button type="button" class="btn btn-danger" id="gg-connect">Google +</button></h4>
+                            <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- End of login Modal -->
+            <div class="modal fade" id="signupModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Đăng kí&nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
+                                <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
+                            </h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
                         </div>
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            {{!-- <span>Using </span>
+                            {{!--
+                            <span>Using </span>
                             <button type="button" class="btn btn-primary " id="fb-connect">Facebook</button>
                             <button type="button" class="btn btn-danger" id="gg-connect">Google +</button>
                             <hr> --}}
@@ -168,7 +267,7 @@
                                         <div class="form-group">
                                             <label for="gender-signup">Giới tính:</label>
                                             <select name="gender" id="gender-signup" class="custom-select">
-                                                <option value="none"selected>Chọn...</option>
+                                                <option value="none" selected>Chọn...</option>
                                                 <option value="male">Nam</option>
                                                 <option value="female">Nữ</option>
                                                 <option value="other">Khác</option>
@@ -180,272 +279,275 @@
                                     <label for="phoneNum-signup">Điện thoại:</label>
                                     <input type="tel" class="form-control" name="phone" id="phoneNum-signup" placeholder="(+84) 123 456 789">
                                 </div>
-                            {{!-- <div class="form-group">
-                                <label for="address-signup">Địa chỉ:</label>
-                                <input type="text" class="form-control" name="address" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
-                            </div> --}}
-                            <hr>
-                            <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="accept-term" id="term-signup"checked=""> Tôi đồng ý với
-                                    <a href="#">Điều khoản sử dụng</a>
-                                </label>
-                            </div>
-                            {{!-- <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
-                                </label>
-                            </div> --}}
-                            <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <hr>
-                            <button type="submit" class="btn btn-dark btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
-                        </form>
-                    </div>
-
-                    <!-- Modal footer -->
-                    {{!-- button này nó nằm ngoài form rồi cha :3 --}}
-                    {{!-- <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
-                    </div> --}}
-
-                </div>
-            </div>
-        </div>
-        <!-- End of signup modal-->
-
-        <div class="modal fade" id="changeInfoModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Thay đổi thông tin</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form method="POST" action="" id="changeInfo-form">
-                            {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                            <input type="hidden" value="changeInfo" name="typeSubmit">
-
-                            <input type="hidden" value="{{layoutVM.curUser.f_ID}}" name="id">
-
-                            <div class="form-group">
-                                <label for="email-change">Email:</label>
-                                <input type="email" class="form-control" id="email-change" placeholder="katie@email.com" value="{{layoutVM.curUser.f_Email}}" name="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="username-change">Họ tên:</label>
-                                <input type="text" class="form-control" id="username-change" placeholder="Katty" value="{{layoutVM.curUser.f_Username}}" name="username">
-                            </div>
-                            <div class="form-group">
-                                <label for="pswd-change">Mật khẩu cũ:</label>
-                                <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="oldpswd">
-                            </div>
-                            <div class="form-group">
-                                <label for="pswd-change">Mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="newpswd">
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pswd-change">Xác nhận mật khẩu mới:</label>
-                                <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="repswd">
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-7">
-                                    <div class="form-group">
-                                        <label for="birday-change">Ngày sinh:</label>
-                                        <input type="date" class="form-control" id="birday-change" placeholder="Birthday" value="{{date_formatV2 layoutVM.curUser.f_DOB}}" name="birday">
-                                    </div>
+                                {{!--
+                                <div class="form-group">
+                                    <label for="address-signup">Địa chỉ:</label>
+                                    <input type="text" class="form-control" name="address" id="address-signup" placeholder="1st Nguyen Thi Minh Khai, Q1, Tp.HCM">
+                                </div> --}}
+                                <hr>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="accept-term" id="term-signup" checked=""> Tôi đồng ý với
+                                        <a href="#">Điều khoản sử dụng</a>
+                                    </label>
                                 </div>
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="gender-change">Giới tính:</label>
-                                        <select name="gender" id="gender-change" class="custom-select">
-                                            <option value="none" selected>Chọn...</option>
-                                            <option value="male">Nam</option>
-                                            <option value="female">Nữ</option>
-                                            <option value="other">Khác</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="phoneNum-change">Điện thoại:</label>
-                                <input type="tel" class="form-control" value="{{layoutVM.curUser.f_Phone}}" name="phone" id="phoneNum-change" placeholder="(+84) 123 456 789">
-                            </div>
-                            <hr>
-                            {{!-- <div class="form-group form-check">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với
-                                    <a href="#">Điều khoản sử dụng</a>
-                                </label>
-                            </div> --}}
-                            <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
-                            <hr>
-                            <button type="submit" class="btn btn-dark btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End of sign up modal-->
-    </div>
-    <!-- End of header -->
-</div>
-{{!-- --}}
-</div>
-
-<div class="container-fluid">
-    <nav class="navbar navbar-expand-md" id="mainNav">
-        <div class="container bgdark">
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        THỂ LOẠI
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown dropright dropdown-item">
-                            Ba lô
-                            <div class="dropdown-menu dropdown-backpack">
-                                <a class="dropdown-item" href="/product/byCat/3">Ba lô đeo vai</a>
-                                <a class="dropdown-item" href="/product/byCat/5">Túi người đưa thư</a>
-                            </div>
-                            <i class="fas fa-chevron-right"></i>
+                                {{!--
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="receive-mail"> Thông báo cho tôi về sản phẩm mới và khuyến mãi
+                                    </label>
+                                </div> --}}
+                                <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                                <hr>
+                                <button type="submit" class="btn btn-dark btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
+                            </form>
                         </div>
-                        {{!-- --}}
-                        <div class="dropdown dropright dropdown-item">
-                            Túi
-                            <div class="dropdown-menu dropdown-backpack">
-                                <a class="dropdown-item" href="/product/byCat/1">Túi vắt chéo thân</a>
-                                <a class="dropdown-item" href="/product/byCat/4">Túi du lịch</a>
-                                <a class="dropdown-item" href="/product/byCat/2">Túi xách</a>
-                            </div>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <a class="dropdown-item" href="/product">Tất cả</a>
+
+                        <!-- Modal footer -->
+                        {{!-- button này nó nằm ngoài form rồi cha :3 --}} {{!--
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
+                        </div> --}}
+
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">SẢN PHẨM MỚI</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">BÁN CHẠY NHẤT</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:;">XEM NHIỀU NHẤT</a>
-                </li>
-            </ul>
-
-            <ul class="navbar navbar-right">
-                <form class="form-inline searchBar" method="GET" action="/product/search">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30" name="search">
-                    <button class="btn btn-danger" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-
-                {{!-- {{#if showError}}
-                <div class="alert alert-danger">
-                    <strong>Title!</strong> {{errorMsg}}
-                </div>
-                {{/if}} --}}
-
-                {{#if layoutVM.isLogged}}
-                <span id="cart">
-                    <a href="/cart">
-                        <span id="itemCount">{{layoutVM.cartSummary}}</span>
-                    </a>
-                </span>
-                {{else}}
-                <span style="cursor:pointer">
-                    <a data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
-                        <span id="itemCount">&nbsp;&nbsp;</span>
-                    </a>
-                </span>
-                {{/if}}
-            </ul>
-        </div>
-    </nav>
-
-</div>
-{{!-- End of navbar --}}
-{{{body}}}
-
-<div class="container">
-    <div class="footer">
-        <div class="row">
-            <div class="col-sm-3">
-                <img src="/imgs/logos/logo-2.png" alt="" class="logo-sm">
-                <div class="contactInfo">
-                    <i class="fas fa-map-marker-alt"></i> 227, Nguyễn Văn Cừ, Q.5, Tp.HCM
-                    <br>
-                    <i class="fas fa-phone-square"></i> (+84) 123 456 789
-                    <br>
-                    <i class="fas fa-envelope-square"></i> ssgbackpack@gmail.com
                 </div>
             </div>
-            <div class="col-sm-3">
-                <h6>VỀ CHÚNG TÔI</h6>
-                <a href="#">
-                    <i class="fas fa-chevron-right"></i> Giới thiệu</a>
-                    <br>
-                    <a href="#">
-                        <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
-                        <br>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i> Chính sách bảo hành và đổi trả</a>
-                            <br>
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
-                                <br>
-                                <a href="#">
-                                    <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
+            <!-- End of signup modal-->
+
+            <div class="modal fade" id="changeInfoModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Thay đổi thông tin</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form method="POST" action="" id="changeInfo-form">
+                                {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                                <input type="hidden" value="changeInfo" name="typeSubmit">
+
+                                <input type="hidden" value="{{layoutVM.curUser.f_ID}}" name="id">
+
+                                <div class="form-group">
+                                    <label for="email-change">Email:</label>
+                                    <input type="email" class="form-control" id="email-change" placeholder="katie@email.com" value="{{layoutVM.curUser.f_Email}}"
+                                        name="email">
                                 </div>
-                                <div class="col-sm-3">
-                                    <h6>HƯỚNG DẪN</h6>
-                                    <a href="#">
-                                        <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
-                                        <br>
-                                        <a href="#">
-                                            <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
-                                            <br>
-                                            <a href="#">
-                                                <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
-                                                <br>
-                                            </div>
-                                            <div class="col-sm-3 payment-method">
-                                                <h6>HÌNH THỨC THANH TOÁN</h6>
-                                                <img src="/imgs/icons/icons8-paypal-50.png" alt=""> Paypal
-                                                <br>
-                                                <img src="/imgs/icons/icons8-mastercard-52.png" alt=""> Mastercard
-                                                <br>
-                                                <img src="/imgs/icons/icons8-visa-52.png" alt=""> Visa
-                                                <br>
-                                                <img src="/imgs/icons/icons8-stack-of-money-52.png" alt=""> Cash On Delivery (COD)
-                                            </div>
+                                <div class="form-group">
+                                    <label for="username-change">Họ tên:</label>
+                                    <input type="text" class="form-control" id="username-change" placeholder="Katty" value="{{layoutVM.curUser.f_Username}}"
+                                        name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pswd-change">Mật khẩu cũ:</label>
+                                    <input type="password" class="form-control" id="old-pswd-change" placeholder="*********" name="oldpswd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pswd-change">Mật khẩu mới:</label>
+                                    <input type="password" class="form-control" id="new-pswd-change" placeholder="*********" name="newpswd">
+                                </div>
+                                <div class="form-group">
+                                    <label for="re-pswd-change">Xác nhận mật khẩu mới:</label>
+                                    <input type="password" class="form-control" id="re-pswd-change" placeholder="*********" name="repswd">
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label for="birday-change">Ngày sinh:</label>
+                                            <input type="date" class="form-control" id="birday-change" placeholder="Birthday" value="{{date_formatV2 layoutVM.curUser.f_DOB}}"
+                                                name="birday">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label for="gender-change">Giới tính:</label>
+                                            <select name="gender" id="gender-change" class="custom-select">
+                                                <option value="none" selected>Chọn...</option>
+                                                <option value="male">Nam</option>
+                                                <option value="female">Nữ</option>
+                                                <option value="other">Khác</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- End of footer -->
-                            </div>
+                                <div class="form-group">
+                                    <label for="phoneNum-change">Điện thoại:</label>
+                                    <input type="tel" class="form-control" value="{{layoutVM.curUser.f_Phone}}" name="phone" id="phoneNum-change" placeholder="(+84) 123 456 789">
+                                </div>
+                                <hr> {{!--
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="accept-term"> Tôi đồng ý với
+                                        <a href="#">Điều khoản sử dụng</a>
+                                    </label>
+                                </div> --}}
+                                <div class="g-recaptcha" data-sitekey="6LdDG1YUAAAAAJmrKr-38rsKihGsjZwDEMDRQWn0"></div>
+                                <hr>
+                                <button type="submit" class="btn btn-dark btn-block" form="changeInfo-form" {{!-- data-dismiss="modal" --}}>Xác nhận</button>
+                            </form>
                         </div>
-                    </body>
+                    </div>
+                </div>
+            </div>
+            <!-- End of sign up modal-->
+        </div>
+        <!-- End of header -->
+    </div>
+    {{!-- --}}
+    </div>
 
-                    <script type="text/javascript" src="/assets/jquery/jquery-3.1.1.min.js"></script>
-                    <script type="text/javascript" src="/assets/jquery/date-format.min.js"></script>
-                    <script src="/assets/bootstrap-4.1.1/js/bootstrap.min.js"></script>
-                    <script src="/assets/home/js/effect.js"></script>
-                    <script src="/assets/datepicker/datepicker.js"></script>
-                    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md" id="mainNav">
+            <div class="container bgdark">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            THỂ LOẠI
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown dropright dropdown-item">
+                                Ba lô
+                                <div class="dropdown-menu dropdown-backpack">
+                                    <a class="dropdown-item" href="/product/byCat/3">Ba lô đeo vai</a>
+                                    <a class="dropdown-item" href="/product/byCat/5">Túi người đưa thư</a>
+                                </div>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            {{!-- --}}
+                            <div class="dropdown dropright dropdown-item">
+                                Túi
+                                <div class="dropdown-menu dropdown-backpack">
+                                    <a class="dropdown-item" href="/product/byCat/1">Túi vắt chéo thân</a>
+                                    <a class="dropdown-item" href="/product/byCat/4">Túi du lịch</a>
+                                    <a class="dropdown-item" href="/product/byCat/2">Túi xách</a>
+                                </div>
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                            <a class="dropdown-item" href="/product">Tất cả</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:;">SẢN PHẨM MỚI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:;">BÁN CHẠY NHẤT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:;">XEM NHIỀU NHẤT</a>
+                    </li>
+                </ul>
 
-                    <script type="text/javascript">
-                    $(document).ready(function () {
-                        $(".errorMsg").fadeIn(3000).fadeOut(3000);
-                    });
-                    </script>
+                <ul class="navbar navbar-right">
+                    <form class="form-inline searchBar" method="GET" action="/product/search">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="30" name="search">
+                        <button class="btn btn-danger" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
 
-                    {{{_sections.js}}}
+                    {{!-- {{#if showError}}
+                    <div class="alert alert-danger">
+                        <strong>Title!</strong> {{errorMsg}}
+                    </div>
+                    {{/if}} --}} {{#if layoutVM.isLogged}}
+                    <span id="cart">
+                        <a href="/cart">
+                            <span id="itemCount">{{layoutVM.cartSummary}}</span>
+                        </a>
+                    </span>
+                    {{else}}
+                    <span style="cursor:pointer">
+                        <a data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
+                            <span id="itemCount">&nbsp;&nbsp;</span>
+                        </a>
+                    </span>
+                    {{/if}}
+                </ul>
+            </div>
+        </nav>
 
-                    </html>
+    </div>
+    {{!-- End of navbar --}} {{{body}}}
+
+    <div class="container">
+        <div class="footer">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="/imgs/logos/logo-2.png" alt="" class="logo-sm">
+                    <div class="contactInfo">
+                        <i class="fas fa-map-marker-alt"></i> 227, Nguyễn Văn Cừ, Q.5, Tp.HCM
+                        <br>
+                        <i class="fas fa-phone-square"></i> (+84) 123 456 789
+                        <br>
+                        <i class="fas fa-envelope-square"></i> ssgbackpack@gmail.com
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h6>VỀ CHÚNG TÔI</h6>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Giới thiệu</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Chính sách giao hàng</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Chính sách bảo hành và đổi trả</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Chính sách thanh toán</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Chính sách Bảo mật thông tin</a>
+                </div>
+                <div class="col-sm-3">
+                    <h6>HƯỚNG DẪN</h6>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Khách hàng Tp.HCM</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Khách hàng tỉnh</a>
+                    <br>
+                    <a href="#">
+                        <i class="fas fa-chevron-right"></i> Mua hàng trực tuyến</a>
+                    <br>
+                </div>
+                <div class="col-sm-3 payment-method">
+                    <h6>HÌNH THỨC THANH TOÁN</h6>
+                    <img src="/imgs/icons/icons8-paypal-50.png" alt=""> Paypal
+                    <br>
+                    <img src="/imgs/icons/icons8-mastercard-52.png" alt=""> Mastercard
+                    <br>
+                    <img src="/imgs/icons/icons8-visa-52.png" alt=""> Visa
+                    <br>
+                    <img src="/imgs/icons/icons8-stack-of-money-52.png" alt=""> Cash On Delivery (COD)
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of footer -->
+    </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="/assets/jquery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/assets/jquery/date-format.min.js"></script>
+<script src="/assets/bootstrap-4.1.1/js/bootstrap.min.js"></script>
+<script src="/assets/home/js/effect.js"></script>
+<script src="/assets/datepicker/datepicker.js"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<<<<<<< HEAD <script type="text/javascript">
+    // $('#login-signup-btn').on('click', function() { // $('#signinModal').modal('hide'); // $('#signupModal').modal(); // });
+    </script> {{{_sections.js}}} =======
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".errorMsg").fadeIn(3000).fadeOut(3000);
+        });
+    </script> {{{_sections.js}}} >>>>>>> b97ce187ae1f8a87c8c6fa70a0df40801a54ef34
+
+</html>
