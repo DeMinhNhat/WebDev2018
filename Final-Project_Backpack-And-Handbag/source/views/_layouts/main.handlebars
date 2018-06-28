@@ -243,7 +243,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="POST" action="" id="changeInfo-form">
+                            <form method="POST" action="" id="changeInfo-form" onsubmit="return ChangeValidateForm">
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="changeInfo" name="typeSubmit">
 

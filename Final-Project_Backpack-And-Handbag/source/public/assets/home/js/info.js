@@ -8,12 +8,12 @@
             } else if (password == '') 
             {
              alert('Bạn chưa nhập mật khẩu'); 
-         } else
-         { 
-            return true; 
+            } else
+            { 
+                return true; 
+            }
+                return false;
         }
-        return false;
-    }
         function UpValidateForm() //Check form đăng kí
         {  
             var email_signup = document.getElementById('email-signup').value; 
@@ -76,4 +76,26 @@
                 return true; 
             }
             return false;
-		}
+        }
+        /* function ChangeValidateForm()
+        {   
+            var curPass = document.getElementById('old-pswd-change').value; 
+            var newPass = document.getElementById('new-pswd-change').value; 
+            var newPass2 = document.getElementById('re-pswd-change').value; 
+            alert("Bạn chưa nhập mật khẩu cũ");
+            var x='22';
+           console.log(x);
+           if(curPass=='')
+           {
+                alert("Bạn chưa nhập mật khẩu cũ");
+           }
+           else if(newPass!==newPass2)
+           {
+               alert("Mật khẩu mới nhập lại chưa trùng khớp");
+           }
+           else
+           {
+               return true;
+           }
+           return false;
+        } */
