@@ -10,127 +10,132 @@
     <link rel="stylesheet" href="/assets/home/css/style.css">
     <link rel="stylesheet" href="/assets/home/css/slider.css">
     <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
+    <link rel="stylesheet" href="/assets/home/css/error.css">
 
     {{{_sections.css}}}
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
-<script language="javascript"> 
+    <script language="javascript"> 
         function InValidateForm() // Check form login
-    {
-    var email = document.getElementById('email').value; 
-    var password = document.getElementById('pswd').value; 
-    if (email == '') 
-    { 
-        alert('Bạn chưa nhập email'); 
-    } else if (password == '') 
-    {
-         alert('Bạn chưa nhập mật khẩu'); 
-    } else
-    { 
-        return true; 
-    }
-     return false;
+        {
+            var email = document.getElementById('email').value; 
+            var password = document.getElementById('pswd').value; 
+            if (email == '') 
+            { 
+                alert('Bạn chưa nhập email'); 
+            } else if (password == '') 
+            {
+             alert('Bạn chưa nhập mật khẩu'); 
+         } else
+         { 
+            return true; 
+        }
+        return false;
     }
         function UpValidateForm() //Check form đăng kí
-    {  
-        var email_signup = document.getElementById('email-signup').value; 
-        var password_signup = document.getElementById('pswd-signup').value; 
-        var username_signup = document.getElementById('username-signup').value; 
-        var re_pswd_signup = document.getElementById('re-pswd-signup').value; 
-        var birday_signup = new Date(document.getElementById('birday-signup').value);
-        var max_birday_signup_legit = new Date(2010,01,01);
-        var min_birday_signup_legit = new Date(1900,01,01);
-        var gender_signup = document.getElementById('gender-signup').value;
-        var phoneNum_signup = document.getElementById('phoneNum-signup').value;  
-        var username_validate=/^[0-9a-zA-Z_.-]+$/.test(username_signup);
-        var term_signup = document.getElementById("term-signup").checked;
-                     if (email_signup == '') 
-        { 
-            alert('Bạn chưa nhập email'); 
+        {  
+            var email_signup = document.getElementById('email-signup').value; 
+            var password_signup = document.getElementById('pswd-signup').value; 
+            var username_signup = document.getElementById('username-signup').value; 
+            var re_pswd_signup = document.getElementById('re-pswd-signup').value; 
+            var birday_signup = new Date(document.getElementById('birday-signup').value);
+            var max_birday_signup_legit = new Date(2010,01,01);
+            var min_birday_signup_legit = new Date(1900,01,01);
+            var gender_signup = document.getElementById('gender-signup').value;
+            var phoneNum_signup = document.getElementById('phoneNum-signup').value;  
+            var username_validate=/^[0-9a-zA-Z_.-]+$/.test(username_signup);
+            var term_signup = document.getElementById("term-signup").checked;
+            if (email_signup == '') 
+            { 
+                alert('Bạn chưa nhập email'); 
+            }
+            else if (username_signup == '') 
+            {
+                alert('Bạn chưa nhập tên'); 
+            }
+            else if(!username_validate)
+            {
+                alert('Tên đăng nhập không hợp lệ');
+            }      
+            else if (password_signup == '') 
+            {
+                alert('Bạn chưa nhập mật khẩu'); 
+            }
+            else if (password_signup !==re_pswd_signup)
+            { 
+                alert('Bạn chưa nhập mật khẩu lại trùng khớp'); 
+            }
+            else if($("#birday-signup").val() == "")
+            {
+                alert("Bạn chưa nhập năm sinh");
+            }
+            else if(birday_signup>max_birday_signup_legit )
+            {
+                alert('Năm không hợp lệ (tuổi quá nhỏ)');
+            }  
+            else if(birday_signup<min_birday_signup_legit)
+            {
+                alert('Năm không hợp lệ (tuổi quá lớn)');
+            }
+            else if(phoneNum_signup=='')
+            {
+                alert('Bạn chưa nhập số điện thoại');
+            }
+            else if( gender_signup== 'none') 
+            {
+                alert('Bạn chưa nhập giới tính');
+            } 
+            else if(!term_signup)
+            {
+                alert('Bạn chưa đồng ý với điều khoản');
+            } 
+            else
+            { 
+                return true; 
+            }
+            return false;
         }
-        else if (username_signup == '') 
-        {
-            alert('Bạn chưa nhập tên'); 
-        }
-        else if(!username_validate)
-        {
-            alert('Tên đăng nhập không hợp lệ');
-        }      
-        else if (password_signup == '') 
-        {
-            alert('Bạn chưa nhập mật khẩu'); 
-        }
-        else if (password_signup !==re_pswd_signup)
-        { 
-            alert('Bạn chưa nhập mật khẩu lại trùng khớp'); 
-        }
-        else if($("#birday-signup").val() == "")
-        {
-            alert("Bạn chưa nhập năm sinh");
-        }
-        else if(birday_signup>max_birday_signup_legit )
-        {
-            alert('Năm không hợp lệ (tuổi quá nhỏ)');
-        }  
-        else if(birday_signup<min_birday_signup_legit)
-        {
-            alert('Năm không hợp lệ (tuổi quá lớn)');
-        }
-        else if(phoneNum_signup=='')
-        {
-            alert('Bạn chưa nhập số điện thoại');
-        }
-        else if( gender_signup== 'none') 
-        {
-            alert('Bạn chưa nhập giới tính');
-        } 
-        else if(!term_signup)
-        {
-            alert('Bạn chưa đồng ý với điều khoản');
-        } 
-        else
-        { 
-        return true; 
-        }
-    return false;
-    }
-    </script>
-</head>
+        </script>
+    </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="row">
-                <div class="logo col-md-4">
-                   <a href="/"><img src="/imgs/logos/logo-2.png"></a>
-               </div>
+    {{#if layoutVM.isWrong}}
+    <span class="errorMsg">Thất bại!!!</span>
+    {{/if}}
 
-               <div class="col-md-4 searchBar-top">
-                <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
-                    <button class="btn btn-danger" id="btnSearch" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </div>
-            <div class=" col-md-4">
-                {{#if layoutVM.isLogged}}
-                <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="row">
+                    <div class="logo col-md-4">
+                       <a href="/"><img src="/imgs/logos/logo-2.png"></a>
+                   </div>
 
-                <form method="POST" action="">
-                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                    <input type="hidden" value="logout" name="typeSubmit">
+                   <div class="col-md-4 searchBar-top">
+                    <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
+                        <button class="btn btn-danger" id="btnSearch" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class=" col-md-4">
+                    {{#if layoutVM.isLogged}}
+                    <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
 
-                    <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
-                </form>
-                
-                {{else}}
-                <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+                    <form method="POST" action="">
+                        {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                        <input type="hidden" value="logout" name="typeSubmit">
 
-                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
-                {{/if}}
+                        <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                    </form>
+
+                    {{else}}
+                    <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+
+                    <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
+                    {{/if}}
 
                 {{!-- <div class="lang_Sel">
                     Ngôn ngữ:
@@ -517,10 +522,9 @@
                     <script src='https://www.google.com/recaptcha/api.js'></script>
 
                     <script type="text/javascript">
-                    // $('#login-signup-btn').on('click', function() {
-                    //     $('#signinModal').modal('hide');
-                    //     $('#signupModal').modal();
-                    // });
+                    $(document).ready(function () {
+                        $(".errorMsg").fadeIn(3000).fadeOut(3000);
+                    });
                     </script>
 
                     {{{_sections.js}}}

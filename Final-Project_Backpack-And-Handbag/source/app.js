@@ -11,6 +11,7 @@ var session = require('express-session');
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
+var restrict2 = require('./middle-wares/restrict2');
 
 // tui thấy làm vậy ổn, cơ mà tất cả các hàm POST đều nằm chỉ ở 1 file
 var postController = require('./controllers/postController');
@@ -71,11 +72,11 @@ app.get('/', (req, res) => {
 	res.redirect('/home');
 });
 
-app.use('', postController);
-app.use('/home', homeController);
-app.use('/product', productController);
-app.use('/order', restrict, orderController);
-app.use('/cart', restrict, cartController);
+app.use('', restrict2, postController);
+app.use('/home', restrict2, homeController);
+app.use('/product', restrict2, productController);
+app.use('/order', restrict, restrict2, orderController);
+app.use('/cart', restrict, restrict2, cartController);
 
 app.use(handle404MDW);
 
