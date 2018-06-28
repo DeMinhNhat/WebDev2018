@@ -78,14 +78,14 @@ app.use('/home', restrict2, homeController);
 app.use('/product', restrict2, productController);
 app.use('/order', restrict, restrict2, orderController);
 app.use('/cart', restrict, restrict2, cartController);
-app.use('/admin', function (req, res, next) {
+/*app.use('/admin', function (req, res, next) {
 	if (req.path !== '/login' && req.session.adminLogged === false) {
 		res.redirect('/admin/login');
 	}
 	else {
 		next();
 	}
-}, adminController);
+}, adminController); */
 
 app.use(handle404MDW);
 

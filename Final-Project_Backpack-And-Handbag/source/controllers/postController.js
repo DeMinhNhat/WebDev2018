@@ -328,7 +328,8 @@ var payment = (req, res) => {
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
 
-var adminLogin = (req, res) => {
+// Admin Login and Logout
+/*var adminLogin = (req, res) => {
 	var user = {
 		username: req.body.username,
 		password: sha256(req.body.pswd).toString(),
@@ -354,7 +355,7 @@ var adminLogout = (req, res) => {
 	req.session.curUser = null;
 
 	res.redirect('/admin');
-}
+}*/
 
 var checkTrade = (req, res) => {
 
