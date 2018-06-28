@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="/assets/home/css/slider.css">
     <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
     <link rel="stylesheet" href="/assets/home/css/error.css"> {{{_sections.css}}}
-
+    <script type="text/javascript" src="/assets/home/js/info.js"></script>
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
-<<<<<<< HEAD
     </head>
 
     {{#if layoutVM.isWrong}}
@@ -29,89 +28,8 @@
                     <div class="logo col-md-4">
                        <a href="/"><img src="/imgs/logos/logo-2.png"></a>
                    </div>
-=======
-    <script language="javascript"> 
-        function InValidateForm() // Check form login
-        {
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('pswd').value;
-            if (email == '') {
-                alert('Bạn chưa nhập email');
-            } else if (password == '') {
-                alert('Bạn chưa nhập mật khẩu');
-            } else {
-                return true;
-            }
-            return false;
-        }
-        function UpValidateForm() //Check form đăng kí
-        {
-            var email_signup = document.getElementById('email-signup').value;
-            var password_signup = document.getElementById('pswd-signup').value;
-            var username_signup = document.getElementById('username-signup').value;
-            var re_pswd_signup = document.getElementById('re-pswd-signup').value;
-            var birday_signup = new Date(document.getElementById('birday-signup').value);
-            var max_birday_signup_legit = new Date(2010, 01, 01);
-            var min_birday_signup_legit = new Date(1900, 01, 01);
-            var gender_signup = document.getElementById('gender-signup').value;
-            var phoneNum_signup = document.getElementById('phoneNum-signup').value;
-            var username_validate = /^[0-9a-zA-Z_.-]+$/.test(username_signup);
-            var term_signup = document.getElementById("term-signup").checked;
-            if (email_signup == '') {
-                alert('Bạn chưa nhập email');
-            }
-            else if (username_signup == '') {
-                alert('Bạn chưa nhập tên');
-            }
-            else if (!username_validate) {
-                alert('Tên đăng nhập không hợp lệ');
-            }
-            else if (password_signup == '') {
-                alert('Bạn chưa nhập mật khẩu');
-            }
-            else if (password_signup !== re_pswd_signup) {
-                alert('Bạn chưa nhập mật khẩu lại trùng khớp');
-            }
-            else if ($("#birday-signup").val() == "") {
-                alert("Bạn chưa nhập năm sinh");
-            }
-            else if (birday_signup > max_birday_signup_legit) {
-                alert('Năm không hợp lệ (tuổi quá nhỏ)');
-            }
-            else if (birday_signup < min_birday_signup_legit) {
-                alert('Năm không hợp lệ (tuổi quá lớn)');
-            }
-            else if (phoneNum_signup == '') {
-                alert('Bạn chưa nhập số điện thoại');
-            }
-            else if (gender_signup == 'none') {
-                alert('Bạn chưa nhập giới tính');
-            }
-            else if (!term_signup) {
-                alert('Bạn chưa đồng ý với điều khoản');
-            }
-            else {
-                return true;
-            }
-            return false;
-        }
-    </script>
-</head>
 
-{{#if layoutVM.isWrong}}
-<span class="errorMsg">Thất bại!!!</span>
-{{/if}}
-
-<body>
-    <div class="container">
-        <div class="header">
-            <div class="row">
-                <div class="logo col-md-4">
-                    </a>
-                </div>
->>>>>>> aa38184dc80d129110674541eecc032cd20c1fdb
-
-                   <div class="col-md-4 searchBar-top">
+                <div class="col-md-4 searchBar-top">
                     <form class="form-inline" method="GET" action="/product/search" id="frmSearch">
                         <input class="form-control mr-sm-2" type="text" placeholder="Tìm kiếm" size="25" id="txtSearch" name="search">
                         <button class="btn btn-danger" id="btnSearch" type="submit">
@@ -549,5 +467,4 @@
             $(".errorMsg").fadeIn(3000).fadeOut(3000);
         });
     </script> {{{_sections.js}}} >>>>>>> b97ce187ae1f8a87c8c6fa70a0df40801a54ef34
-
 </html>

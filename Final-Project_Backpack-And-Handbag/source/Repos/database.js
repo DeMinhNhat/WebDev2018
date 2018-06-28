@@ -6,7 +6,7 @@ exports.load = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: '',
+            password: '123456',
             database: 'qlbh'
         });
 
@@ -30,7 +30,7 @@ exports.save = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: '',
+            password: '123456',
             database: 'qlbh'
         });
 
