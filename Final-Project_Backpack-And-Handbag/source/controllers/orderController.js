@@ -5,9 +5,14 @@ var orderRepo = require('../repos/orderRepo'),
 var router = express.Router();
 
 router.get('/', (req, res) => {
-	orderRepo.loadAll().then(rows => {
+
+	var p1 = orderRepo.loadAll();
+	var p2 = orderRepo.loadAllByUserID(req.session.curUser.f_ID);
+
+	Promise.all([p1, p2]).then(([adRows, cusRows]) => {
 		var vm = {
-			orders: rows
+			orders: adRows,
+			cusOrders: cusRows
 		};
 		res.render('order/index', vm);
 	});

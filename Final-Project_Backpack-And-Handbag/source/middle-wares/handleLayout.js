@@ -7,9 +7,7 @@ module.exports = (req, res, next) => {
 	if (req.session.isLogged === undefined) {
 		req.session.isLogged = false;
 	}
-	if(req.session.adminLogged === undefined){
-        req.session.adminLogged = false;
-    }
+	
 	if (req.session.isWrong === undefined) {
 		req.session.isWrong = false;
 	}
@@ -21,7 +19,6 @@ module.exports = (req, res, next) => {
 		res.locals.layoutVM = {
 			categories: cates,
 			brands: bras,
-			adminLogged: req.session.adminLogged,
 			isLogged: req.session.isLogged,
 			curUser: req.session.curUser,
 			cartSummary: cartRepo.getNumberOfItems(req.session.cart),
