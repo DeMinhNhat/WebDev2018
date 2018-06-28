@@ -1,0 +1,8 @@
+table.shopping-cart td, table.Payment-order-info td, table.Payment-user-info td{
+	padding: 5px;
+	vertical-align: middle;
+}
+
+button.Payment{
+	width: 100%;
+}
