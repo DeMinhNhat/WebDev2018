@@ -39,6 +39,12 @@ router.post('*', (req, res) => {
 		case 'payment':
 			payment(req, res);
 			break;
+		case 'adminLogin':
+			adminLogin(req, res);
+			break;
+		case 'adminLogout':
+			adminLogout(req, res);
+			break;
 		default:
 			var vm = {
 				showError: true,
@@ -275,3 +281,35 @@ var payment = (req, res) => {
 };
 
 // check đã giao hàng (state của order) => thay đổi quantity của các products đã giao
+
+var adminLogin = (req, res) => {
+    var user = {
+        username: req.body.username,
+		password: sha256(req.body.pswd).toString(),
+		permission: +req.body.permission
+	};
+    accountRepo.adminlogin(user).then(rows => {
+		if (rows.length > 0) {
+			req.session.curUser = rows[0];
+
+			// res.redirect(req.headers.referer);
+			// res.status(0).redirect('back');
+			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+
+			res.render('admin/index');
+		} else {
+			var vm = {
+				showError: true,
+				errorMsg: 'Login failed'
+			};
+			res.render('admin/login', vm);
+		}
+	}); 
+}
+
+var adminLogout = (res, req) => {
+	req.session.adminLogged = false;
+	req.session.curUser = null;
+		
+	res.redirect(req.headers.referer);
+}

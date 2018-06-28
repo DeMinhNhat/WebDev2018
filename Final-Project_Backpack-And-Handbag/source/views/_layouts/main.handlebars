@@ -18,7 +18,6 @@
     <title>{{{_sections.title}}}</title>
 
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -36,20 +35,27 @@
                 </form>
             </div>
             <div class=" col-md-4">
-                {{#if layoutVM.isLogged}}
-                <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
-
-                <form method="POST" action="">
-                    {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
-                    <input type="hidden" value="logout" name="typeSubmit">
-
-                    <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
-                </form>
-                
+                {{#if layoutVM.adminLogged}}
+                    <form method="POST" action="">
+                        <input type="hidden" value="adminLogout" name="typeSubmit">
+                        <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                    </form>
                 {{else}}
-                <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+                    {{#if layoutVM.isLogged}}
+                    <button class="btn btn-secondary" type="button" id="account" data-toggle="modal" data-target="#changeInfoModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user"></i> {{layoutVM.curUser.f_Username}}</button>
 
-                <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
+                    <form method="POST" action="">
+                        {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
+                        <input type="hidden" value="logout" name="typeSubmit">
+
+                        <button class="btn btn-secondary" type="submit" id="signout"><i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
+                    </form>
+                    
+                    {{else}}
+                    <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false"><i class="fa fa-sign-in-alt fa-fw"></i> Đăng nhập</button>
+
+                    <button type="button" class="btn btn-secondary" id="signup" data-toggle="modal" data-target="#signupModal" data-backdrop="static" data-keyboard="false"><i class="fas fa-user-circle"></i> Đăng kí</button>
+                    {{/if}}
                 {{/if}}
 
                 {{!-- <div class="lang_Sel">

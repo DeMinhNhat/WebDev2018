@@ -18,6 +18,7 @@ var productController = require('./controllers/productController');
 var homeController = require('./controllers/homeController');
 var cartController = require('./controllers/cartController');
 var orderController = require('./controllers/orderController');
+var adminController = require('./controllers/adminController');
 
 var app = express();
 
@@ -76,6 +77,15 @@ app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/order', restrict, orderController);
 app.use('/cart', restrict, cartController);
+app.use('/administrator', function (req, res, next){
+	if (req.session.adminLogged === false){
+		res.render('admin/login');
+	}
+	else{
+		req.session.adminLogged = true;
+		next();
+	}
+}, adminController);
 
 app.use(handle404MDW);
 
