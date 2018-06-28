@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/assets/home/css/slider.css">
     <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
     <link rel="stylesheet" href="/assets/home/css/error.css"> {{{_sections.css}}}
-    <script type="text/javascript" src="/assets/home/js/info.js"></script>
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
     <title>{{{_sections.title}}}</title>
@@ -56,6 +55,9 @@
                         <button class="btn btn-secondary" type="submit" id="signout">
                             <i class="fas fa-sign-out-alt fa-fw"></i> Đăng xuất</button>
                     </form>
+                    <button class="btn btn-secondary" type="button" id="trackOrder">
+                        <i class="far fa-file-alt"></i> Đơn hàng đã mua
+                    </button>
 
                     {{else}}
                     <button type="button" class="btn btn-secondary" id="signin" data-toggle="modal" data-target="#signinModal" data-backdrop="static"
@@ -100,7 +102,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()" autocomplete="off">
+                            <form method="POST" action="" id="login-form" onsubmit="return InValidateForm()">
 
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="login" name="typeSubmit">
@@ -453,7 +455,8 @@
 <script src="/assets/home/js/effect.js"></script>
 <script src="/assets/datepicker/datepicker.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
+    <script type="text/javascript" src="/assets/home/js/info.js"></script>
+    <script src="/assets/home/js/home.js"></script>
 <<<<<<< HEAD <script type="text/javascript">
     // $('#login-signup-btn').on('click', function() { // $('#signinModal').modal('hide'); // $('#signupModal').modal(); // });
     </script> {{{_sections.js}}} =======
