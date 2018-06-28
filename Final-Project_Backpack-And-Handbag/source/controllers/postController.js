@@ -61,19 +61,22 @@ router.post('*', (req, res) => {
 module.exports = router;
 
 var login = (req, res) => {
+
+	if (req.session.isLogged === true) {
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
+		return;
+	}
+
 	var user = {
 		email: req.body.email,
 		password: sha256(req.body.pswd).toString()
 	};
 
-	if (req.session.isLogged === true) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Login failed'
-		};
-		res.render('error/index', vm);
-		return;
-	}
+	// res.redirect(req.headers.referer);
+	// res.status(0).redirect('back');
+	// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
 
 	accountRepo.login(user).then(rows => {
 		if (rows.length > 0) {
@@ -81,17 +84,11 @@ var login = (req, res) => {
 			req.session.curUser = rows[0];
 			req.session.cart = [];
 
-			// res.redirect(req.headers.referer);
-			// res.status(0).redirect('back');
-			// var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
-
 			res.redirect('back');
 		} else {
-			var vm = {
-				showError: true,
-				errorMsg: 'Login failed'
-			};
-			res.render('error/index', vm);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;
 		}
 	});
 }
@@ -99,11 +96,9 @@ var login = (req, res) => {
 var logout = (req, res) => {
 
 	if (req.session.isLogged === false) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Logout failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
@@ -115,17 +110,15 @@ var logout = (req, res) => {
 	if (url.indexOf('cart') > -1 || url.indexOf('order') > -1)
 		res.redirect('/');
 	else
-		res.redirect(req.headers.referer);
+		res.redirect('back');
 }
 
 var signup = (req, res) => {
 
 	if (req.session.isLogged === true) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Signup failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
@@ -148,32 +141,26 @@ var signup = (req, res) => {
 				req.session.curUser = rows[0];
 				req.session.cart = [];
 
-				res.redirect(req.headers.referer);
+				res.redirect('back');
 			} else {
-				var vm = {
-					showError: true,
-					errorMsg: 'Signup failed'
-				};
-				res.render('error/index', vm);
+				req.session.isWrong = true;
+				res.redirect('back');
+				req.session.isWrong = false;
 			}
 		});
 	}).catch(err => {
-		var vm = {
-			showError: true,
-			errorMsg: 'Signup failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 	});
 }
 
 var changeInfo = (req, res) => {
 
 	if (req.session.isLogged === false) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Change Info failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
@@ -198,68 +185,63 @@ var changeInfo = (req, res) => {
 				req.session.curUser = rows[0];
 				req.session.cart = [];
 
-				res.redirect(req.headers.referer);
+				res.redirect('back');
 			} else {
-				var vm = {
-					showError: true,
-					errorMsg: 'Change Info failed'
-				};
-				res.render('error/index', vm);
+				req.session.isWrong = true;
+				res.redirect('back');
+				req.session.isWrong = false;
 			}
 		});
 	}).catch(err => {
-		var vm = {
-			showError: true,
-			errorMsg: 'Change Info failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 	});
 }
 
 var addToCart = (req, res) => {
 
 	if (req.session.isLogged === false) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Add to cart failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
 	productRepo.single(req.body.proId).then(rows => {
 		if (rows[0].Quantity < +req.body.quantity) {
-			res.redirect(req.headers.referer);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;
 			return;
+		} else {
+			var item = {
+				product: rows[0],
+				quantity: +req.body.quantity,
+				amount: rows[0].Price * +req.body.quantity
+			};
+			cartRepo.add(req.session.cart, item);
+			res.redirect('back');
 		}
-		var item = {
-			product: rows[0],
-			quantity: +req.body.quantity,
-			amount: rows[0].Price * +req.body.quantity
-		};
-		cartRepo.add(req.session.cart, item);
-		res.redirect(req.headers.referer);
 	});
 }
 
 var removeFromCart = (req, res) => {
 
 	if (req.session.isLogged === false) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Remove from cart failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
 	cartRepo.remove(req.session.cart, +req.body.proId);
-	res.redirect(req.headers.referer);
+	res.redirect('back');
 }
 
 var getAmount = (req, res) => {
 	cartRepo.getAmount(req.session.cart, +req.body.proId, +req.body.quantity);
-	res.redirect(req.headers.referer);
+	res.redirect('back');
 }
 
 // đặt hàng
@@ -286,20 +268,16 @@ var getAmount = (req, res) => {
 var payment = (req, res) => {
 
 	if (req.session.isLogged === false) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Payment failed'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
 	if (req.session.cart.length < 1) {
-		var vm = {
-			showError: true,
-			errorMsg: 'Sorry. Cart is empty'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
 	}
 
@@ -335,20 +313,16 @@ var payment = (req, res) => {
 			res.redirect('/order');
 
 		}).catch(err => {
-			var vm = {
-				showError: true,
-				errorMsg: 'Payment Process failed. Err: addToCart'
-			};
-			res.render('error/index', vm);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;
 			return;
 		});
 
 	}).catch(err => {
-		var vm = {
-			showError: true,
-			errorMsg: 'Payment Process failed. Err: addToOrder'
-		};
-		res.render('error/index', vm);
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 	});
 };
 
@@ -392,8 +366,12 @@ var checkTrade = (req, res) => {
 			errorMsg: 'Check trade failed'
 		};
 		res.render('error/index', vm);
+	if (req.session.isLogged === false || req.session.curUser.f_Permission === false) {
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 		return;
-	//}
+	}
 
 	var orderID = req.body.orderId;
 
@@ -427,11 +405,9 @@ var checkTrade = (req, res) => {
 
 	orderRepo.single(orderID).then(rows => {
 		if (rows[0].State === 1) {
-			var vm = {
-				showError: true,
-				errorMsg: 'Trade is cheched'
-			};
-			res.render('error/index', vm);
+			req.session.isWrong = true;
+			res.redirect('back');
+			req.session.isWrong = false;
 			return;
 		} else {
 			productDetailRepo.getAllByOrderID(orderID).then(rows => {
@@ -450,15 +426,12 @@ var checkTrade = (req, res) => {
 				productRepo.UpdateMultiQuantities(arr_pros).then(value => {
 					// update state = 1
 					orderRepo.updateState(orderID, 1).then(value => {
-						res.redirect(req.headers.referer);
+						res.redirect('back');
 					});
 				}).catch(err => {
-					console.log(err);
-					var vm = {
-						showError: true,
-						errorMsg: 'Check trade failed'
-					};
-					res.render('error/index', vm);
+					req.session.isWrong = true;
+					res.redirect('back');
+					req.session.isWrong = false;
 				});
 			});
 		}

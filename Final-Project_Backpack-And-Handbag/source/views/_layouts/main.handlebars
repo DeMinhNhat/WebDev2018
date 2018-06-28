@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/assets/fontawesome-5.0.13/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="/assets/home/css/style.css">
     <link rel="stylesheet" href="/assets/home/css/slider.css">
-    <link rel="stylesheet" href="/assets/datepicker/datepicker.css"> {{{_sections.css}}}
+    <link rel="stylesheet" href="/assets/datepicker/datepicker.css">
+    <link rel="stylesheet" href="/assets/home/css/error.css"> {{{_sections.css}}}
 
     <link rel="icon" href="/imgs/icons/favicon.ico">
 
@@ -81,6 +82,10 @@
         }
     </script>
 </head>
+
+{{#if layoutVM.isWrong}}
+<span class="errorMsg">Thất bại!!!</span>
+{{/if}}
 
 <body>
     <div class="container">
@@ -156,8 +161,8 @@
                         <div class="modal-header">
                             <h4 class="modal-title">Đăng nhập</h4>
                             {{!--
-                            <button type="button" class="btn btn-secondary" id="login-signup-btn" data-toggle="modal"
-                                data-target="#signupModal" data-backdrop="static" data-keyboard="false" data-dismiss="modal">
+                            <button type="button" class="btn btn-secondary" id="login-signup-btn" data-toggle="modal" data-target="#signupModal" data-backdrop="static"
+                                data-keyboard="false" data-dismiss="modal">
                                 <i class="fas fa-server"></i> Đăng kí</button> --}}
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
@@ -522,11 +527,13 @@
 <script src="/assets/datepicker/datepicker.js"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-<script type="text/javascript">
-                    // $('#login-signup-btn').on('click', function() {
-                    //     $('#signinModal').modal('hide');
-                    //     $('#signupModal').modal();
-                    // });
-</script> {{{_sections.js}}}
+<<<<<<< HEAD <script type="text/javascript">
+    // $('#login-signup-btn').on('click', function() { // $('#signinModal').modal('hide'); // $('#signupModal').modal(); // });
+    </script> {{{_sections.js}}} =======
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".errorMsg").fadeIn(3000).fadeOut(3000);
+        });
+    </script> {{{_sections.js}}} >>>>>>> b97ce187ae1f8a87c8c6fa70a0df40801a54ef34
 
 </html>
