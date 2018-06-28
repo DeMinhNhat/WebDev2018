@@ -68,9 +68,7 @@ $('#payment').on('click', function() {
 	<input type="hidden" name="quantity" id="txtQ">
 </form>
 
-{{!-- cái button này chạy được submit thanh toán --}}
-
-{{!-- <button class="btn btn-primary" id="payment" style="width: 100%; margin: 15px 0 15px 0" href="javascript:;">Thanh toán</button> --}}
+{{!-- từ đây trở lên ổn rồi, chưa cho dô file.js thôi :3 --}}
 
 <div class="container">
 	<div class="main">
@@ -89,81 +87,77 @@ $('#payment').on('click', function() {
 		<div class="row">
 			<div class="col-sm-3 col-md-3 col-lg-3">
 				<div class="container" style="background-color:white">
-					<button class="btn btn-primary" style="width: 100%; margin: 15px 0 15px 0" href="javascript:;">Thanh toán</button>
+					<button class="btn btn-primary" id="payment" style="width: 100%; margin: 15px 0 15px 0" href="javascript:;">Thanh toán</button>
 					<h3 class="panel-title">Thông tin đơn hàng</h3>
 					<table class="table table-hover Payment-order-info">
 						<tbody>
 							<tr>
 								<td>
 									Tổng tiền:
-									<small style="letter-spacing: 0;
-									line-height: 16px;
-									display: block;
-									text-align: left;
-									margin-top: 5px;">
-									Tạm tính ({{layoutVM.cartSummary}} sản phẩm)
-									</small>
-							</td>
-							<td>{{number_format total}}</td>
-						</tr>
-					</tbody>
-				</table>
-				<h3 class="panel-title">Thông tin người mua</h3>
-				<table class="table table-hover Payment-user-info">
-					<tbody>
-						<tr>
-							<td>Người mua:</td>
-							<td>{{layoutVM.curUser.f_Username}}</td>
-						</tr>
-						<tr>
-							<td>Liên hệ (sđt):</td>
-							<td>{{layoutVM.curUser.f_Phone}}</td>
-						</tr>
-					</tbody>
-				</table>
+									<small>Tạm tính ({{layoutVM.cartSummary}} sản phẩm)</small>
+								</td>
+								<td>{{number_format total}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3 class="panel-title">Thông tin người mua</h3>
+					<table class="table table-hover Payment-user-info">
+						<tbody>
+							<tr>
+								<td>Người mua:</td>
+								<td>{{layoutVM.curUser.f_Username}}</td>
+							</tr>
+							<tr>
+								<td>Liên hệ (sđt):</td>
+								<td>{{layoutVM.curUser.f_Phone}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		<div class="col-sm-9 col-md-9 col-lg-9">
-			<div class="container" id="cart" style="background-color:white">
-				<table class="table table-hover shopping-cart">
-					<thead>
-						<tr>
-							<th>&nbsp;</th>
-							<th>Sản Phẩm</th>
-							<th>Giá tiền</th>
-							<th>Số lượng</th>
-							<th>Thành tiền</th>
-							<th>&nbsp;</th>
-						</tr>
-					</thead>
-					<tbody>
-						{{#each items}}
-						<tr>
-							<td>
-								<img src="/imgs/products/{{product.ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
-							</td>
-							<td>{{product.ProName}}</td>
-							<td>{{number_format product.Price}}</td>
-							<td>
-								<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm subByOne" href="javascript:;" role="button">
-									<span aria-hidden="true">-</span>
-								</a>
-								<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center" readonly>
-								<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm addByOne" href="javascript:;" role="button">
-									<span aria-hidden="true">+</span>
-								</a>
-							</td>
-							<td>{{number_format amount}}</td>
-							<td class="text-right">
-								<a data-proid="{{product.ProID}}" class="btn btn-danger removeItem" href="javascript:;" role="button">
-									<span aria-hidden="true">&times;</span>
-								</a>
-							</td>
-						</tr>
-						{{/each}}
-					</tbody>
-				</table>
+
+			<div class="col-sm-9 col-md-9 col-lg-9">
+				<div class="container" id="cart" style="background-color:white">
+					<table class="table table-hover shopping-cart">
+						<thead>
+							<tr>
+								<th>&nbsp;</th>
+								<th>Sản Phẩm</th>
+								<th>Giá tiền</th>
+								<th>Số lượng</th>
+								<th>Thành tiền</th>
+								<th>&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each items}}
+							<tr>
+								<td>
+									<img src="/imgs/products/{{product.ProID}}/1.jpg" height="185" width="185" style="max-height:100%; max-width:100%;">
+								</td>
+								<td>{{product.ProName}}</td>
+								<td>{{number_format product.Price}}</td>
+								<td>
+									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm subByOne" href="javascript:;" role="button">
+										<span aria-hidden="true">-</span>
+									</a>
+									<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center" readonly>
+									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm addByOne" href="javascript:;" role="button">
+										<span aria-hidden="true">+</span>
+									</a>
+								</td>
+								<td>{{number_format amount}}</td>
+								<td class="text-right">
+									<a data-proid="{{product.ProID}}" class="btn btn-danger removeItem" href="javascript:;" role="button">
+										<span aria-hidden="true">&times;</span>
+									</a>
+								</td>
+							</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>

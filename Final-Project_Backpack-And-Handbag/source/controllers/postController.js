@@ -49,6 +49,9 @@ router.post('*', (req, res) => {
 		case 'checkTrade':
 			checkTrade(req, res);
 			break;
+		case 'deleteTrade':
+			deleteTrade(req, res);
+			break;
 		default:
 			req.session.isWrong = true;
 			res.redirect('back');
@@ -422,5 +425,24 @@ var checkTrade = (req, res) => {
 				});
 			});
 		}
+	});
+}
+
+var checkTrade = (req, res) => {
+	if (req.session.isLogged === false) {
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
+		return;
+	}
+
+	var orderID = req.body.orderId;
+
+	orderRepo.delete(orderID).then(value => {
+		res.redirect('back');
+	}).catch(err => {
+		req.session.isWrong = true;
+		res.redirect('back');
+		req.session.isWrong = false;
 	});
 }

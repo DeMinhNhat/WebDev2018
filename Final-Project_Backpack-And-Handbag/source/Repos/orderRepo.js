@@ -41,3 +41,8 @@ exports.single = orderID => {
 	var sql = `select * from orders where OrderID = '${orderID}'`;
 	return db.load(sql);
 }
+
+exports.delete = orderID => {
+	var sql = `delete from orders where OrderID = ${orderID} and State = 0`;
+	return db.save(sql);
+}

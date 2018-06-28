@@ -20,11 +20,21 @@ $('.checkTrade').on('click', function() {
 	$('#frmCheckTrade #orderId').val(id);
 	$('#frmCheckTrade').submit();
 });
+$('.deleteTrade').on('click', function() {
+	var id = $(this).data('orderid');
+	$('#frmDeleteTrade #orderId').val(id);
+	$('#frmDeleteTrade').submit();
+});
 </script>
 {{/section}}
 
 <form id="frmCheckTrade" method="POST" action="">
 	<input type="hidden" value="checkTrade" name="typeSubmit">
+	<input type="hidden" name="orderId" id="orderId">
+</form>
+
+<form id="frmDeleteTrade" method="POST" action="">
+	<input type="hidden" value="deleteTrade" name="typeSubmit">
 	<input type="hidden" name="orderId" id="orderId">
 </form>
 
@@ -72,21 +82,21 @@ $('.checkTrade').on('click', function() {
 					<table class="table table-hover shopping-cart">
 						<thead>
 							<tr>
+								<th>ID</th>
 								<th>Khách hàng</th>
 								<th>Ngày đặt hàng</th>
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
-								<th>Check nhận</th>
 								<th>Đã giao</th>
-
+								<th>Hủy</th>
 							</tr>
 						</thead>
 						<tbody>
 							{{#if layoutVM.curUser.f_Permission}}
 							{{#each orders}}
 							<tr>
+								<td>{{OrderID}}</td>
 								<td>{{f_Username}}</td>
-								<td>{{date_format OrderDate}}</td>
 								<td>{{number_format Total}}</td>
 								<td>{{State}}</td>
 								<td class="text-center">
@@ -107,11 +117,17 @@ $('.checkTrade').on('click', function() {
 									</a>
 								</td>
 								{{/if}}
+								<td>
+									<a class="deleteTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-minus-square"></i>
+									</a>
+								</td>
 							</tr>
 							{{/each}}
 							{{else}}
 							{{#each cusOrders}}
 							<tr>
+								<td>{{OrderID}}</td>
 								<td>{{f_Username}}</td>
 								<td>{{date_format OrderDate}}</td>
 								<td>{{number_format Total}}</td>
@@ -134,6 +150,11 @@ $('.checkTrade').on('click', function() {
 									</a>
 								</td>
 								{{/if}}
+								<td>
+									<a class="deleteTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
+										<i class="fas fa-minus-square"></i>
+									</a>
+								</td>
 							</tr>
 							{{/each}}
 							{{/if}}
