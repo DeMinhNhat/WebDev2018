@@ -430,7 +430,7 @@ var checkTrade = (req, res) => {
 	});
 }
 
-var checkTrade = (req, res) => {
+var deleteTrade = (req, res) => {
 	if (req.session.isLogged === false) {
 		req.session.isWrong = true;
 		res.redirect('back');
