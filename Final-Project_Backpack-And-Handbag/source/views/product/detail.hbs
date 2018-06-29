@@ -83,9 +83,9 @@ Sản phẩm
 					<form method="POST" action="">
 						<input type="hidden" value="addToCart" name="typeSubmit">
 						<input type="hidden" value="{{ProID}}" name="proId">
-						<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+						<button type="button" class="btn btn-secondary btn-sm" id="subOne">-</button>
 						<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
-						<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+						<button type="button" class="btn btn-secondary btn-sm" id="addOne">+</button>
 						<br>
 						<button type="submit" id="addcart-btn" type="button" class="btn btn-danger">
 							<i class="fas fa-cart-plus"></i> Thêm vào giỏ
@@ -93,9 +93,9 @@ Sản phẩm
 					</form>
 					{{else}}
 					{{!-- sử lí js yêu cầu người dùng đăng nhập --}}
-					<button type="button" class="btn btn-secondary btn-sm" id="subByOne">-</button>
+					<button type="button" class="btn btn-secondary btn-sm" id="subOne">-</button>
 					<input type="number" name="quantity" id="numItems" value="1" min="1" max="10">
-					<button type="button" class="btn btn-secondary btn-sm" id="addByOne">+</button>
+					<button type="button" class="btn btn-secondary btn-sm" id="addOne">+</button>
 					<br>
 					<button class="btn btn-danger" type="button" data-toggle="modal" data-target="#signinModal" data-backdrop="static" data-keyboard="false">
 						<i class="fas fa-cart-plus"></i> Thêm vào giỏ

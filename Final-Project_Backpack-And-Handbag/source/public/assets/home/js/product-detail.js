@@ -6,7 +6,7 @@ $(document).ready(function() {
         interval: 5000
     })
 
-    $('#subByOne').on('click', function() {
+    $('#subOne').on('click', function() {
         var quantity = $('#numItems');
         if (quantity && parseInt(quantity[0].value) > 1) {
             console.log('before sub:' + quantity[0].value);
@@ -15,7 +15,7 @@ $(document).ready(function() {
         }
     });
     
-    $('#addByOne').on('click', function() {
+    $('#addOne').on('click', function() {
         var quantity = $('#numItems');
         if (quantity && parseInt(quantity[0].value) < 10) {
 
