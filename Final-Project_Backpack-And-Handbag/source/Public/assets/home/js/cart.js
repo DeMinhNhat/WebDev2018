@@ -1,21 +1,21 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	$('.removeItem').on('click', function() {
 		var id = $(this).data('proid');
 		$('#frmRemoveItem #txtP').val(id);
 		$('#frmRemoveItem').submit();
 	});
 	$('#addByOne').on('click', function() {
-		var quantity = $('#numItem');
+		var quantity = $('#numItem').val();
 		var id = $(this).data('proid');
 		$('#frmGetAmount #txtP').val(id);
-		$('#txtQ').val(quantity[0].value);
+		$('#frmGetAmount #txtQ').val(quantity + 1);
 		$('#frmGetAmount').submit();
 	});
 	$('#subByOne').on('click', function() {
-		var quantity = $('#numItem');
+		var quantity = $('#numItem').val();
 		var id = $(this).data('proid');
 		$('#frmGetAmount #txtP').val(id);
-		$('#txtQ').val(quantity[0].value);
+		$('#frmGetAmount #txtQ').val(quantity - 1);
 		$('#frmGetAmount').submit();
 	});
 	$('#payment').on('click', function() {
