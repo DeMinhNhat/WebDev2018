@@ -4,3 +4,9 @@ table.shopping-cart td{
 table tr td, th {
     text-align:  center;
 }
+a.deleteTrade{
+    color:rgb(255, 72, 72);
+}
+a:hover.deleteTrade{
+    color: red;
+}
