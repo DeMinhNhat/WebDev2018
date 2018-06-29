@@ -74,7 +74,7 @@ Các đơn hàng
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
 								{{#if layoutVM.curUser.f_Permission}}
-								<th>Đã giao</th>
+								{{!-- <th>Đã giao</th> --}}
 								{{/if}}
 								<th>Hủy</th>
 							</tr>
@@ -96,7 +96,7 @@ Các đơn hàng
 									</a>
 									{{/if}}
 								</td>
-								{{#if State}}
+								{{!-- {{#if State}}
 								<td>
 									<a role="button">
 										<i class="fas fa-check"></i>
@@ -108,7 +108,7 @@ Các đơn hàng
 										<i class="fas fa-minus-square"></i>
 									</a>
 								</td>
-								{{/if}}
+								{{/if}} --}}
 								<td>
 									<a class="deleteTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
 										<i class="fas fa-times-circle "></i>
