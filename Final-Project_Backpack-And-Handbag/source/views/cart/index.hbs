@@ -1,14 +1,7 @@
-{{#section 'title'}}
-Giỏ hàng
-{{/section}}
-
-{{#section 'css'}}
-<link rel="stylesheet" href="/assets/home/css/products.css">
-{{!-- <link rel="stylesheet" href="/assets/home/css/product-detail.css"> --}}
-<link rel="stylesheet" href="/assets/home/css/cart.css">
-{{/section}}
-
-{{#section 'js'}}
+{{#section 'title'}} Giỏ hàng {{/section}} {{#section 'css'}}
+<link rel="stylesheet" href="/assets/home/css/products.css"> {{!--
+<link rel="stylesheet" href="/assets/home/css/product-detail.css"> --}}
+<link rel="stylesheet" href="/assets/home/css/cart.css"> {{/section}} {{#section 'js'}}
 <script src="/assets/home/js/products.js"></script>
 <script src="/assets/home/js/cart.js"></script>
 {{/section}}
@@ -45,41 +38,11 @@ Giỏ hàng
 				</span>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-3 col-md-3 col-lg-3">
-				<div class="container" style="background-color:white">
-					<button class="btn btn-primary" id="payment" style="width: 100%; margin: 15px 0 15px 0" href="javascript:;">Thanh toán</button>
-					<h3 class="panel-title">Thông tin đơn hàng</h3>
-					<table class="table table-hover Payment-order-info">
-						<tbody>
-							<tr>
-								<td>
-									Tổng tiền:
-									<small>Tạm tính ({{layoutVM.cartSummary}} sản phẩm)</small>
-								</td>
-								<td>{{number_format total}}</td>
-							</tr>
-						</tbody>
-					</table>
-					<h3 class="panel-title">Thông tin người mua</h3>
-					<table class="table table-hover Payment-user-info">
-						<tbody>
-							<tr>
-								<td>Người mua:</td>
-								<td>{{layoutVM.curUser.f_Username}}</td>
-							</tr>
-							<tr>
-								<td>Liên hệ (sđt):</td>
-								<td>{{layoutVM.curUser.f_Phone}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-			<div class="col-sm-9 col-md-9 col-lg-9">
+		{{#if layoutVM.cartSummary }}
+		<div class="cartView row">
+			<div class="col-sm-9 col-md-9 col-lg-9 product-list">
 				<div class="container" id="cart" style="background-color:white">
-					<table class="table table-hover shopping-cart">
+					<table class="table table-hover ">
 						<thead>
 							<tr>
 								<th>&nbsp;</th>
@@ -102,7 +65,8 @@ Giỏ hàng
 									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm subByOne" href="javascript:;" role="button">
 										<span aria-hidden="true">-</span>
 									</a>
-									<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center" readonly>
+									<input type="number" name="quantity" id="numItems" value={{quantity}} min="1" max="10" style="border: none; width:30%; text-align:center"
+									    readonly>
 									<a data-proid="{{product.ProID}}" class="btn btn-secondary btn-sm addByOne" href="javascript:;" role="button">
 										<span aria-hidden="true">+</span>
 									</a>
@@ -119,6 +83,52 @@ Giỏ hàng
 					</table>
 				</div>
 			</div>
+			<div class="col-sm-3 col-md-3 col-lg-3 payment-info">
+				<div class="panel panel-default">
+					<div class="panel-heading">Thông tin đơn hàng</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+								Tổng tiền:
+								<br>
+								<small>Tạm tính ({{layoutVM.cartSummary}} sản phẩm)</small>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+								{{number_format total}}
+							</div>
+						</div>
+						<div class="row"></div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">Thông tin người mua</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								{{layoutVM.curUser.f_Username}}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								SĐT: {{layoutVM.curUser.f_Phone}}
+							</div>
+						</div>
+					</div>
+
+					<div class="panel-footer">
+						<button class="btn btn-dark" id="payment" href="javascript:;">Đặt hàng</button>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
+		{{else}}
+		<div class="emptyCart">
+			<img src="imgs/icons/no-order.png" alt="">
+			<button class="btn btn-dark" onclick="window.location.href='/product'">Mua sắm ngay</button>
+		</div>
+		{{/if}}
 	</div>
 </div>
