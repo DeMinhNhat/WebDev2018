@@ -4,14 +4,14 @@ $(document).ready(function() {
 		$('#frmRemoveItem #txtP').val(id);
 		$('#frmRemoveItem').submit();
 	});
-	$('#addByOne').on('click', function() {
+	$('.addByOneCart').on('click', function() {
 		var quantity = $('#numItem').val();
 		var id = $(this).data('proid');
 		$('#frmGetAmount #txtP').val(id);
 		$('#frmGetAmount #txtQ').val(quantity + 1);
 		$('#frmGetAmount').submit();
 	});
-	$('#subByOne').on('click', function() {
+	$('.subByOneCart').on('click', function() {
 		var quantity = $('#numItem').val();
 		var id = $(this).data('proid');
 		$('#frmGetAmount #txtP').val(id);
