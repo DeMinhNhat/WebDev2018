@@ -4,28 +4,12 @@ Các đơn hàng
 
 {{#section 'css'}}
 <link rel="stylesheet" href="/assets/home/css/products.css">
-<style type="text/css">
-table.shopping-cart td{
-	vertical-align: middle;
-}
-</style>
+<link rel="stylesheet" href="/assets/home/css/order.css">
 {{/section}}
 
 {{#section 'js'}}
 <script src="/assets/home/js/products.js"></script>
-
-<script type="text/javascript">
-$('.checkTrade').on('click', function() {
-	var id = $(this).data('orderid');
-	$('#frmCheckTrade #orderId').val(id);
-	$('#frmCheckTrade').submit();
-});
-$('.deleteTrade').on('click', function() {
-	var id = $(this).data('orderid');
-	$('#frmDeleteTrade #orderId').val(id);
-	$('#frmDeleteTrade').submit();
-});
-</script>
+<script src="/assets/home/js/order.js"></script>
 {{/section}}
 
 <form id="frmCheckTrade" method="POST" action="">
@@ -87,7 +71,9 @@ $('.deleteTrade').on('click', function() {
 								<th>Ngày đặt hàng</th>
 								<th>Số Tiền</th>
 								<th>Tình trạng</th>
+								{{#if layoutVM.curUser.f_Permission}}
 								<th>Đã giao</th>
+								{{/if}}
 								<th>Hủy</th>
 							</tr>
 						</thead>
@@ -132,12 +118,12 @@ $('.deleteTrade').on('click', function() {
 								<td>{{date_format OrderDate}}</td>
 								<td>{{number_format Total}}</td>
 								<td>{{State}}</td>
-								<td class="text-center">
+								{{!-- <td class="text-center">
 									<a class="checkTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
 										<i class="fas fa-angle-up"></i>
 									</a>
-								</td>
-								{{#if State}}
+								</td> --}}
+								{{!-- {{#if State}}
 								<td>
 									<a role="button">
 										<i class="fas fa-check"></i>
@@ -149,10 +135,10 @@ $('.deleteTrade').on('click', function() {
 										<i class="fas fa-minus-square"></i>
 									</a>
 								</td>
-								{{/if}}
+								{{/if}} --}}
 								<td>
 									<a class="deleteTrade" data-orderid="{{OrderID}}" href="javascript:;" role="button">
-										<i class="fas fa-minus-square"></i>
+										<i class="fas fa-times-circle"></i>
 									</a>
 								</td>
 							</tr>

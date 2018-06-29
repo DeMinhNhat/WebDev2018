@@ -1,0 +1,6 @@
+table.shopping-cart td{
+	vertical-align: middle;
+}
+table tr td, th {
+    text-align:  center;
+}
