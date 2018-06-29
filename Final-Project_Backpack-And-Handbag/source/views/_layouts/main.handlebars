@@ -225,13 +225,6 @@
                                 <button type="submit" class="btn btn-dark btn-block" form="signup-form" {{!-- data-dismiss="modal" --}}>Đăng kí</button>
                             </form>
                         </div>
-
-                        <!-- Modal footer -->
-                        {{!-- button này nó nằm ngoài form rồi cha :3 --}} {{!--
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary btn-block" form="signup-form" data-dismiss="modal">Đăng kí</button>
-                        </div> --}}
-
                     </div>
                 </div>
             </div>
@@ -248,11 +241,8 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-<<<<<<< HEAD
                             <form method="POST" action="" id="changeInfo-form" onsubmit="return ChangeValidateForm">
-=======
                             <form method="POST" action="" id="changeInfo-form" autocomplete="off">
->>>>>>> 12fe73a848d49e639e92d57b6f84124b7b889b4b
                                 {{!-- trường input ở dưới để xét coi mình submit cái gì, mọi submit đều phải có trường này, k là sml --}}
                                 <input type="hidden" value="changeInfo" name="typeSubmit">
 
@@ -469,12 +459,12 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript" src="/assets/home/js/info.js"></script>
     <script src="/assets/home/js/home.js"></script>
-<<<<<<< HEAD <script type="text/javascript">
+<script type="text/javascript">
     // $('#login-signup-btn').on('click', function() { // $('#signinModal').modal('hide'); // $('#signupModal').modal(); // });
     </script> {{{_sections.js}}} =======
     <script type="text/javascript">
         $(document).ready(function () {
             $(".errorMsg").fadeIn(3000).fadeOut(3000);
         });
-    </script> {{{_sections.js}}} >>>>>>> b97ce187ae1f8a87c8c6fa70a0df40801a54ef34
+    </script> {{{_sections.js}}}
 </html>
